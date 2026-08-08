@@ -1,4 +1,4 @@
-# johnmccormack.co.uk — static archive
+# johnmccormack.co.uk - static archive
 
 A fully static snapshot of the WordPress site **John McCormack DBA**, built to be served
 from GitHub Pages so the EC2 + RDS + ELB stack can be shut down.
@@ -38,9 +38,9 @@ Only tear down the AWS stack once the site resolves correctly on the new DNS.
 
 ### Why the odd-looking files matter
 
-- **`.nojekyll`** — required. Without it GitHub runs Jekyll, which silently drops
+- **`.nojekyll`** - required. Without it GitHub runs Jekyll, which silently drops
   `wp-content/plugins/akismet/_inc/` (directories beginning with `_`).
-- **`CNAME`** — holds the custom domain. GitHub rewrites this if you change the domain
+- **`CNAME`** - holds the custom domain. GitHub rewrites this if you change the domain
   in Settings; keep the two in sync.
 
 ---
@@ -56,7 +56,7 @@ are regenerated with the original `lastmod` values.
 
 ## What changed, and why
 
-Appearance is unchanged — the rendered homepage is **pixel-identical** to the live site.
+Appearance is unchanged - the rendered homepage is **pixel-identical** to the live site.
 The differences are confined to things that cannot work without PHP and a database:
 
 | Change | Reason |
@@ -72,13 +72,13 @@ The differences are confined to things that cannot work without PHP and a databa
 ### Search
 
 The search box works. `/search/` is the real WordPress search template with a small
-script that queries `search-index.json` (107 documents, 391 KB — 121 KB gzipped),
+script that queries `search-index.json` (107 documents, 391 KB - 121 KB gzipped),
 matching on title, tags/categories and full body text, ranked by relevance.
 `?s=` URLs behave as before, so old search links still work.
 
 ---
 
-## Known issues (all pre-existing — these were already broken on the live site)
+## Known issues (all pre-existing - these were already broken on the live site)
 
 - **5 images are permanently lost.** They 404 on the live server and are not in the
   Wayback Machine. Four are referenced under an old `/blog/` path prefix:
@@ -90,7 +90,7 @@ matching on title, tags/categories and full body text, ranked by relevance.
   `Boring_SCOM_Alert.png` and `EXCEPT-300x172.png`.
 - **One dead link** to `/blog/` remains in the body of *Style over substance*.
 - **"Protected: Consulting rates"** was password-protected. WordPress never sent its
-  content to the browser, so it could not be captured — only the (now inert) password
+  content to the browser, so it could not be captured - only the (now inert) password
   form. The post's content is not in this archive.
 
 ---
