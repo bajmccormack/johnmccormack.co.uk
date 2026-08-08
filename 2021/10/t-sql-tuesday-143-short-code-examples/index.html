@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head >
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v22.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>T-SQL Tuesday #143 - Short code examples - John McCormack DBA</title>
+	<meta name="description" content="T-SQL Tuesday this month is going back to basics and its all about code. I’d like to know “What are your go to handy short scripts”?" />
+	<link rel="canonical" href="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="T-SQL Tuesday #143 - Short code examples - John McCormack DBA" />
+	<meta property="og:description" content="T-SQL Tuesday this month is going back to basics and its all about code. I’d like to know “What are your go to handy short scripts”?" />
+	<meta property="og:url" content="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/" />
+	<meta property="og:site_name" content="John McCormack DBA" />
+	<meta property="article:published_time" content="2021-10-04T14:37:49+00:00" />
+	<meta property="article:modified_time" content="2021-10-05T08:45:56+00:00" />
+	<meta property="og:image" content="https://johnmccormack.co.uk/wp-content/uploads/2018/01/t-sql-tuesday.png" />
+	<meta property="og:image:width" content="320" />
+	<meta property="og:image:height" content="230" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="John McCormack" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="John McCormack" />
+	<meta name="twitter:label2" content="Estimated reading time" />
+	<meta name="twitter:data2" content="2 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/","url":"https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/","name":"T-SQL Tuesday #143 - Short code examples - John McCormack DBA","isPartOf":{"@id":"https://johnmccormack.co.uk/#website"},"primaryImageOfPage":{"@id":"https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/#primaryimage"},"image":{"@id":"https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/#primaryimage"},"thumbnailUrl":"https://johnmccormack.co.uk/wp-content/uploads/2018/01/t-sql-tuesday.png","datePublished":"2021-10-04T14:37:49+00:00","dateModified":"2021-10-05T08:45:56+00:00","author":{"@id":"https://johnmccormack.co.uk/#/schema/person/5f055d581bbcff71088021e649bbee00"},"description":"T-SQL Tuesday this month is going back to basics and its all about code. I’d like to know “What are your go to handy short scripts”?","inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/"]}]},{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/#primaryimage","url":"https://johnmccormack.co.uk/wp-content/uploads/2018/01/t-sql-tuesday.png","contentUrl":"https://johnmccormack.co.uk/wp-content/uploads/2018/01/t-sql-tuesday.png","width":320,"height":230,"caption":"t-sql tuesday logo"},{"@type":"WebSite","@id":"https://johnmccormack.co.uk/#website","url":"https://johnmccormack.co.uk/","name":"John McCormack DBA","description":"SQL Server Databases and Cloud","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://johnmccormack.co.uk/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"},{"@type":"Person","@id":"https://johnmccormack.co.uk/#/schema/person/5f055d581bbcff71088021e649bbee00","name":"John McCormack","image":{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://johnmccormack.co.uk/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571?s=96&d=mm&r=g","caption":"John McCormack"},"description":"John McCormack is an experienced SQL DBA with extensive knowledge of the two largest public clouds: AWS and Azure.","sameAs":["https://johnmccormack.it","https://www.linkedin.com/in/johnmccormackdba/"],"url":"https://johnmccormack.co.uk/author/jmccorma/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='/assets/fonts/google-fonts.css' />
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; Feed" href="/feed/index.xml" />
+
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; T-SQL Tuesday #143 &#8211; Short code examples Comments Feed" href="/feed/index.xml" />
+
+
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v10.1.3 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+		<!-- Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel. -->
+					<!-- No tracking code set -->
+				<!-- / Google Analytics by MonsterInsights -->
+		<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='modern-portfolio-pro-theme-css' href='/wp-content/themes/modern-portfolio-pro/style.css' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='wp-block-library-inline-css' type='text/css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id='wp-block-image-inline-css' type='text/css'>
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .close-button{align-items:center;cursor:pointer;display:flex;justify-content:center;min-height:40px;min-width:40px;padding:0;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .close-button:focus,.wp-lightbox-overlay .close-button:hover,.wp-lightbox-overlay .close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:9999999999}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/image/style.min.css */
+</style>
+<style id='wp-block-list-inline-css' type='text/css'>
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/list/style.min.css */
+</style>
+<style id='wp-block-paragraph-inline-css' type='text/css'>
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/paragraph/style.min.css */
+</style>
+
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='animate-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-quiz-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/wp-quiz.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='/wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css' href='/assets/fonts/google-fonts.css' type='text/css' media='all' />
+<link rel='stylesheet' id='enlighterjs-css' href='/wp-content/plugins/enlighter/cache/enlighterjs.min.css' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="/wp-content/themes/modern-portfolio-pro/js/responsive-menu.js" id="mpp-responsive-menu-js"></script>
+
+<meta name="generator" content="WordPress 6.9.6" />
+
+
+<style type="text/css">.site-title a { background: url(/wp-content/uploads/2016/09/cropped-JohnMcCormack-295x90.png) no-repeat !important; }</style>
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-32x32.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/2016/09/cropped-JM-180x180.png" />
+<meta name="msapplication-TileImage" content="https://johnmccormack.co.uk/wp-content/uploads/2016/09/cropped-JM-270x270.png" />
+</head>
+<body class="wp-singular post-template-default single single-post postid-2662 single-format-standard wp-theme-genesis wp-child-theme-modern-portfolio-pro custom-header header-image full-width-content genesis-breadcrumbs-hidden genesis-footer-widgets-hidden"><div class="site-container"><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="/">John McCormack DBA</a></p><p class="site-description">SQL Server Databases and Cloud</p></div><div class="widget-area header-widget-area"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><nav class="nav-header"><ul id="menu-menu" class="menu genesis-nav-menu"><li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-285"><a href="/category/personal/"><span >Personal</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-496"><a href="/2026/05/who-is-john-mccormack/"><span >About</span></a></li>
+</ul>
+</li>
+<li id="menu-item-1653" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1653"><a href="/2020/07/sql-server-on-amazon-rds/"><span >Free Training</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1652" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1652"><a href="/2020/07/sql-server-on-amazon-rds/"><span >SQL Server on Amazon RDS (Free Course)</span></a></li>
+	<li id="menu-item-2486" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2486"><a href="/2021/01/free-practice-questions-to-help-you-pass-dp-900/"><span >Free practice questions to help you pass DP-900</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2339" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2339"><a href="/2021/01/7-ways-for-data-teams-to-save-money-in-azure/"><span >Save money in Azure</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2343" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2343"><a href="/2021/01/azure-iaas-sql-backups-stop-burning-money/"><span >Azure IaaS SQL Backups – Stop burning money</span></a></li>
+	<li id="menu-item-2342" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2342"><a href="/2021/01/your-azure-sql-database-and-managed-instance-is-too-big/"><span >Your Azure SQL Database and Managed Instance is too big</span></a></li>
+	<li id="menu-item-2341" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2341"><a href="/2021/01/turn-the-cloud-off-at-bedtime-to-save-70/"><span >Turn the cloud off at bedtime to save 70%</span></a></li>
+	<li id="menu-item-2340" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2340"><a href="/2021/01/your-azure-sql-virtual-machine-might-be-too-big-cost-optimisation/"><span >Your Azure SQL Virtual Machine might be too big</span></a></li>
+	<li id="menu-item-2365" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2365"><a href="/2021/01/save-money-with-azure-sql-db-serverless/"><span >Save money with Azure SQL DB serverless</span></a></li>
+	<li id="menu-item-2390" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2390"><a href="/2021/01/save-73-with-reserved-instances-for-stable-workloads/"><span >Save up to 73% with reserved instances</span></a></li>
+	<li id="menu-item-2404" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2404"><a href="/2021/01/delete-unused-instances-to-save-money-in-azure/"><span >Delete unused instances to save money in Azure</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2192" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2192"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Hire me</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2448" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2448"><a href="/2021/01/sessionize-speaker-profile/"><span >Take a look at my Sessionize speaker’s profile</span></a></li>
+	<li id="menu-item-2449" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2449"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Let me solve your SQL Server problems &#8211; No longer available</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2900" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-2900"><a href="/"><span >All posts</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2901" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2901"><a href="/category/guides/"><span >Guides</span></a></li>
+	<li id="menu-item-2902" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2902"><a href="/category/guides/cost-optimization/"><span >cost-optimization</span></a></li>
+	<li id="menu-item-2903" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2903"><a href="/category/sql-server/"><span >SQL Server</span></a></li>
+	<li id="menu-item-2904" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2904"><a href="/category/training/"><span >Training</span></a></li>
+	<li id="menu-item-2905" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2905"><a href="/category/personal/"><span >Personal</span></a></li>
+	<li id="menu-item-2906" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2906"><a href="/category/azure/"><span >Azure</span></a></li>
+	<li id="menu-item-2907" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2907"><a href="/category/scripts/t-sql/"><span >T-SQL</span></a></li>
+	<li id="menu-item-2908" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2908"><a href="/category/aws/aws-rds/"><span >AWS RDS</span></a></li>
+	<li id="menu-item-2909" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2909"><a href="/category/aws/aws-sql-server/"><span >AWS SQL Server</span></a></li>
+</ul>
+</li>
+</ul></nav></div></section>
+</div></div></header><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><article class="post-2662 post type-post status-publish format-standard has-post-thumbnail category-front-page category-sql-server tag-powershell tag-t-sql-2 tag-t-sql-tuesday entry" aria-label="T-SQL Tuesday #143 &#8211; Short code examples"><header class="entry-header"><h1 class="entry-title">T-SQL Tuesday #143 &#8211; Short code examples</h1>
+<p class="entry-meta"><time class="entry-time">4th October 2021</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comments">28 Comments</a></span> </p></header><div class="entry-content">
+<div class="wp-block-image"><figure class="alignright size-large"><img decoding="async" width="320" height="230" src="/wp-content/uploads/2018/01/t-sql-tuesday.png" alt="t-sql tuesday logo" class="wp-image-766"/></figure></div>
+
+
+
+<p>T-SQL Tuesday this month is going back to basics and its all about code. I&#8217;d like to know <strong>&#8220;What are your go to handy short scripts&#8221;?</strong></p>
+
+
+
+<p>What are those little short bits of code that you can&#8217;t live without? I&#8217;m talking about little snippets that are only a few lines, that you may even have memorised. It could be T-SQL, PowerShell, Python or anything else you use day to day. </p>
+
+
+
+<p>e.g. I manage a lot of SQL agent jobs. Quite often, I need to find out which job has a certain t-sql string in the command so I&#8217;ll run: </p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="sql" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">SELECT * from msdb..sysjobs sj 
+JOIN msdb..sysjobsteps sjs 
+on sj.job_id = sjs.job_id 
+where sjs.command like 'backup log%' </pre>
+
+
+
+<p>Of course, there are many other ways to find this out including DBATools commands but sometime I just revert to memory for convenience. </p>
+
+
+
+<p>Another one I like is to get the estimated completion rate of a backup or restore. Now there are better scripts than this but sometimes, nothing beats getting a quick estimation back from a couple of lines of memorised t-sql.</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="sql" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">SELECT percent_complete pc,*
+FROM sys.dm_exec_requests
+order by pc desc</pre>
+
+
+
+<p><strong><em>My invitation</em></strong>&nbsp;to you for this month’s #tsql2sday is…</p>
+
+
+
+<p>I would like you to share with the community what your go to script snippets are and why you find them useful. By sharing these, you will undoubtedly be helping someone who hasn&#8217;t thought of doing it that way, and hopefully you&#8217;ll pick up some handy hints as well.</p>
+
+
+
+<ul class="wp-block-list"><li>Any language is fine, not just t-sql</li><li>Please share as many as you wish</li><li>Perhaps you never do this and always work off saved scripts or convert your snippets to stored procedures? Tell us why this works for you.</li></ul>
+
+
+
+<p><strong>*** The Rules ***</strong></p>
+
+
+
+<ul class="wp-block-list"><li>Your post must be published on Tuesday, October 12th 2021 (in any time zone).</li><li>Include the T-SQL Tuesday Logo and make it link to this invitation post.</li><li>Please add a comment to this post with a link to your own so I know where to find it.</li><li>Please tweet about your post using the <a href="https://twitter.com/hashtag/tsql2sday?src=hashtag_click" target="_blank" rel="noreferrer noopener">#tsql2sday</a> hashtag.</li></ul>
+
+
+
+<p>Thanks for taking part<br>John</p>
+<!--<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/"
+    dc:identifier="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/"
+    dc:title="T-SQL Tuesday #143 &#8211; Short code examples"
+    trackback:ping="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/trackback/" />
+</rdf:RDF>-->
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/sql-server/" rel="category tag">SQL Server</a></span> <span class="entry-tags">Tagged With: <a href="/tag/powershell/" rel="tag">powershell</a>, <a href="/tag/t-sql-2/" rel="tag">t-sql</a>, <a href="/tag/t-sql-tuesday/" rel="tag">t-sql tuesday</a></span></p></footer></article><section class="author-box"><img alt='' src='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-80.jpg' srcset='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-160.jpg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/><h4 class="author-box-title">About <span itemprop="name">John McCormack</span></h4><div class="author-box-content" itemprop="description"><p>John McCormack is an experienced SQL DBA with extensive knowledge of the two largest public clouds: AWS and Azure.</p>
+</div></section><div class="entry-comments" id="comments"><h3>Comments</h3><ol class="comment-list">
+	<li class="comment even thread-even depth-1" id="comment-6326">
+	<article id="article-comment-6326">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/029940d002b312dbefa4c2c7e7705b1ffcdd700f8632709d9253b89ead47c7be-48.jpg' srcset='/assets/avatars/029940d002b312dbefa4c2c7e7705b1ffcdd700f8632709d9253b89ead47c7be-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name">Rob Farley</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6326">12th October 2021 at 2:15 am</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks John. Mine&#8217;s at <a href="http://blogs.lobsterpot.com.au/2021/10/12/go-to-scripts/" rel="nofollow ugc">http://blogs.lobsterpot.com.au/2021/10/12/go-to-scripts/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6328">
+	<article id="article-comment-6328">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/9ae8dfa4ea8149986ff0a901ca4a3a2d92842d25dc3c6f18dc3630ae47996d29-48.jpg' srcset='/assets/avatars/9ae8dfa4ea8149986ff0a901ca4a3a2d92842d25dc3c6f18dc3630ae47996d29-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://gravatar.com/kchant1975" class="comment-author-link" rel="external nofollow">kchant</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6328">12th October 2021 at 11:41 am</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks for hosting John, here&#8217;s my contribution for this month.</p>
+<p><a href="https://www.kevinrchant.com/2021/10/12/t-sql-tuesday-143-two-of-my-personal-go-to-scripts/" rel="nofollow ugc">https://www.kevinrchant.com/2021/10/12/t-sql-tuesday-143-two-of-my-personal-go-to-scripts/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-6329">
+	<article id="article-comment-6329">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/0315973455aa8ec8137b626224de4b513276b9b5cc19f8edede8b989d485f367-48.jpg' srcset='/assets/avatars/0315973455aa8ec8137b626224de4b513276b9b5cc19f8edede8b989d485f367-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name">aaronbertrand</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6329">12th October 2021 at 12:42 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks John! Here&#8217;s my twisted entry: <a href="https://sqlblog.org/2021/10/12/t-sql-tuesday-143-worst-metadata" rel="nofollow ugc">https://sqlblog.org/2021/10/12/t-sql-tuesday-143-worst-metadata</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6331">
+	<article id="article-comment-6331">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/70dfa7934036e5a54d1100d84a6519caf309a7d19e2bd8ba0cd8ec0db471b546-48.jpg' srcset='/assets/avatars/70dfa7934036e5a54d1100d84a6519caf309a7d19e2bd8ba0cd8ec0db471b546-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name">sqljeff</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6331">12th October 2021 at 2:54 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks for hosting this month! Here&#8217;s my post: <a href="https://sqladm.in/posts/tsql-tuesday-143/" rel="nofollow ugc">https://sqladm.in/posts/tsql-tuesday-143/</a><br />
+-Jeff</p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-6332">
+	<article id="article-comment-6332">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/8eed492d9aed097e620862e6cff370de091152066346244c7b2113a774f6ceb5-48.jpg' srcset='/assets/avatars/8eed492d9aed097e620862e6cff370de091152066346244c7b2113a774f6ceb5-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://chadwin90.wordpress.com" class="comment-author-link" rel="external nofollow">Chad Baldwin</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6332">12th October 2021 at 3:18 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Great topic! Thanks John!</p>
+<p><a href="https://chadbaldwin.net/2021/10/12/tsql-tuesday-short-code.html" rel="nofollow ugc">https://chadbaldwin.net/2021/10/12/tsql-tuesday-short-code.html</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6333">
+	<article id="article-comment-6333">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/e6c1ee0df8ffa29853d23adbdd72d84ab54c4ad90ca6e7787bb3f3eeb60c068c-48.jpg' srcset='/assets/avatars/e6c1ee0df8ffa29853d23adbdd72d84ab54c4ad90ca6e7787bb3f3eeb60c068c-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://sqlstudiesdotcom.wordpress.com" class="comment-author-link" rel="external nofollow">Kenneth Fisher</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6333">12th October 2021 at 3:22 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks for hosting John! Great topic. Here&#8217;s my contribution.<br />
+<a href="http://sqlstudies.com/2021/10/12/code-examples-t-sql-tuesday-143/" rel="nofollow ugc">http://sqlstudies.com/2021/10/12/code-examples-t-sql-tuesday-143/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-6336">
+	<article id="article-comment-6336">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/fa5d1ab714cb3f1947436b875d2ef89336cbf4c7970c68514d1f26c3a4237681-48.jpg' srcset='/assets/avatars/fa5d1ab714cb3f1947436b875d2ef89336cbf4c7970c68514d1f26c3a4237681-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://www.am2.co" class="comment-author-link" rel="external nofollow">amtwo</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6336">12th October 2021 at 8:39 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Howdy John! Here&#8217;s my post on my favorite short scripts!<br />
+<a href="https://am2.co/2021/10/t-sql-tuesday-143-my-favorite-short-scripts/" rel="nofollow ugc">https://am2.co/2021/10/t-sql-tuesday-143-my-favorite-short-scripts/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6337">
+	<article id="article-comment-6337">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/e72436e1163efa9715330e39af50bd6bb07449339be603d567ad3944c56be837-48.jpg' srcset='/assets/avatars/e72436e1163efa9715330e39af50bd6bb07449339be603d567ad3944c56be837-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://gravatar.com/brimhj" class="comment-author-link" rel="external nofollow">brimhj</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6337">12th October 2021 at 10:10 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks for hosting John. Here&#8217;s my submission: <a href="https://bit.ly/3lAOMmF" rel="nofollow ugc">https://bit.ly/3lAOMmF</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-6338">
+	<article id="article-comment-6338">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/ba700947cd48ea2149e04a047bd75e9e274addf285715405f3ecaa4913efe48a-48.jpg' srcset='/assets/avatars/ba700947cd48ea2149e04a047bd75e9e274addf285715405f3ecaa4913efe48a-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="https://straightforwardsql.com/" class="comment-author-link" rel="external nofollow">Tom</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6338">12th October 2021 at 11:26 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks for hosting<br />
+<a href="https://straightforwardsql.com/posts/short-code-examples/" rel="nofollow ugc">https://straightforwardsql.com/posts/short-code-examples/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6339">
+	<article id="article-comment-6339">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/aa56623c00ea43eb91b91df87ed9b7ca3ead7689dac5dda53554657932831bb6-48.jpg' srcset='/assets/avatars/aa56623c00ea43eb91b91df87ed9b7ca3ead7689dac5dda53554657932831bb6-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://mikeybronowski.wordpress.com" class="comment-author-link" rel="external nofollow">Mikey Bronowski</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6339">12th October 2021 at 11:45 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks for hosting John. Here is my post <a href="https://bronowski.it/t-sql-tuesday-143-short-code-examples/" rel="nofollow ugc">https://bronowski.it/t-sql-tuesday-143-short-code-examples/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-6341">
+	<article id="article-comment-6341">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/0df2e7faa487de703fc2cc1c1e2e253977af9cc0091a807e476a2d8138b65033-48.jpg' srcset='/assets/avatars/0df2e7faa487de703fc2cc1c1e2e253977af9cc0091a807e476a2d8138b65033-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="https://twitter.com/toddkleinhans" class="comment-author-link" rel="external nofollow">Todd Kleinhans</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6341">13th October 2021 at 12:09 am</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks again for hosting John! Here is my post: <a href="https://toddkleinhans.wordpress.com/2021/10/12/t-sql-tuesday-143-import-this/" rel="nofollow ugc">https://toddkleinhans.wordpress.com/2021/10/12/t-sql-tuesday-143-import-this/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6342">
+	<article id="article-comment-6342">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/cd36cd26b70568395df8dd67b4c157ebf412764876c15dde8d5c15d0f1896020-48.jpg' srcset='/assets/avatars/cd36cd26b70568395df8dd67b4c157ebf412764876c15dde8d5c15d0f1896020-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://diligentdba.wordpress.com" class="comment-author-link" rel="external nofollow">diligentdba</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6342">13th October 2021 at 1:50 am</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p><a href="https://curiousaboutdata.com/2021/10/12/tsql-tuesday-143-short-code-examples/" rel="nofollow ugc">https://curiousaboutdata.com/2021/10/12/tsql-tuesday-143-short-code-examples/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-6343">
+	<article id="article-comment-6343">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/ee372686480b3fb4af818bb0abb35807628a13c85346d5be44ad65f2d51b9c8d-48.jpg' srcset='/assets/avatars/ee372686480b3fb4af818bb0abb35807628a13c85346d5be44ad65f2d51b9c8d-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://callihandata.com" class="comment-author-link" rel="external nofollow">CallihanData</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6343">13th October 2021 at 3:01 am</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks for hosting!  My post is here <a href="https://callihandata.com/2021/10/12/t-sql-tuesday-143-handy-short-scripts/" rel="nofollow ugc">https://callihandata.com/2021/10/12/t-sql-tuesday-143-handy-short-scripts/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6344">
+	<article id="article-comment-6344">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/a594383a25af5b8dc3b4b61e231c4ed409d6b11ad80915d2c73129acbf4bedcc-48.jpg' srcset='/assets/avatars/a594383a25af5b8dc3b4b61e231c4ed409d6b11ad80915d2c73129acbf4bedcc-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="https://dbanuggets.com" class="comment-author-link" rel="external nofollow">Deepthi</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6344">13th October 2021 at 4:39 am</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks so much John for hosting this month of T-SQL Tuesday!<br />
+Here is my post:<br />
+<a href="https://dbanuggets.com/2021/10/12/t-sql-tuesday-143-short-code-examples/" rel="nofollow ugc">https://dbanuggets.com/2021/10/12/t-sql-tuesday-143-short-code-examples/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-6345">
+	<article id="article-comment-6345">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/167809f5df158da7a4e96da0404a2680f932d9184b2335f510f4ce44a2a78849-48.jpg' srcset='/assets/avatars/167809f5df158da7a4e96da0404a2680f932d9184b2335f510f4ce44a2a78849-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://twitter.com/Ko_Ver" class="comment-author-link" rel="external nofollow">Koen Verbeeck #BLM 🌈 (@Ko_Ver)</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6345">13th October 2021 at 9:29 am</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>I tried to post a comment here yesterday on my mobile device, but apparently that failed 🙂 Here&#8217;s my contribution <a href="https://sqlkover.com/t-sql-tuesday-143-short-code-examples/" rel="nofollow ugc">https://sqlkover.com/t-sql-tuesday-143-short-code-examples/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6346">
+	<article id="article-comment-6346">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/37364c7932e1a1898e3a79ffc512db9ec07f5ecf772086824f067a7e2ade612f-48.jpg' srcset='/assets/avatars/37364c7932e1a1898e3a79ffc512db9ec07f5ecf772086824f067a7e2ade612f-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://voiceofthedba.wordpress.com" class="comment-author-link" rel="external nofollow">way0utwest</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6346">13th October 2021 at 11:11 am</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Thanks for hosting. I&#8217;m late, but here&#8217;s my post: <a href="https://voiceofthedba.com/2021/10/13/t-sql-tuesday-143-short-code/" rel="nofollow ugc">https://voiceofthedba.com/2021/10/13/t-sql-tuesday-143-short-code/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-6347">
+	<article id="article-comment-6347">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/cd36cd26b70568395df8dd67b4c157ebf412764876c15dde8d5c15d0f1896020-48.jpg' srcset='/assets/avatars/cd36cd26b70568395df8dd67b4c157ebf412764876c15dde8d5c15d0f1896020-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="http://diligentdba.wordpress.com" class="comment-author-link" rel="external nofollow">diligentdba</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6347">13th October 2021 at 12:49 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Hi John, my contribution, for some reason it didnt appear in comments. <a href="https://curiousaboutdata.com/2021/10/12/tsql-tuesday-143-short-code-examples/" rel="nofollow ugc">https://curiousaboutdata.com/2021/10/12/tsql-tuesday-143-short-code-examples/</a></p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment byuser comment-author-jmccorma bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-6349">
+	<article id="article-comment-6349">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-48.jpg' srcset='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="/" class="comment-author-link" rel="external nofollow">John McCormack</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6349">18th October 2021 at 6:09 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Sorry if I took a while to moderate your comment, I had a few days away from the computer last week.</p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+</ol></div><div class="entry-pings"><h3>Trackbacks</h3><ol class="ping-list">		<li id="comment-6322" class="pingback even thread-even depth-1">
+			<article id="div-comment-6322" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="http://tsqltuesday.com/2021/10/05/t-sql-tuesday-143-short-code-examples/" class="url" rel="ugc external nofollow">T-SQL Tuesday #143 – Short code examples &#8211; T-SQL Tuesday</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6322"><time datetime="2021-10-05T16:18:37+01:00">5th October 2021 at 4:18 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] Invitation from John McCormack. [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-6327" class="pingback odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-6327" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://www.kevinrchant.com/2021/10/12/t-sql-tuesday-143-two-of-my-personal-go-to-scripts/" class="url" rel="ugc external nofollow">T-SQL Tuesday 143 - Two personal go-to scripts - Kevin Chant</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6327"><time datetime="2021-10-12T10:59:25+01:00">12th October 2021 at 10:59 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] can find out more about the invite to share personal go-to scripts by clicking this link about the T-SQL Tuesday 143 invitation or on the image [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-6330" class="pingback even thread-even depth-1">
+			<article id="div-comment-6330" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://debthedba.wordpress.com/2021/10/12/t-sql-tuesday-143-short-code-examples/" class="url" rel="ugc external nofollow">T-SQL Tuesday #143 &#8211; Short Code Examples &#8211; Deb the DBA</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6330"><time datetime="2021-10-12T14:30:08+01:00">12th October 2021 at 2:30 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] It&#8217;s another edition of T-SQL Tuesday! This month, John McCormack (b | t) asks us: [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-6334" class="pingback odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-6334" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://sqlbek.wordpress.com/2021/10/12/t-sql-tuesday-143-random-fun/" class="url" rel="ugc external nofollow">T-SQL Tuesday #143 &#8211; Random Fun | Every Byte Counts</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6334"><time datetime="2021-10-12T16:10:57+01:00">12th October 2021 at 4:10 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] month&#8217;s T-SQL Tuesday is hosted by John McCormack, who asked participants to blog about Short Code Examples.A few years ago, I wrote a similar blog about T-SQL Tools that I could not live without. Those were [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-6335" class="pingback even thread-even depth-1">
+			<article id="div-comment-6335" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://am2.co/2021/10/t-sql-tuesday-143-my-favorite-short-scripts/" class="url" rel="ugc external nofollow">T-SQL Tuesday #143: My favorite short scripts - Andy M Mallon - AM²</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6335"><time datetime="2021-10-12T20:36:05+01:00">12th October 2021 at 8:36 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] this month&#8217;s T-SQL Tuesday, John McCormack (blog|twitter) asks us: “What are your go-to short, handy [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-6340" class="pingback odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-6340" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://toddkleinhans.wordpress.com/2021/10/12/t-sql-tuesday-143-import-this/" class="url" rel="ugc external nofollow">T-SQL Tuesday #143: import this | Todd Kleinhans</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6340"><time datetime="2021-10-13T00:06:05+01:00">13th October 2021 at 12:06 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] to his post, we can pick any snippet or consistent goto code we reach for on a regular [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-6354" class="pingback even thread-even depth-1">
+			<article id="div-comment-6354" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="/2021/10/t-sql-tuesday-143-wrap-up/" class="url" rel="ugc external nofollow">T-SQL Tuesday #143 Wrap Up - John McCormack DBA</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6354"><time datetime="2021-10-19T18:04:22+01:00">19th October 2021 at 6:04 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] T-SQL Tuesday #143 &#8211; Short code examples [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-6442" class="pingback odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-6442" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://www.sqlservercentral.com/blogs/3-important-queries-for-testing-your-availability-group-endpoints-3" class="url" rel="ugc external nofollow">3 Important Queries for Testing Your Availability Group Endpoints &ndash; SQLServerCentral</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6442"><time datetime="2021-12-01T09:20:32+00:00">1st December 2021 at 9:20 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] Another take on the term “short”, could be that it takes just a short amount of time to pull out a saved script to perform the task at hand (some routine task you may perform but doesn’t quite rise to the level of automation such as what Aaron Bertrand shared here). Please go and check the invite from John – here. [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-6473" class="pingback even thread-even depth-1">
+			<article id="div-comment-6473" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="https://jasonbrimhall.info/2021/10/12/top-3-queries-to-validate-availability-group-endpoints/" class="url" rel="ugc external nofollow">Endpoints: 3 Great Queries to Test AG Endpoints | SQL RNNR</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-6473"><time datetime="2021-12-26T23:18:05+00:00">26th December 2021 at 11:18 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] Another take on the term &#8220;short&#8221;, could be that it takes just a short amount of time to pull out a saved script to perform the task at hand (some routine task you may perform but doesn&#8217;t quite rise to the level of automation such as what Aaron Bertrand shared here). Please go and check the invite from John &#8211; here. [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-7810" class="pingback odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-7810" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="/2023/04/t-sql-stuff-taking-it-to-the-limit/" class="url" rel="ugc external nofollow">T-SQL STUFF - Taking it to the limit - John McCormack DBA</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comment-7810"><time datetime="2023-04-11T17:48:45+01:00">11th April 2023 at 5:48 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] limit, please feel free to let me know the results in the comments. I hope it was a fun read, back when I hosted T-SQL Tuesday, I asked about snippets of useful code. Although this is not so useful, it&#8217;s the type of topic [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol></div>	<!-- #respond -->
+	<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed.</a></p></main></div></div><footer class="site-footer"><div class="wrap"><p>John McCormack · Copyright &#x000A9;&nbsp;2026 </p></div></footer></div><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/modern-portfolio-pro/*","/wp-content/themes/genesis/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+<script type="text/javascript" src="/wp-content/plugins/enlighter/cache/enlighterjs.min.js" id="enlighterjs-js"></script>
+<script type="text/javascript" id="enlighterjs-js-after">
+/* <![CDATA[ */
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":true,"textOverflow":"break","linenumbers":true,"theme":"enlighter","language":"enlighter","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+//# sourceURL=enlighterjs-js-after
+/* ]]> */
+</script>
+<script defer type="text/javascript" src="/wp-content/plugins/akismet/_inc/akismet-frontend.js" id="akismet-frontend-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://johnmccormack.co.uk/wp-includes/js/wp-emoji-release.min.js?ver=6.9.6"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://johnmccormack.co.uk/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+</body></html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head >
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v22.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>EC2 SQL Server Backups to Amazon S3 - John McCormack DBA</title>
+	<meta name="description" content="How to write your EC2 SQL Server Backups to Amazon S3" />
+	<link rel="canonical" href="https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="EC2 SQL Server Backups to Amazon S3 - John McCormack DBA" />
+	<meta property="og:description" content="How to write your EC2 SQL Server Backups to Amazon S3" />
+	<meta property="og:url" content="https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/" />
+	<meta property="og:site_name" content="John McCormack DBA" />
+	<meta property="article:published_time" content="2017-12-22T11:59:42+00:00" />
+	<meta property="article:modified_time" content="2020-11-27T17:28:00+00:00" />
+	<meta property="og:image" content="https://johnmccormack.co.uk/wp-content/uploads/2017/12/EC2-SQL-Server-Backups-to-Amazon-S3.png" />
+	<meta property="og:image:width" content="320" />
+	<meta property="og:image:height" content="230" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="John McCormack" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="John McCormack" />
+	<meta name="twitter:label2" content="Estimated reading time" />
+	<meta name="twitter:data2" content="7 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/","url":"https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/","name":"EC2 SQL Server Backups to Amazon S3 - John McCormack DBA","isPartOf":{"@id":"https://johnmccormack.co.uk/#website"},"primaryImageOfPage":{"@id":"https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/#primaryimage"},"image":{"@id":"https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/#primaryimage"},"thumbnailUrl":"https://johnmccormack.co.uk/wp-content/uploads/2017/12/EC2-SQL-Server-Backups-to-Amazon-S3.png","datePublished":"2017-12-22T11:59:42+00:00","dateModified":"2020-11-27T17:28:00+00:00","author":{"@id":"https://johnmccormack.co.uk/#/schema/person/5f055d581bbcff71088021e649bbee00"},"description":"How to write your EC2 SQL Server Backups to Amazon S3","inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/"]}]},{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/#primaryimage","url":"https://johnmccormack.co.uk/wp-content/uploads/2017/12/EC2-SQL-Server-Backups-to-Amazon-S3.png","contentUrl":"https://johnmccormack.co.uk/wp-content/uploads/2017/12/EC2-SQL-Server-Backups-to-Amazon-S3.png","width":320,"height":230,"caption":"EC2 SQL Server Backups to Amazon S3"},{"@type":"WebSite","@id":"https://johnmccormack.co.uk/#website","url":"https://johnmccormack.co.uk/","name":"John McCormack DBA","description":"SQL Server Databases and Cloud","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://johnmccormack.co.uk/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"},{"@type":"Person","@id":"https://johnmccormack.co.uk/#/schema/person/5f055d581bbcff71088021e649bbee00","name":"John McCormack","image":{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://johnmccormack.co.uk/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571?s=96&d=mm&r=g","caption":"John McCormack"},"description":"John McCormack is an experienced SQL DBA with extensive knowledge of the two largest public clouds: AWS and Azure.","sameAs":["https://johnmccormack.it","https://www.linkedin.com/in/johnmccormackdba/"],"url":"https://johnmccormack.co.uk/author/jmccorma/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='/assets/fonts/google-fonts.css' />
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; Feed" href="/feed/index.xml" />
+
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; EC2 SQL Server Backups to Amazon S3 Comments Feed" href="/feed/index.xml" />
+
+
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v10.1.3 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+		<!-- Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel. -->
+					<!-- No tracking code set -->
+				<!-- / Google Analytics by MonsterInsights -->
+		<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='modern-portfolio-pro-theme-css' href='/wp-content/themes/modern-portfolio-pro/style.css' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='wp-block-library-inline-css' type='text/css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id='wp-block-paragraph-inline-css' type='text/css'>
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/paragraph/style.min.css */
+</style>
+
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='animate-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-quiz-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/wp-quiz.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='/wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css' href='/assets/fonts/google-fonts.css' type='text/css' media='all' />
+<link rel='stylesheet' id='enlighterjs-css' href='/wp-content/plugins/enlighter/cache/enlighterjs.min.css' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="/wp-content/themes/modern-portfolio-pro/js/responsive-menu.js" id="mpp-responsive-menu-js"></script>
+
+<meta name="generator" content="WordPress 6.9.6" />
+
+
+<style type="text/css">.site-title a { background: url(/wp-content/uploads/2016/09/cropped-JohnMcCormack-295x90.png) no-repeat !important; }</style>
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-32x32.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/2016/09/cropped-JM-180x180.png" />
+<meta name="msapplication-TileImage" content="https://johnmccormack.co.uk/wp-content/uploads/2016/09/cropped-JM-270x270.png" />
+</head>
+<body class="wp-singular post-template-default single single-post postid-681 single-format-standard wp-theme-genesis wp-child-theme-modern-portfolio-pro custom-header header-image full-width-content genesis-breadcrumbs-hidden genesis-footer-widgets-hidden"><div class="site-container"><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="/">John McCormack DBA</a></p><p class="site-description">SQL Server Databases and Cloud</p></div><div class="widget-area header-widget-area"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><nav class="nav-header"><ul id="menu-menu" class="menu genesis-nav-menu"><li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-285"><a href="/category/personal/"><span >Personal</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-496"><a href="/2026/05/who-is-john-mccormack/"><span >About</span></a></li>
+</ul>
+</li>
+<li id="menu-item-1653" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1653"><a href="/2020/07/sql-server-on-amazon-rds/"><span >Free Training</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1652" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1652"><a href="/2020/07/sql-server-on-amazon-rds/"><span >SQL Server on Amazon RDS (Free Course)</span></a></li>
+	<li id="menu-item-2486" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2486"><a href="/2021/01/free-practice-questions-to-help-you-pass-dp-900/"><span >Free practice questions to help you pass DP-900</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2339" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2339"><a href="/2021/01/7-ways-for-data-teams-to-save-money-in-azure/"><span >Save money in Azure</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2343" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2343"><a href="/2021/01/azure-iaas-sql-backups-stop-burning-money/"><span >Azure IaaS SQL Backups – Stop burning money</span></a></li>
+	<li id="menu-item-2342" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2342"><a href="/2021/01/your-azure-sql-database-and-managed-instance-is-too-big/"><span >Your Azure SQL Database and Managed Instance is too big</span></a></li>
+	<li id="menu-item-2341" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2341"><a href="/2021/01/turn-the-cloud-off-at-bedtime-to-save-70/"><span >Turn the cloud off at bedtime to save 70%</span></a></li>
+	<li id="menu-item-2340" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2340"><a href="/2021/01/your-azure-sql-virtual-machine-might-be-too-big-cost-optimisation/"><span >Your Azure SQL Virtual Machine might be too big</span></a></li>
+	<li id="menu-item-2365" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2365"><a href="/2021/01/save-money-with-azure-sql-db-serverless/"><span >Save money with Azure SQL DB serverless</span></a></li>
+	<li id="menu-item-2390" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2390"><a href="/2021/01/save-73-with-reserved-instances-for-stable-workloads/"><span >Save up to 73% with reserved instances</span></a></li>
+	<li id="menu-item-2404" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2404"><a href="/2021/01/delete-unused-instances-to-save-money-in-azure/"><span >Delete unused instances to save money in Azure</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2192" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2192"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Hire me</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2448" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2448"><a href="/2021/01/sessionize-speaker-profile/"><span >Take a look at my Sessionize speaker’s profile</span></a></li>
+	<li id="menu-item-2449" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2449"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Let me solve your SQL Server problems &#8211; No longer available</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2900" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-2900"><a href="/"><span >All posts</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2901" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2901"><a href="/category/guides/"><span >Guides</span></a></li>
+	<li id="menu-item-2902" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2902"><a href="/category/guides/cost-optimization/"><span >cost-optimization</span></a></li>
+	<li id="menu-item-2903" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2903"><a href="/category/sql-server/"><span >SQL Server</span></a></li>
+	<li id="menu-item-2904" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2904"><a href="/category/training/"><span >Training</span></a></li>
+	<li id="menu-item-2905" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2905"><a href="/category/personal/"><span >Personal</span></a></li>
+	<li id="menu-item-2906" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2906"><a href="/category/azure/"><span >Azure</span></a></li>
+	<li id="menu-item-2907" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2907"><a href="/category/scripts/t-sql/"><span >T-SQL</span></a></li>
+	<li id="menu-item-2908" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2908"><a href="/category/aws/aws-rds/"><span >AWS RDS</span></a></li>
+	<li id="menu-item-2909" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2909"><a href="/category/aws/aws-sql-server/"><span >AWS SQL Server</span></a></li>
+</ul>
+</li>
+</ul></nav></div></section>
+</div></div></header><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><article class="post-681 post type-post status-publish format-standard has-post-thumbnail category-aws category-aws-ec2 category-aws-sql-server category-front-page category-guides tag-aws-s3 tag-backup tag-backup-to-aws-s3 tag-backup-to-s3 tag-litespeed tag-sql-backup entry" aria-label="EC2 SQL Server Backups to Amazon S3"><header class="entry-header"><h1 class="entry-title">EC2 SQL Server Backups to Amazon S3</h1>
+<p class="entry-meta"><time class="entry-time">22nd December 2017</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2017/12/ec2-sql-server-backups-to-amazon-s3/#comments">8 Comments</a></span> </p></header><div class="entry-content"><h2>How to write your EC2 SQL Server Backups to Amazon S3</h2>
+<p><img decoding="async" class="alignright wp-image-704" src="/wp-content/uploads/2017/12/sql-server-backup-to-aws-s3.png" alt="How to write your EC2 SQL Server Backups to Amazon S3" width="501" height="420" />This post specifically discusses how to write your EC2 SQL Server Backups to Amazon S3. It should not be confused with running SQL Server on RDS which is Amazon’s managed database service. To back up to S3, you will need to have an AWS account and a bucket in S3 that you want to write to. You’ll also need a way of authenticating into S3 such as an <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html">access key</a> or <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a>.</p>
+<h3>Background</h3>
+<p>Recently, I have been investigating running SQL Server in Amazon EC2. One issue to resolve is where to store database backups. Amazon S3 is far cheaper and has much higher redundancy than Amazon EBS (Elastic Block Store) so storing the backups here is an attractive idea. Furthermore, we can use rules in S3 to auto delete old backups or move them to Glacier which is cheaper than S3 Standard. However,  there is no obvious or inbuilt way to write your EC2 SQL Server Backups to Amazon S3 directly.</p>
+<h4>Example Costs as of December 2017 (US-EAST-1 Region) for storing each Terabyte of backup.</h4>
+<table border="1">
+<tbody>
+<tr>
+<td width="213"><strong>EBS – General purpose SSD</strong></td>
+<td width="213"><strong>Amazon S3</strong></td>
+<td width="213"><strong>Amazon Glacier</strong></td>
+</tr>
+<tr>
+<td width="213">$1228.80</td>
+<td width="213">$282.62</td>
+<td width="213">$49.15</td>
+</tr>
+</tbody>
+</table>
+<h4>Why is this a problem? (Block storage vs object storage)</h4>
+<p>SQL Server expects to be able to write backups to a file location (block storage) but S3 is Object Storage. This makes S3 unsuitable for direct backups. Newer versions of SQL Server (2016 onwards) also allow a <strong>BACKUP DATABASE</strong> <strong>TO URL</strong> option but this is designed for Microsoft Azure Blob Storage and as such, an S3  bucket cannot be used as the URL.</p>
+<p>As such, we need a method to get the file into S3, either directly or indirectly because the storage cost is so much cheaper than EBS. Amazon recommend using File Gateway but this involves running another EC2 machine. This isn’t cost effective or easy to implement so I’ve discarded this method for now. The two options which I have tried and tested are below, they both have their pros and cons. I&#8217;ve also listed 3 other methods which may help you write your EC2 SQL Server Backups to Amazon S3 directly but these are untested by me as I rejected the approach.</p>
+<p><strong><u>A note on Ola</u></strong></p>
+<p>The Ola Hallengren backup solution (<a href="https://ola.hallengren.com/" target="_blank" rel="noopener noreferrer">link</a>) works well in EC2 when writing to EBS storage as this is just treated like a local drive. It also works well if writing to Azure Blob Storage. Whilst it also works with 3<sup>rd</sup> party backup tools such as LiteSpeed, it doesn’t cater for the latest LiteSpeed functionality that does allow writes directly to S3. I have written to Ola to ask if this is something that could be considered for a future release but until then, I am unable to use Ola’s solution.</p>
+<p><strong><u>Option 1 – Write to EBS and Sync with S3</u></strong></p>
+<p>Take a database backup using t-sql. Better still, schedule a job via SQL Agent to run at a set interval.</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="sql">BACKUP DATABASE [Test]
+TO DISK = N'D:\MSSQL\BACKUP\Test.bak' WITH NOFORMAT,
+NOINIT,
+NAME = N'Test-Full Database Backup',
+SKIP,
+NOREWIND,
+NOUNLOAD,
+STATS = 10</pre>
+<p>Using the AWS command line, copy the backup from your EBS volume to your S3 bucket. This should be step 2 of your agent job.</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell"><code class="EnlighterJSRAW" data-enlighter-language="sql">aws s3 sync D:\MSSQL\BACKUP s3://sqlpoc-backups/prod-backups</code></pre>
+<p>Delete the backup on EBS so the space will be available for the next backup. I have used PowerShell to do this but you can choose any method you prefer. This should be step 3 of your agent job.</p>
+<p><code class="EnlighterJSRAW" data-enlighter-language="generic">remove-item D:\MSSQL\BACKUP\* -Recurse</code></p>
+<p><strong>Note:</strong> When sizing your EBS volume, it needs to be at least the size of your biggest database backup (with some room for growth). If this is the size you choose, bear in mind you can only back up one database at a time. If you size the drive bigger, you can back up more databases in the same job before syncing with S3 however this will be more expensive. With EBS, you pay for the size of the volume allocated, not just what is used. This is different to S3 where you only pay for data stored.</p>
+<p><strong><u>Option 2 – Write directly using LiteSpeed</u></strong></p>
+<p>Quest LiteSpeed is a 3<sup>rd</sup> party product for backing up SQL Databases. One very useful feature of enterprise edition is that it allows you to backup directly to Amazon S3. This is huge because it takes away the need for any intermediate storage, VMs or other services. It pushes your backup directly to the desired bucket location in S3. To do this, you’ll need to add a few new parameters to your backup calls but overall, it’s saves a load of hassle.</p>
+<blockquote>
+<p><strong>Note:</strong> This isn&#8217;t an ad for LiteSpeed, my decision to use it is down to my company already having a license agreement with Quest. If I didn&#8217;t have this in place, I would more than likely go with option 1, ultimately cost would be the deciding factor unless the difference was small.</p>
+</blockquote>
+<p>Before writing your t-sql for the backup job, you will need to add your cloud account details to the LiteSpeed desktop app. Here you will need to pass in your Cloud Vendor, Display name, AWS Access Key, AWS Secret Key, region, storage class and bucket name.</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="sql">exec master.dbo.xp_backup_database
+@database = N'Test',
+@backupname = N'Test - Full Database Backup',
+@desc = N'Full Backup of Test on %Y-%m-%d %I:%M:%S %p',
+@compressionlevel = 7,
+@filename = 'test-backups/Test-Full.bkp', -- folder name within bucket defined here
+@CloudVendor = N'AmazonS3',
+@CloudBucketName = N' sqlpoc-backups',
+@CloudAccessKeyEnc = N'xxxxxxxxxxxx’, -- an encrypted version of your access key (generated by LiteSpeed app)
+@CloudSecretKeyEnc = N' xxxxxxxxxxxx, -- an encrypted version of your secret key (generated by LiteSpeed app)
+@CloudRegionName = N'us-east-1',
+@UseSSL = 1,
+@OLRMAP = 1 ,
+@init = 1,
+@with = N'STATS = 10',
+@verify = 1</pre>
+<p>As Amazon S3 is object storage, it does not support appending to an existing file so if using the same name each time for your backups, the previous backup is deleted and replaced. If you turn on <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-versioning.html" target="_blank" rel="noopener noreferrer">versioning</a> in your S3 bucket, you can keep old versions of the same filename. Or if each backup has a unique name (due to time stamp being appended), it will save them side by side. Do remember to have <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html" target="_blank" rel="noopener noreferrer">Object Lifecycle Rules</a> turned on for all or specific items in your bucket to either delete old backups or send them to the much cheaper Glacier storage tier. If you don&#8217;t, your bucket size will grow very quickly and costs will escalate.</p>
+<p><strong><u>Option 3 – Map s3 bucket as a drive</u></strong></p>
+<p>If only this was easy. Doing this natively is not possible as far as I can tell. This comes down to a difference in storage types. S3 is object storage and for a drive, we need block storage. That said, there a number of 3rd party solution which I have not tested that seem to offer this service. A quick google suggests CloudBerry and Tntdrive as the most popular providers.</p>
+<p><strong><u>Option 4 – File Gateway/Storage Gateway</u></strong></p>
+<p>When investigating methods for saving my backups to S3, AWS support recommended using File Gateway. This would certainly overcome the technical challenge of getting the files into object storage (S3) as it allows you to mount an NFS Volume, but it adds complexity and cost to the process. File gateway is very useful as a method of connecting an on-premises appliance to cloud based storage however as the instances were already in the cloud (EC2), I didn&#8217;t feel like this was a very satisfactory solution.</p>
+<p><strong><u>Option 5 – Other 3<sup>rd</sup> Party tools</u></strong></p>
+<p>Other 3<sup>rd</sup> party tools exist such as <a href="https://www.cloudberrylab.com/backup/microsoft-sql-server.aspx" target="_blank" rel="noopener noreferrer">CloudBerry</a> which allow but I have not looked into them in detail. Prices start around $150 per server but they do offer volume discounts.</p>
+<h6>Useful references</h6>
+<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url">https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url</a></p>
+<p><a href="https://support.quest.com/technical-documents/litespeed-for-sql-server/8.6/user-guide/8">https://support.quest.com/technical-documents/litespeed-for-sql-server/8.6/user-guide/8</a></p>
+<h4>How do you write your EC2 SQL Server Backups to Amazon S3?</h4>
+<p>If you use another method listed not here, I&#8217;d be delighted to hear about it in the comments. </p>
+
+
+<p><a href="https://click.linksynergy.com/fs-bin/click?id=mQCK39zZDBY&amp;offerid=507388.1539&amp;subid=0&amp;type=4"><img decoding="async" border="0" alt="IT Certification Category (English)728x90" src="https://ad.linksynergy.com/fs-bin/show?id=mQCK39zZDBY&amp;bids=507388.1539&amp;subid=0&amp;type=4&amp;gridnum=16"></a></p>
+
+
+
+<p></p>
+<!--<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/"
+    dc:identifier="https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/"
+    dc:title="EC2 SQL Server Backups to Amazon S3"
+    trackback:ping="https://johnmccormack.co.uk/2017/12/ec2-sql-server-backups-to-amazon-s3/trackback/" />
+</rdf:RDF>-->
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/aws/" rel="category tag">AWS</a>, <a href="/category/aws/aws-ec2/" rel="category tag">AWS EC2</a>, <a href="/category/aws/aws-sql-server/" rel="category tag">AWS SQL Server</a>, <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/guides/" rel="category tag">Guides</a></span> <span class="entry-tags">Tagged With: <a href="/tag/aws-s3/" rel="tag">aws s3</a>, <a href="/tag/backup/" rel="tag">backup</a>, <a href="/tag/backup-to-aws-s3/" rel="tag">backup to aws s3</a>, <a href="/tag/backup-to-s3/" rel="tag">backup to s3</a>, <a href="/tag/litespeed/" rel="tag">litespeed</a>, <a href="/tag/sql-backup/" rel="tag">sql backup</a></span></p></footer></article><section class="author-box"><img alt='' src='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-80.jpg' srcset='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-160.jpg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/><h4 class="author-box-title">About <span itemprop="name">John McCormack</span></h4><div class="author-box-content" itemprop="description"><p>John McCormack is an experienced SQL DBA with extensive knowledge of the two largest public clouds: AWS and Azure.</p>
+</div></section><div class="entry-comments" id="comments"><h3>Comments</h3><ol class="comment-list">
+	<li class="comment even thread-even depth-1" id="comment-57">
+	<article id="article-comment-57">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/4dbe75a3514157fcb9560501be03dfdd2f6f12465bb98dc62ab53126513f7be6-48.jpg' srcset='/assets/avatars/4dbe75a3514157fcb9560501be03dfdd2f6f12465bb98dc62ab53126513f7be6-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name">Vlad</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2017/12/ec2-sql-server-backups-to-amazon-s3/#comment-57">9th February 2019 at 7:03 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Great  summary review. Thanks</p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-360">
+	<article id="article-comment-360">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/14495fb4a8248bfd8c45aaa463f8a6f6bf8433f11f848197a3fe9d009eb94e12-48.jpg' srcset='/assets/avatars/14495fb4a8248bfd8c45aaa463f8a6f6bf8433f11f848197a3fe9d009eb94e12-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name">Tim Harkin</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2017/12/ec2-sql-server-backups-to-amazon-s3/#comment-360">5th September 2019 at 2:17 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Nice article. We do something pretty  similar to what you have in option 1. We run native SQL backups to a local drive, and then push to an S3 bucket with the AWS PowerShell tools.  When we push to S3 we add tags that indicate whether it is a full or transaction log.we have an SLA to be able to restore to any point in time with in the last week, and to be able to provide a daily restore for 4 weeks.  Using the tags and lifecycle policies, after 7 days we delete all transaction log backups from S3, and move all full backups to Glacier.  After 30 days, the fulls get deleted.</p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-773">
+	<article id="article-comment-773">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/db3760840c16cd2a0e3c658a4afe98e778029d17771d8070ecc17f4ddb9b4337-48.jpg' srcset='/assets/avatars/db3760840c16cd2a0e3c658a4afe98e778029d17771d8070ecc17f4ddb9b4337-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name">ann</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2017/12/ec2-sql-server-backups-to-amazon-s3/#comment-773">22nd January 2020 at 11:21 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Great article!  However, I believe I am missing something here.  How do I get the &#8216;aws s3 sync&#8217; command to work in PowerShell mode for the SQL Server Agent Job?  Step 2 for the job was added but it doesn&#8217;t recognize aws cmdlet. How can you run an AWS powershell command in Powershell for SQL Server?</p>
+		</div>
+
+		
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-jmccorma bypostauthor odd alt depth-2" id="comment-796">
+	<article id="article-comment-796">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-48.jpg' srcset='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="/" class="comment-author-link" rel="external nofollow">John McCormack</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2017/12/ec2-sql-server-backups-to-amazon-s3/#comment-796">27th January 2020 at 7:02 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Hi Ann</p>
+<p>aws s3 sync is actually an aws cli command, rather than Powershell. So it would be a command exec step.</p>
+<p>As far as I know, there is no equivalent Powershell command which is a shame. You can use Write-S3Object but this doesn&#8217;t not deal with syncing.</p>
+<p>Thanks<br />
+John</p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-6746">
+	<article id="article-comment-6746">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/ba5731d2c285920388d5225a8e8b2d201e9fa43b6825b47d07b86fc2121aecf8-48.jpg' srcset='/assets/avatars/ba5731d2c285920388d5225a8e8b2d201e9fa43b6825b47d07b86fc2121aecf8-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name">Shand Glenn</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2017/12/ec2-sql-server-backups-to-amazon-s3/#comment-6746">27th May 2022 at 1:53 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>You could use storage gateway to map s3 to a share on your SQL server.</p>
+		</div>
+
+		
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-jmccorma bypostauthor odd alt depth-2" id="comment-6752">
+	<article id="article-comment-6752">
+
+		
+		<header class="comment-header">
+			<p class="comment-author">
+				<img alt='' src='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-48.jpg' srcset='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-96.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/><span class="comment-author-name"><a href="/" class="comment-author-link" rel="external nofollow">John McCormack</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time"><a class="comment-time-link" href="/2017/12/ec2-sql-server-backups-to-amazon-s3/#comment-6752">6th June 2022 at 1:55 pm</a></time></p>		</header>
+
+		<div class="comment-content">
+			
+			<p>Absolutely, this post is a few years old now so it&#8217;s on my list to update it this year. Nothing moves as fast as the cloud.</p>
+		</div>
+
+		
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ol></div><div class="entry-pings"><h3>Trackbacks</h3><ol class="ping-list">		<li id="comment-7" class="pingback even thread-even depth-1">
+			<article id="div-comment-7" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="/2018/11/how-do-i-run-sql-server-on-aws/" class="url" rel="ugc external nofollow">How do I run SQL Server on AWS? - John McCormack DBA</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2017/12/ec2-sql-server-backups-to-amazon-s3/#comment-7"><time datetime="2018-11-06T16:51:26+00:00">6th November 2018 at 4:51 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] for all of your own backups. Backups can be pushed to S3 to save reduce costs. I have a full post dedicated to SQL Server backups on EC2. You could also store backups on EBS volumes attached to [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-177" class="pingback odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-177" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href="/2019/06/you-can-run-sql-server-on-aws/" class="url" rel="ugc external nofollow">You can run SQL Server on AWS? - John McCormack DBA</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2017/12/ec2-sql-server-backups-to-amazon-s3/#comment-177"><time datetime="2019-06-18T20:48:54+01:00">18th June 2019 at 8:48 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[&#8230;] <a href="/2017/12/ec2-sql-server-backups-to-amazon-s3/" rel="nofollow ugc">https://johnmccormack.it/2017/12/ec2-sql-server-backups-to-amazon-s3/</a> [&#8230;]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol></div>	<!-- #respond -->
+	<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed.</a></p></main></div></div><footer class="site-footer"><div class="wrap"><p>John McCormack · Copyright &#x000A9;&nbsp;2026 </p></div></footer></div><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/modern-portfolio-pro/*","/wp-content/themes/genesis/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+<script type="text/javascript" src="/wp-content/plugins/enlighter/cache/enlighterjs.min.js" id="enlighterjs-js"></script>
+<script type="text/javascript" id="enlighterjs-js-after">
+/* <![CDATA[ */
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":true,"textOverflow":"break","linenumbers":true,"theme":"enlighter","language":"enlighter","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+//# sourceURL=enlighterjs-js-after
+/* ]]> */
+</script>
+<script defer type="text/javascript" src="/wp-content/plugins/akismet/_inc/akismet-frontend.js" id="akismet-frontend-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://johnmccormack.co.uk/wp-includes/js/wp-emoji-release.min.js?ver=6.9.6"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://johnmccormack.co.uk/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+</body></html>

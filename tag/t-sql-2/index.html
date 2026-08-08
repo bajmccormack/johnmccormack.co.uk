@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head >
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v22.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>t-sql Archives - John McCormack DBA</title>
+	<link rel="canonical" href="https://johnmccormack.co.uk/tag/t-sql-2/" />
+	<link rel="next" href="/tag/t-sql-2/page/2/" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="t-sql Archives - John McCormack DBA" />
+	<meta property="og:url" content="https://johnmccormack.co.uk/tag/t-sql-2/" />
+	<meta property="og:site_name" content="John McCormack DBA" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://johnmccormack.co.uk/tag/t-sql-2/","url":"https://johnmccormack.co.uk/tag/t-sql-2/","name":"t-sql Archives - John McCormack DBA","isPartOf":{"@id":"https://johnmccormack.co.uk/#website"},"primaryImageOfPage":{"@id":"https://johnmccormack.co.uk/tag/t-sql-2/#primaryimage"},"image":{"@id":"https://johnmccormack.co.uk/tag/t-sql-2/#primaryimage"},"thumbnailUrl":"https://johnmccormack.co.uk/wp-content/uploads/2018/01/t-sql-tuesday.png","inLanguage":"en-GB"},{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://johnmccormack.co.uk/tag/t-sql-2/#primaryimage","url":"https://johnmccormack.co.uk/wp-content/uploads/2018/01/t-sql-tuesday.png","contentUrl":"https://johnmccormack.co.uk/wp-content/uploads/2018/01/t-sql-tuesday.png","width":320,"height":230,"caption":"t-sql tuesday logo"},{"@type":"WebSite","@id":"https://johnmccormack.co.uk/#website","url":"https://johnmccormack.co.uk/","name":"John McCormack DBA","description":"SQL Server Databases and Cloud","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://johnmccormack.co.uk/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='/assets/fonts/google-fonts.css' />
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; Feed" href="/feed/index.xml" />
+
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; t-sql Tag Feed" href="/feed/index.xml" />
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v10.1.3 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+		<!-- Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel. -->
+					<!-- No tracking code set -->
+				<!-- / Google Analytics by MonsterInsights -->
+		<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='modern-portfolio-pro-theme-css' href='/wp-content/themes/modern-portfolio-pro/style.css' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='wp-block-library-inline-css' type='text/css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id='wp-block-heading-inline-css' type='text/css'>
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id='wp-block-image-inline-css' type='text/css'>
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .close-button{align-items:center;cursor:pointer;display:flex;justify-content:center;min-height:40px;min-width:40px;padding:0;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .close-button:focus,.wp-lightbox-overlay .close-button:hover,.wp-lightbox-overlay .close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:9999999999}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/image/style.min.css */
+</style>
+<style id='wp-block-list-inline-css' type='text/css'>
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/list/style.min.css */
+</style>
+<style id='wp-block-embed-inline-css' type='text/css'>
+.wp-block-embed.alignleft,.wp-block-embed.alignright,.wp-block[data-align=left]>[data-type="core/embed"],.wp-block[data-align=right]>[data-type="core/embed"]{max-width:360px;width:100%}.wp-block-embed.alignleft .wp-block-embed__wrapper,.wp-block-embed.alignright .wp-block-embed__wrapper,.wp-block[data-align=left]>[data-type="core/embed"] .wp-block-embed__wrapper,.wp-block[data-align=right]>[data-type="core/embed"] .wp-block-embed__wrapper{min-width:280px}.wp-block-cover .wp-block-embed{min-height:240px;min-width:320px}.wp-block-embed{overflow-wrap:break-word}.wp-block-embed :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-embed iframe{max-width:100%}.wp-block-embed__wrapper{position:relative}.wp-embed-responsive .wp-has-aspect-ratio .wp-block-embed__wrapper:before{content:"";display:block;padding-top:50%}.wp-embed-responsive .wp-has-aspect-ratio iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.wp-embed-responsive .wp-embed-aspect-21-9 .wp-block-embed__wrapper:before{padding-top:42.85%}.wp-embed-responsive .wp-embed-aspect-18-9 .wp-block-embed__wrapper:before{padding-top:50%}.wp-embed-responsive .wp-embed-aspect-16-9 .wp-block-embed__wrapper:before{padding-top:56.25%}.wp-embed-responsive .wp-embed-aspect-4-3 .wp-block-embed__wrapper:before{padding-top:75%}.wp-embed-responsive .wp-embed-aspect-1-1 .wp-block-embed__wrapper:before{padding-top:100%}.wp-embed-responsive .wp-embed-aspect-9-16 .wp-block-embed__wrapper:before{padding-top:177.77%}.wp-embed-responsive .wp-embed-aspect-1-2 .wp-block-embed__wrapper:before{padding-top:200%}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/embed/style.min.css */
+</style>
+<style id='wp-block-paragraph-inline-css' type='text/css'>
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id='wp-block-quote-inline-css' type='text/css'>
+.wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/quote/style.min.css */
+</style>
+
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='animate-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-quiz-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/wp-quiz.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='/wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css' href='/assets/fonts/google-fonts.css' type='text/css' media='all' />
+<link rel='stylesheet' id='enlighterjs-css' href='/wp-content/plugins/enlighter/cache/enlighterjs.min.css' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="/wp-content/themes/modern-portfolio-pro/js/responsive-menu.js" id="mpp-responsive-menu-js"></script>
+
+<meta name="generator" content="WordPress 6.9.6" />
+
+<style type="text/css">.site-title a { background: url(/wp-content/uploads/2016/09/cropped-JohnMcCormack-295x90.png) no-repeat !important; }</style>
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-32x32.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/2016/09/cropped-JM-180x180.png" />
+<meta name="msapplication-TileImage" content="https://johnmccormack.co.uk/wp-content/uploads/2016/09/cropped-JM-270x270.png" />
+</head>
+<body class="archive tag tag-t-sql-2 tag-106 wp-theme-genesis wp-child-theme-modern-portfolio-pro custom-header header-image full-width-content genesis-breadcrumbs-hidden genesis-footer-widgets-hidden"><div class="site-container"><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="/">John McCormack DBA</a></p><p class="site-description">SQL Server Databases and Cloud</p></div><div class="widget-area header-widget-area"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><nav class="nav-header"><ul id="menu-menu" class="menu genesis-nav-menu"><li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-285"><a href="/category/personal/"><span >Personal</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-496"><a href="/2026/05/who-is-john-mccormack/"><span >About</span></a></li>
+</ul>
+</li>
+<li id="menu-item-1653" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1653"><a href="/2020/07/sql-server-on-amazon-rds/"><span >Free Training</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1652" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1652"><a href="/2020/07/sql-server-on-amazon-rds/"><span >SQL Server on Amazon RDS (Free Course)</span></a></li>
+	<li id="menu-item-2486" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2486"><a href="/2021/01/free-practice-questions-to-help-you-pass-dp-900/"><span >Free practice questions to help you pass DP-900</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2339" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2339"><a href="/2021/01/7-ways-for-data-teams-to-save-money-in-azure/"><span >Save money in Azure</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2343" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2343"><a href="/2021/01/azure-iaas-sql-backups-stop-burning-money/"><span >Azure IaaS SQL Backups – Stop burning money</span></a></li>
+	<li id="menu-item-2342" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2342"><a href="/2021/01/your-azure-sql-database-and-managed-instance-is-too-big/"><span >Your Azure SQL Database and Managed Instance is too big</span></a></li>
+	<li id="menu-item-2341" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2341"><a href="/2021/01/turn-the-cloud-off-at-bedtime-to-save-70/"><span >Turn the cloud off at bedtime to save 70%</span></a></li>
+	<li id="menu-item-2340" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2340"><a href="/2021/01/your-azure-sql-virtual-machine-might-be-too-big-cost-optimisation/"><span >Your Azure SQL Virtual Machine might be too big</span></a></li>
+	<li id="menu-item-2365" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2365"><a href="/2021/01/save-money-with-azure-sql-db-serverless/"><span >Save money with Azure SQL DB serverless</span></a></li>
+	<li id="menu-item-2390" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2390"><a href="/2021/01/save-73-with-reserved-instances-for-stable-workloads/"><span >Save up to 73% with reserved instances</span></a></li>
+	<li id="menu-item-2404" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2404"><a href="/2021/01/delete-unused-instances-to-save-money-in-azure/"><span >Delete unused instances to save money in Azure</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2192" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2192"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Hire me</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2448" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2448"><a href="/2021/01/sessionize-speaker-profile/"><span >Take a look at my Sessionize speaker’s profile</span></a></li>
+	<li id="menu-item-2449" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2449"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Let me solve your SQL Server problems &#8211; No longer available</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2900" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-2900"><a href="/"><span >All posts</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2901" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2901"><a href="/category/guides/"><span >Guides</span></a></li>
+	<li id="menu-item-2902" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2902"><a href="/category/guides/cost-optimization/"><span >cost-optimization</span></a></li>
+	<li id="menu-item-2903" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2903"><a href="/category/sql-server/"><span >SQL Server</span></a></li>
+	<li id="menu-item-2904" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2904"><a href="/category/training/"><span >Training</span></a></li>
+	<li id="menu-item-2905" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2905"><a href="/category/personal/"><span >Personal</span></a></li>
+	<li id="menu-item-2906" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2906"><a href="/category/azure/"><span >Azure</span></a></li>
+	<li id="menu-item-2907" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2907"><a href="/category/scripts/t-sql/"><span >T-SQL</span></a></li>
+	<li id="menu-item-2908" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2908"><a href="/category/aws/aws-rds/"><span >AWS RDS</span></a></li>
+	<li id="menu-item-2909" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2909"><a href="/category/aws/aws-sql-server/"><span >AWS SQL Server</span></a></li>
+</ul>
+</li>
+</ul></nav></div></section>
+</div></div></header><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><article class="post-2832 post type-post status-publish format-standard has-post-thumbnail category-front-page category-t-sql-tuesday tag-stuff tag-t-sql-2 tag-t-sql-tuesday entry" aria-label="T-SQL STUFF &#8211; Taking it to the limit"><header class="entry-header"><h2 class="entry-title"><a class="entry-title-link" rel="bookmark" href="/2023/04/t-sql-stuff-taking-it-to-the-limit/">T-SQL STUFF &#8211; Taking it to the limit</a></h2>
+<p class="entry-meta"><time class="entry-time">11th April 2023</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2023/04/t-sql-stuff-taking-it-to-the-limit/#comments">3 Comments</a></span> </p></header><div class="entry-content">
+<div class="wp-block-image"><figure class="alignright size-large"><img decoding="async" width="150" height="150" src="/wp-content/uploads/2018/01/tsqltuesday.jpg" alt="t-sql tuesday logo" class="wp-image-768"/></figure></div>
+
+
+
+<p>I don&#8217;t often go down code based rabbit holes, its just not what I do day to day but a while back, someone asked on twitter&#8217;s #sqlhelp hashtag if there was a character length limit to the STUFF function. The documentation didn&#8217;t have an answer. For that reason only, I decided to take a look. By some coincidence this month on behalf of T-SQL Tuesday, Reitse Eskens (<a href="https://sqlreitse.com/2023/04/04/t-sql-tuesday-161-invitation-having-fun-with-t-sql/" target="_blank" rel="noreferrer noopener">b</a>|<a href="https://twitter.com/2meterDBA" target="_blank" rel="noreferrer noopener">t</a>) asks: </p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>&#8220;What are your most fun script, procedures or statements that you’ve written&#8221;</p></blockquote>
+
+
+
+<figure class="wp-block-embed is-type-link is-provider-reitse-039-s-blog wp-block-embed-reitse-039-s-blog"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="TdYkuYyx7R"><a href="https://sqlreitse.com/2023/04/04/t-sql-tuesday-161-invitation-having-fun-with-t-sql/">T-SQL Tuesday #161 Invitation. Having fun with&nbsp;T-SQL</a></blockquote><iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);" title="&#8220;T-SQL Tuesday #161 Invitation. Having fun with&nbsp;T-SQL&#8221; &#8212; Reitse&#039;s blog" src="https://sqlreitse.com/2023/04/04/t-sql-tuesday-161-invitation-having-fun-with-t-sql/embed/#?secret=E8YqliPuNa#?secret=TdYkuYyx7R" data-secret="TdYkuYyx7R" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>So, I thought I&#8217;d share my code. Spoiler alert I ran it up to 50 million characters on my laptop and it kept working but it started to take a long time (4H, 28 minutes). Going up to these limits is not your day to day typical use of the function, it&#8217;s quite unusual and not really a production scenario. I&#8217;m not sure this code serves any useful purpose but by sharing, it saves it sitting smugly in my &#8220;SillyStuff&#8221; folder doing nothing.</p>
+
+
+
+<h4 class="wp-block-heading">What is the point of the STUFF function</h4>
+
+
+
+<p>There&#8217;s no point in me paraphrasing, here is <a href="https://learn.microsoft.com/en-us/sql/t-sql/functions/stuff-transact-sql?view=sql-server-ver16" target="_blank" rel="noreferrer noopener">Microsoft&#8217;s own explanation</a>: <em>The STUFF function inserts a string into another string. It deletes a specified length of characters in the first string at the start position and then inserts the second string into the first string at the start position.</em></p>
+
+
+
+<p>So in my example where I am trying to stuff text into 50 million character long strings, it&#8217;s a mostly pointless exercise in terms of reality. A good use case might include obfuscating something sensitive like PII data, formatting dates and times with non standard characters or simply inserting a string at a specific place within another string.</p>
+
+
+
+<h4 class="wp-block-heading">The Code</h4>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/*
+	This came about after @PamelaMooney tweeted: #SQLHelp Is anyone aware of a character length on the STUFF function?
+	I still don't have a definitive answer but I can get it working up to 50 million characters. If you are stuffing beyond that, good luck to you.
+*/
+
+DECLARE @var NVARCHAR(MAX) = N''
+DECLARE @counter int = 0
+WHILE @counter &lt; 200001
+BEGIN
+SET @var += '500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv'
+
+SET @counter +=1
+END
+SELECT STUFF(@var, 5, 1, ' Still works! ')
+SELECT LEN(@var)</pre>
+
+
+
+<p>I&#8217;m going to leave it there for now, its a waste of CPU cycles if I keep trying to break it. If anyone wants to push this to the limit, please feel free to let me know the results in the comments. I hope it was a fun read, back <a href="/2021/10/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">when I hosted T-SQL Tuesday,</a> I asked about snippets of useful code. Although this is not so useful, it&#8217;s the type of topic I like to see offered.</p>
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/sql-server/t-sql-tuesday/" rel="category tag">T-SQL Tuesday</a></span> <span class="entry-tags">Tagged With: <a href="/tag/stuff/" rel="tag">stuff</a>, <a href="/tag/t-sql-2/" rel="tag">t-sql</a>, <a href="/tag/t-sql-tuesday/" rel="tag">t-sql tuesday</a></span></p></footer></article><article class="post-2810 post type-post status-publish format-standard has-post-thumbnail category-front-page category-guides tag-ai tag-aws-cli tag-chatgpt tag-t-sql-2 entry" aria-label="Using ChatGPT for the first time"><header class="entry-header"><h2 class="entry-title"><a class="entry-title-link" rel="bookmark" href="/2022/12/using-chatgpt-for-the-first-time/">Using ChatGPT for the first time</a></h2>
+<p class="entry-meta"><time class="entry-time">7th December 2022</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2022/12/using-chatgpt-for-the-first-time/#respond">Leave a Comment</a></span> </p></header><div class="entry-content">
+<p>I played with <a href="https://beta.openai.com/playground" target="_blank" rel="noreferrer noopener">ChatGPT </a>for the first time today. For those who don&#8217;t know what ChatGPT is, I asked it and this was the response.</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>ChatGPT is an open-source chatbot framework that enables developers to quickly create natural language understanding chatbots using the GPT-3 language model.</p><cite>https://beta.openai.com/playground</cite></blockquote>
+
+
+
+<p>If that still doesn&#8217;t make sense, I asked it to explain in a less technical style.</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>ChatGPT is a tool that makes it easy for developers to create chatbots that can understand and respond to natural language conversations.</p><cite>https://beta.openai.com/playground</cite></blockquote>
+
+
+
+ <a href="/2022/12/using-chatgpt-for-the-first-time/#more-2810" class="more-link">[Read more&#8230;]</a></div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/guides/" rel="category tag">Guides</a></span> <span class="entry-tags">Tagged With: <a href="/tag/ai/" rel="tag">AI</a>, <a href="/tag/aws-cli/" rel="tag">AWS CLI</a>, <a href="/tag/chatgpt/" rel="tag">chatgpt</a>, <a href="/tag/t-sql-2/" rel="tag">t-sql</a></span></p></footer></article><article class="post-2681 post type-post status-publish format-standard has-post-thumbnail category-front-page category-t-sql-tuesday tag-powershell tag-python tag-t-sql-2 tag-t-sql-tuesday entry" aria-label="T-SQL Tuesday #143 Wrap Up"><header class="entry-header"><h2 class="entry-title"><a class="entry-title-link" rel="bookmark" href="/2021/10/t-sql-tuesday-143-wrap-up/">T-SQL Tuesday #143 Wrap Up</a></h2>
+<p class="entry-meta"><time class="entry-time">19th October 2021</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2021/10/t-sql-tuesday-143-wrap-up/#comments">2 Comments</a></span> </p></header><div class="entry-content">
+<div class="wp-block-image"><figure class="alignright size-large"><img loading="lazy" decoding="async" width="150" height="150" src="/wp-content/uploads/2018/01/tsqltuesday.jpg" alt="t-sql tuesday logo" class="wp-image-768"/></figure></div>
+
+
+
+<p>What an honour it was to host T-SQL Tuesday this month and I received some really great submissions. This wrap up post aims to give a quick insight into each of them in the hope that more members of the SQL Family can find some time to click on them and learn more. I counted 22 posts including my own which was a great response. If you missed the original invite, you can find the link below.</p>
+
+
+
+<figure class="wp-block-embed is-type-wp-embed is-provider-john-mccormack-dba wp-block-embed-john-mccormack-dba"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="nQp72mR9RE"><a href="/2021/10/t-sql-tuesday-143-short-code-examples/">T-SQL Tuesday #143 &#8211; Short code examples</a></blockquote><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; visibility: hidden;" title="&#8220;T-SQL Tuesday #143 &#8211; Short code examples&#8221; &#8212; John McCormack DBA" src="/2021/10/t-sql-tuesday-143-short-code-examples/embed/#?secret=HN91dnVZTJ#?secret=nQp72mR9RE" data-secret="nQp72mR9RE" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>I learned so much by hosting this and made sure I gave due care to reading every post. It was also a lot of fun and allowed me to interact with people in the community that I haven&#8217;t met before. If you haven&#8217;t hosted T-SQL Tuesday before, please contact <a href="https://twitter.com/way0utwest" target="_blank" rel="noreferrer noopener">Steve Jones</a> as we are always looking for new hosts.</p>
+
+
+
+<h4 class="wp-block-heading">Wrap Up</h4>
+
+
+
+<p><strong>Rob Farley</strong> &#8211; Short and to the point like I asked for, Rob details a quick way to find objects. And he was happy to clear up for the reader that I didn&#8217;t mean GOTO as in the old BASIC syntax you could run on your commodore 64. (For me it was an Amstrad CPC464)<br><a href="http://blogs.lobsterpot.com.au/2021/10/12/go-to-scripts/" target="_blank" rel="noreferrer noopener">http://blogs.lobsterpot.com.au/2021/10/12/go-to-scripts/</a></p>
+
+
+
+<p><strong>Koen Verbeek</strong> &#8211; Koen shows us numbers tables, tally tables and a dates table. These are really useful constructs for allowing your queries to go &#8220;set based&#8221;. Essential reading for anyone who cares about performance. <a href="https://sqlkover.com/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://sqlkover.com/t-sql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p><strong>Aaron Bertrand</strong> &#8211; Aaron shows us how he <em>&#8220;bulletproofs&#8221;</em> his answers for dba.stackexchange and Stack Overflow. db&lt;>fiddle was new to me. I love some of Aaron&#8217;s demo database names like [master (Restoring&#8230;)]. I ran the create command on my test instance and had to drop the DB right away as it was giving me the chills.<br><a href="https://sqlblog.org/2021/10/12/t-sql-tuesday-143-worst-metadata" target="_blank" rel="noreferrer noopener">https://sqlblog.org/2021/10/12/t-sql-tuesday-143-worst-metadata</a></p>
+
+
+
+<p><strong>Deborah Melkin &#8211; </strong>Deborah shows us a really useful debugging trick when creating stored procedures that use dynamic sql. Many of us have been lost in dynamic sql at some point, and this snippet is great at helping you see where you are.<br><a href="https://debthedba.wordpress.com/2021/10/12/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://debthedba.wordpress.com/2021/10/12/t-sql-tuesday-143-short-code-examples/ </a></p>
+
+
+
+<p><strong>Kenneth Fisher &#8211;</strong> Kenneth shares a compendium of previous posts which all require some serious reading. My favourite was &#8220;all jobs that ran during a given time frame&#8221;<br><a href="https://sqlstudies.com/2021/10/12/code-examples-t-sql-tuesday-143/" target="_blank" rel="noreferrer noopener">https://sqlstudies.com/2021/10/12/code-examples-t-sql-tuesday-143/</a></p>
+
+
+
+<p><strong>Jeff Hill &#8211;</strong> Jeff shared 4 great PowerShell snippets. True to this month&#8217;s request, they are short and incredibly useful. Want to know what version of Windows you are running on your Server or when it was last rebooted, look no further.<br><a href="https://sqladm.in/posts/tsql-tuesday-143/" target="_blank" rel="noreferrer noopener">https://sqladm.in/posts/tsql-tuesday-143/</a></p>
+
+
+
+<p><strong>Chad Baldwin &#8211;</strong> Chad is a newcomer to T-SQL Tuesday and chipped in with a stellar first post. I must admit, I&#8217;ve never given much thought to how to format a result set as I&#8217;ll usually do it in the client, but when you need to; it is possible as Chad shows. But that&#8217;s only the start. There&#8217;s too much to discuss in this digest as he also covers tally tables, random numbers and overcoming the divide by 0 problem. Did I mention he also covers docker, monitoring/filtering log files and setting aliases. Cap doffed.<br><a href="https://chadbaldwin.net/2021/10/12/tsql-tuesday-short-code.html" target="_blank" rel="noreferrer noopener">https://chadbaldwin.net/2021/10/12/tsql-tuesday-short-code.html</a></p>
+
+
+
+<p><strong>Andy Yun &#8211;</strong> Random numbers, random delays (I wonder if Scotrail use this script) and random strings. Thanks Andy for a great post. There are great scripts on their own and for building into more complex ones.<br><a href="https://sqlbek.wordpress.com/2021/10/12/t-sql-tuesday-143-random-fun/" target="_blank" rel="noreferrer noopener">https://sqlbek.wordpress.com/2021/10/12/t-sql-tuesday-143-random-fun/</a></p>
+
+
+
+<p><strong>Kevin Chant &#8211;</strong> Kevin discusses just how to get the most out Glenn Berry&#8217;s diagnostic scripts, specifically in relation to missing indexes. He also shows a create table syntax and highlights how effective it has been for him in his training sessions around Dev Ops.<br><a href="https://www.kevinrchant.com/2021/10/12/t-sql-tuesday-143-two-of-my-personal-go-to-scripts/" target="_blank" rel="noreferrer noopener">https://www.kevinrchant.com/2021/10/12/t-sql-tuesday-143-two-of-my-personal-go-to-scripts/</a></p>
+
+
+
+<p><strong>Andy Mallon &#8211;</strong> Andy stores all of his useful scripts in a DBA database. It&#8217;s a popular approach and I was hoping someone would mention this. Andy goes beyond this though and has converted a lot of scripts into Stored Procedures. Whilst having a local scripts folder is great; if you can put your code into a stored procedure in a database which you deploy to all the servers you manage, there is no need to panic and find the scripts when the pressure is on. I must admit I love this approach and I&#8217;ll be downloading Andy&#8217;s database to look further into it.<br><a href="https://am2.co/2021/10/t-sql-tuesday-143-my-favorite-short-scripts/" target="_blank" rel="noreferrer noopener">https://am2.co/2021/10/t-sql-tuesday-143-my-favorite-short-scripts/</a></p>
+
+
+
+<p><strong>Jason Brimhall &#8211;</strong> Jason talks about all things endpoints here and I found the code examples so handy. I&#8217;ve already used them. Not only can you use them to validate your endpoints, but you can also use them to fix some issues as well. On a personal note, just what I needed.<br><a href="https://bit.ly/3lAOMmF">http</a><a href="https://bit.ly/3lAOMmF" target="_blank" rel="noreferrer noopener">s</a><a href="https://bit.ly/3lAOMmF">://bit.ly/3lAOMmF</a></p>
+
+
+
+<p><strong>Tom Zika &#8211;</strong> Tom shares loads of useful snippets including regex and t-sql. Wow &#8211; one regex snippet shows us how to find table variable declarations and turn them into temp tables. <em>You could make a killing selling this one trick to consultants.</em> Tom also shares a mega handy way to check permissions using impersonation as well as a great method to find referencing objects.<br><a href="https://straightforwardsql.com/posts/short-code-examples/" target="_blank" rel="noreferrer noopener">https://straightforwardsql.com/posts/short-code-examples/</a></p>
+
+
+
+<p><strong>Mikey Bronowski &#8211;</strong> Mikey shows us a handy way to execute multiple queries including dynamic ones and also tells us about agent_datetime() function. I have to admit I&#8217;ve never used that function but it looks so useful for when you are interrogating those msdb agent job tables. I will definitely be adding it my list. Finally, he shares a useful query for pulling back table data with his added enhancement (however a nice little plug for DBATools hints he now has a better way of approaching this).<br><a href="https://bronowski.it/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://bronowski.it/t-sql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p><strong>Todd Kleinhans &#8211;</strong> Todd focuses on Python and he is the only person to do so. I won&#8217;t give away his one liner but it&#8217;s just the sort of thing I was looking for. Are you feeling Zen?<br><a href="https://toddkleinhans.wordpress.com/2021/10/12/t-sql-tuesday-143-import-this/" target="_blank" rel="noreferrer noopener">https://toddkleinhans.wordpress.com/2021/10/12/t-sql-tuesday-143-import-this/</a></p>
+
+
+
+<p><strong>Mala Mahadevan &#8211;</strong> Mala shares some top class queries for interrogating query store. Query store has so much useful data that knowing how to get started querying it will be a big win for some.<br><a href="https://curiousaboutdata.com/2021/10/12/tsql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://curiousaboutdata.com/2021/10/12/tsql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p><strong>Chad Callihan &#8211;</strong> Chad mentioned 3 handy t-sql snippets and then shared a gem for keeping Brent Ozar&#8217;s First Responder Kit up to date. (Hint he uses DBATools). DBATools and FRK are amongst the most essential free tools for any DBA and beyond. If you run anything like sp_blitz or sp_blitzcache, it&#8217;s worth keeping it up to date and this method shows how to do it in only a few lines of code.<br><a href="https://callihandata.com/2021/10/12/t-sql-tuesday-143-handy-short-scripts/" target="_blank" rel="noreferrer noopener">https://callihandata.com/2021/10/12/t-sql-tuesday-143-handy-short-scripts/</a></p>
+
+
+
+<p><strong>Deepthi Goguri &#8211;</strong> Deepthi shares some of the best of the rest by highlighting some of her favourite community scripts. From help with migrations to troubleshooting replication, it just goes to show that there&#8217;s no need to reinvent the wheel when there&#8217;s a perfectly good script out there that meets your needs.<br><a href="https://dbanuggets.com/2021/10/12/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://dbanuggets.com/2021/10/12/t-sql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p><strong>Steve Jones &#8211;</strong> Did you know that you could get a tally table with just 4 key strokes? Steve shows you how, leveraging on the power of SQL Prompt by Redgate. This is taking snippets to a new level.<br><a href="https://voiceofthedba.com/2021/10/13/t-sql-tuesday-143-short-code/" target="_blank" rel="noreferrer noopener">https://voiceofthedba.com/2021/10/13/t-sql-tuesday-143-short-code/</a></p>
+
+
+
+<p><strong>Jess Pomfret &#8211;</strong> Aloha to Jess who squeezes her entry in on time due to the Hawaiian time loophole. Want to find out if certain accounts are local admins on remote servers? Jess shares a quick and efficient method for finding this out. Being Jess, of course she is using PowerShell to make her life easier. I for one will be stealing this.<br><a href="https://jesspomfret.com/t-sql-tuesday-143/" target="_blank" rel="noreferrer noopener">https://jesspomfret.com/t-sql-tuesday-143/</a></p>
+
+
+
+<p><strong>Eitan Blumin &#8211;</strong> Eitan takes the opportunity to link to some of his past blog posts which are full of useful code however he doesn&#8217;t stop there. With a new entry for T-SQL Tuesday, Eitan shows us how to move database files to a new location in Always On Availability Groups without breaking HADR. Ok at 374 lines, it&#8217;s a bit more than a snippet but it&#8217;s really great code so we&#8217;ll let that one slide.<br><a href="https://eitanblumin.com/2021/10/13/t-sql-tuesday-143-powershell-move-db-files-alwayson-availability-groups/" target="_blank" rel="noreferrer noopener">https://eitanblumin.com/2021/10/13/t-sql-tuesday-143-powershell-move-db-files-alwayson-availability-groups/</a></p>
+
+
+
+<p><strong>Shane O&#8217;Neill &#8211;</strong> Shane also mentions agent_datetime(). It&#8217;s a cool function for converting the very user unfriendly ms format that we see in msdb tables. Shane points out it might not be the most efficient function however when you don&#8217;t have much data to bring back, it&#8217;s much quicker than rewriting the thing. Shane being Shane (Big Powershell fan) also points out a few great PowerShell commands for formatting and sorting and shows how they can be used in conjunction with other commands that yield really useful results.<br><a href="https://nocolumnname.blog/2021/10/12/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://nocolumnname.blog/2021/10/12/t-sql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p>P.S. I&#8217;ve taken every bit of care to check my comments and on twitter but if I have missed your post, please let me know and I&#8217;ll include it immediately.</p>
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/sql-server/t-sql-tuesday/" rel="category tag">T-SQL Tuesday</a></span> <span class="entry-tags">Tagged With: <a href="/tag/powershell/" rel="tag">powershell</a>, <a href="/tag/python/" rel="tag">python</a>, <a href="/tag/t-sql-2/" rel="tag">t-sql</a>, <a href="/tag/t-sql-tuesday/" rel="tag">t-sql tuesday</a></span></p></footer></article><article class="post-2662 post type-post status-publish format-standard has-post-thumbnail category-front-page category-sql-server tag-powershell tag-t-sql-2 tag-t-sql-tuesday entry" aria-label="T-SQL Tuesday #143 &#8211; Short code examples"><header class="entry-header"><h2 class="entry-title"><a class="entry-title-link" rel="bookmark" href="/2021/10/t-sql-tuesday-143-short-code-examples/">T-SQL Tuesday #143 &#8211; Short code examples</a></h2>
+<p class="entry-meta"><time class="entry-time">4th October 2021</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2021/10/t-sql-tuesday-143-short-code-examples/#comments">28 Comments</a></span> </p></header><div class="entry-content">
+<div class="wp-block-image"><figure class="alignright size-large"><img loading="lazy" decoding="async" width="320" height="230" src="/wp-content/uploads/2018/01/t-sql-tuesday.png" alt="t-sql tuesday logo" class="wp-image-766"/></figure></div>
+
+
+
+<p>T-SQL Tuesday this month is going back to basics and its all about code. I&#8217;d like to know <strong>&#8220;What are your go to handy short scripts&#8221;?</strong></p>
+
+
+
+<p>What are those little short bits of code that you can&#8217;t live without? I&#8217;m talking about little snippets that are only a few lines, that you may even have memorised. It could be T-SQL, PowerShell, Python or anything else you use day to day. </p>
+
+
+
+<p>e.g. I manage a lot of SQL agent jobs. Quite often, I need to find out which job has a certain t-sql string in the command so I&#8217;ll run: </p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="sql" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">SELECT * from msdb..sysjobs sj 
+JOIN msdb..sysjobsteps sjs 
+on sj.job_id = sjs.job_id 
+where sjs.command like 'backup log%' </pre>
+
+
+
+<p>Of course, there are many other ways to find this out including DBATools commands but sometime I just revert to memory for convenience. </p>
+
+
+
+<p>Another one I like is to get the estimated completion rate of a backup or restore. Now there are better scripts than this but sometimes, nothing beats getting a quick estimation back from a couple of lines of memorised t-sql.</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="sql" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">SELECT percent_complete pc,*
+FROM sys.dm_exec_requests
+order by pc desc</pre>
+
+
+
+<p><strong><em>My invitation</em></strong>&nbsp;to you for this month’s #tsql2sday is…</p>
+
+
+
+<p>I would like you to share with the community what your go to script snippets are and why you find them useful. By sharing these, you will undoubtedly be helping someone who hasn&#8217;t thought of doing it that way, and hopefully you&#8217;ll pick up some handy hints as well.</p>
+
+
+
+<ul class="wp-block-list"><li>Any language is fine, not just t-sql</li><li>Please share as many as you wish</li><li>Perhaps you never do this and always work off saved scripts or convert your snippets to stored procedures? Tell us why this works for you.</li></ul>
+
+
+
+<p><strong>*** The Rules ***</strong></p>
+
+
+
+<ul class="wp-block-list"><li>Your post must be published on Tuesday, October 12th 2021 (in any time zone).</li><li>Include the T-SQL Tuesday Logo and make it link to this invitation post.</li><li>Please add a comment to this post with a link to your own so I know where to find it.</li><li>Please tweet about your post using the <a href="https://twitter.com/hashtag/tsql2sday?src=hashtag_click" target="_blank" rel="noreferrer noopener">#tsql2sday</a> hashtag.</li></ul>
+
+
+
+<p>Thanks for taking part<br>John</p>
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/sql-server/" rel="category tag">SQL Server</a></span> <span class="entry-tags">Tagged With: <a href="/tag/powershell/" rel="tag">powershell</a>, <a href="/tag/t-sql-2/" rel="tag">t-sql</a>, <a href="/tag/t-sql-tuesday/" rel="tag">t-sql tuesday</a></span></p></footer></article><article class="post-1596 post type-post status-publish format-standard has-post-thumbnail category-front-page category-guides tag-performance-tuning tag-t-sql-2 tag-t-sql-tuesday entry" aria-label="Optimising a slow stored procedure"><header class="entry-header"><h2 class="entry-title"><a class="entry-title-link" rel="bookmark" href="/2020/07/optimising-a-slow-stored-procedure/">Optimising a slow stored procedure</a></h2>
+<p class="entry-meta"><time class="entry-time">14th July 2020</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2020/07/optimising-a-slow-stored-procedure/#comments">3 Comments</a></span> </p></header><div class="entry-content"><h4>Optimising a slow stored procedure</h4>
+<p><img loading="lazy" decoding="async" class="size-full wp-image-768 alignright" src="/wp-content/uploads/2018/01/tsqltuesday.jpg" alt="t-sql tuesday logo" width="150" height="150" /></p>
+<p>In this blog post, I describe optimising a slow stored procedure. It&#8217;s part of a series of posts by members of the SQL Server community in relation to T-SQL Tuesday. For this month&#8217;s T-SQL Tuesday, <a href="https://www.airbornegeek.com/2020/07/t-sql-tuesday-128-learn-from-others/" target="_blank" rel="noopener">Kerry Tyler</a> asks:</p>
+<blockquote><p><strong>Tell me (us all, obviously) about something recently that broke or went wrong, and what it took to fix it. Of course, the intent here would be for this to be SQL Server-related, but it doesn’t have to be. We can all learn from something going wrong in infrastructure-land, or how there was a loophole in some business process that turned around and bit somebody’s arm. It doesn’t even have to be all that recent–maybe you’ve got a really good story about modem banks catching on fire and that’s how you found out the fire suppression system hadn’t been inspected in years. Just spitballin’ here. If you’ve got an incident whose resolution can help someone else avoid the same problem in the future or improve a policy as a preventative measure, let us hear about it.</strong></p></blockquote>
+<h5>The situation</h5>
+<p>I received a call out of hours that a key web page in the application was suffering from timeouts. It was a page for managing important finance data and our team in the US were unable to work. I needed to work out what had changed and how to fix it?</p>
+<h5>Identifying the problem</h5>
+<p>All http requests are logged so I could took a quick look at the logs to see if there were any problems. It stood out that one stored procedure in particular was timing out. I quickly ran a trace <em>(sorry xe fans)</em> and found that one particular proc was running for 30 seconds every time. (This is the application timeout value). I took the proc name and parameters and ran from SSMS and found that the procedure took 4 minutes to complete.</p>
+<h5>How to fix</h5>
+<p>So why had this procedure suddenly gone bad? Well the fact is it was poorly performing anyway and finance users were frustrated on the whole. My first thought was recompile it quickly and see what happens. Like flicking a switch, it was back to around 20 seconds and the finance page would load again, albeit slowly. So, the issue here was that a bad execution plan had been cached and was being used for each subsequent execution.</p>
+<p>This is however a very unsatisfactory fix. First of all, you are not stopping the problem from reoccurring. Secondly, you are only improving the situation from broken to slow. Hardly something for the CV.</p>
+<p>The next morning, I took a look at the stored procedure code and could see it needed to be optimised. I ran the proc on a test system, and collected the key metrics such as logical reads and cpu duration by running [SQL]SET STATISTICS TIME,IO ON[/SQL]. To simplify the output, I always copy this into Richie Rump&#8217;s <a href="https://statisticsparser.com/" target="_blank" rel="noopener">Statistics Parser</a>.</p>
+<p>This output showed me logical reads into the millions for multiple tables. Starting from the tables with the highest reads, I worked through all of the high ones, looking at which columns were being queried and which predicates were being used. I used this information to design and test alternative indexes, each time remeasuring the output from SET STATISTICS TIME,IO ON. Once I had the correct indexes in place, I was able to submit a PR with the changes. Once it went to production, it resulted in sub second page loads which made the finance team a lot happier.</p>
+<p>One other thing that I did that is worth mentioning is I used Sentry One Plan Explorer (It&#8217;s free). The query plan was one of those intimidating ones, with hundreds of nodes. When I look at these in SSMS, it&#8217;s sometime difficult to know where to start. However in Plan Explorer, there is an option to <strong>&#8216;Show Cumulative Costs&#8217;</strong> which helps you can see which branches of the plan can be minimised as the have little cumulative impact, rather than the impact of each node within the plan. This makes reading the rest of the plan much easier because it gets a lot smaller.</p>
+<p><img loading="lazy" decoding="async" class="alignleft size-full wp-image-1599" src="/wp-content/uploads/2020/07/plan_explorer_cumulative_costs.png" alt="SentryOne plan explorer cumulative costs" width="1901" height="632" /></p>
+<h5>Whilst you&#8217;re here, you may find the other posts interesting.</h5>
+<blockquote class="wp-embedded-content" data-secret="Vz52FJ1lp3"><p><a href="/2020/05/how-dbatools-can-help-with-performance-tuning/">How DBATools can help with performance tuning</a></p></blockquote>
+<p><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; visibility: hidden;" title="&#8220;How DBATools can help with performance tuning&#8221; &#8212; John McCormack DBA" src="/2020/05/how-dbatools-can-help-with-performance-tuning/embed/#?secret=we9OenoDax#?secret=Vz52FJ1lp3" data-secret="Vz52FJ1lp3" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+<blockquote class="wp-embedded-content" data-secret="dPiRqnTsCv"><p><a href="/2020/06/a-successful-performance-tuning-project/">A successful performance tuning project</a></p></blockquote>
+<p><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; visibility: hidden;" title="&#8220;A successful performance tuning project&#8221; &#8212; John McCormack DBA" src="/2020/06/a-successful-performance-tuning-project/embed/#?secret=rwJuT1koPL#?secret=dPiRqnTsCv" data-secret="dPiRqnTsCv" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/guides/" rel="category tag">Guides</a></span> <span class="entry-tags">Tagged With: <a href="/tag/performance-tuning/" rel="tag">Performance tuning</a>, <a href="/tag/t-sql-2/" rel="tag">t-sql</a>, <a href="/tag/t-sql-tuesday/" rel="tag">t-sql tuesday</a></span></p></footer></article><div class="archive-pagination pagination"><ul><li class="active" ><a href="/tag/t-sql-2/" aria-label="Current page" aria-current="page">1</a></li>
+<li><a href="/tag/t-sql-2/page/2/">2</a></li>
+<li><a href="/tag/t-sql-2/page/3/">3</a></li>
+<li class="pagination-next"><a href="/tag/t-sql-2/page/2/" >Next Page &#x000BB;</a></li>
+</ul></div>
+</main></div></div><footer class="site-footer"><div class="wrap"><p>John McCormack · Copyright &#x000A9;&nbsp;2026 </p></div></footer></div><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/modern-portfolio-pro/*","/wp-content/themes/genesis/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript" src="/wp-content/plugins/enlighter/cache/enlighterjs.min.js" id="enlighterjs-js"></script>
+<script type="text/javascript" id="enlighterjs-js-after">
+/* <![CDATA[ */
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":true,"textOverflow":"break","linenumbers":true,"theme":"enlighter","language":"enlighter","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+//# sourceURL=enlighterjs-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js" id="wp-embed-js" defer="defer" data-wp-strategy="defer"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://johnmccormack.co.uk/wp-includes/js/wp-emoji-release.min.js?ver=6.9.6"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://johnmccormack.co.uk/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+</body></html>

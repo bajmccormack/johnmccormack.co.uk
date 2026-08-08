@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>John McCormack DBA</title>
+	<atom:link href="https://johnmccormack.co.uk/feed/index.xml" rel="self" type="application/rss+xml" />
+	<link>https://johnmccormack.co.uk/</link>
+	<description>SQL Server Databases and Cloud</description>
+	<lastBuildDate>Sat, 02 May 2026 11:55:38 +0000</lastBuildDate>
+	<language>en-GB</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.9.6</generator>
+
+<image>
+	<url>https://johnmccormack.co.uk/wp-content/uploads/2016/09/cropped-JM-32x32.png</url>
+	<title>John McCormack DBA</title>
+	<link>https://johnmccormack.co.uk/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Who is John McCormack</title>
+		<link>https://johnmccormack.co.uk/2026/05/who-is-john-mccormack/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=who-is-john-mccormack</link>
+					<comments>https://johnmccormack.co.uk/2026/05/who-is-john-mccormack/#respond</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Sat, 02 May 2026 11:54:19 +0000</pubDate>
+				<category><![CDATA[Personal]]></category>
+		<category><![CDATA[john mccormack]]></category>
+		<category><![CDATA[john mccormack dba]]></category>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=238</guid>
+
+					<description><![CDATA[John McCormack profile Hi. I&#8217;m John McCormack and I&#8217;ve been working professionally with SQL Server and other data platform technologies since 2012. It has grown into a career that has spanned very high volume and vldb dba work, data engineering, cloud architecture and engineering leadership. I currently work as an Engineering Manager at Docusign, leading [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<h3 class="wp-block-heading">John McCormack profile</h3>
+
+
+<div class="wp-block-image">
+<figure class="alignleft"><img decoding="async" width="156" height="156" src="https://johnmccormack.co.uk/wp-content/uploads/2016/01/profile_pic.jpg" alt="John McCormack" class="wp-image-823"/></figure>
+</div>
+
+
+<p>Hi. I&#8217;m John McCormack and I&#8217;ve been working professionally with SQL Server and other data platform technologies since 2012. It has grown into a career that has spanned very high volume and vldb dba work, data engineering, cloud architecture and engineering leadership.</p>
+
+
+
+<p>I currently work as an Engineering Manager at Docusign, leading a global DBA team responsible for the data platform underpinning Docusign&#8217;s eSign and CLM products. Before that I spent many years as a production DBA at Monster Worldwide, returning as principal DBA after a spell away doing some SQL contracting.  </p>
+
+
+
+<h3 class="wp-block-heading">My back story</h3>
+
+
+
+<p>I came to tech later than some. My &#8216;first&#8217; career took me through RBS, British Gas, and T-Mobile/EE in roles spanning mortgage advisory, sales, and contact centre management. In 2008 I decided a full change of direction was needed and secured a place on the Web Development degree at the University of the West of Scotland. I quickly discovered that databases were my thing, a talk from a Database Architect during my studies helped me see that (plus I loved the SQL modules). I graduated in 2012 and landed my first DBA role at Monster shortly after.</p>
+
+
+
+<h3 class="wp-block-heading">Personal life</h3>
+
+
+
+<p>I&#8217;m married to Julie Ann and have 2 great boys, Graham and Johnny. We live in Paisley, Scotland. When&nbsp;I&#8217;m&nbsp;not working, I study physics with the OU. It&#8217;s a passion of mine and I love learning how the universe looks.</p>
+
+
+
+<p>You can find me on <a href="https://www.linkedin.com/in/johnmccormackdba/">LinkedIn</a> where I&#8217;m most active, or follow me on <a href="https://bsky.app/profile/actualjohn.bsky.social">Bluesky</a> where I make no promises about keeping things strictly professional.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2026/05/who-is-john-mccormack/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">238</post-id>	</item>
+		<item>
+		<title>How good was Data:Scotland conference in 2024</title>
+		<link>https://johnmccormack.co.uk/2024/09/how-good-was-datascotland-conference-in-2024/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=how-good-was-datascotland-conference-in-2024</link>
+					<comments>https://johnmccormack.co.uk/2024/09/how-good-was-datascotland-conference-in-2024/#respond</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Sun, 15 Sep 2024 16:57:46 +0000</pubDate>
+				<category><![CDATA[front-page]]></category>
+		<guid isPermaLink="false">https://johnmccormack.it/?p=2876</guid>
+
+					<description><![CDATA[It&#8217;s the Sunday following Data:Scotland conference for 2024 and I&#8217;m still thinking about what a great day it was. From a personal perspective, I was involved as a speaker and volunteer so it was a very full day. Volunteering Volunteering is great, you get to meet loads of people and you do make a big [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>It&#8217;s the Sunday following Data:Scotland conference for 2024 and I&#8217;m still thinking about what a great day it was. From a personal perspective, I was involved as a speaker and volunteer so it was a very full day.</p>
+
+
+
+<h2 class="wp-block-heading">Volunteering</h2>
+
+
+
+<p>Volunteering is great, you get to meet loads of people and you do make a big difference to the smooth running of the day. I worked on the registration desk, which is something I do most years and I was room monitor for 4 amazing sessions.</p>
+
+
+
+<ol class="wp-block-list">
+<li>Johan Ludwig Bratas: An introduction to Snowflake &#8211; the data cloud</li>
+
+
+
+<li>Brian Bønk: Know the game you are in and you will not win</li>
+
+
+
+<li>Chris Webb: Power BI Coplilot Deep Dive</li>
+
+
+
+<li>Jamie McLaughlin: Don&#8217;t serve the data, serve the business</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading">Speaking</h2>
+
+
+
+<p>I was on first thing with my talk which was called: <strong>The Individual Contributor &#8211; How to progress your career without going into management</strong>. I have to say I was absolutely gobsmacked to have a full room, not only that but we had to turn away some people due to fire regulations. I genuinely expected only a smattering of attendees so I&#8217;m very grateful to everyone who came. And I hope it was of some value. </p>
+
+
+
+<p>For those who missed it, I have made a <strong><a href="https://youtu.be/qGRWvqhxlh8" target="_blank" rel="noreferrer noopener">very abridged version</a> </strong>and stuck it on my YouTube channel. For the video, I&#8217;ve focussed on the specifics of going from an associate to a mid level engineer. I plan to follow up with another on making the next transition to senior engineer, and what is required.</p>
+
+
+
+<h2 class="wp-block-heading">Colleagues old and new</h2>
+
+
+
+<p>I met loads of colleagues and friends, old and new and always enjoy a catchup. Lunch was fantastic so well done to the organisers and the venue. Those of us who were speaking attended a dinner on the Thursday night, and it was a welcome opportunity to catch up, and for some of them to try haggis on a pizza for the first time.</p>
+
+
+
+<h2 class="wp-block-heading">Data:Scotland conference 2025</h2>
+
+
+
+<p>I&#8217;ll be back in 2025 in whatever capacity I&#8217;m needed. I&#8217;m sure they will be looking for volunteers so if you think you&#8217;d like to do this and have any questions, please feel free to <a href="https://www.linkedin.com/in/johnmccormackdba/" target="_blank" rel="noreferrer noopener">message me</a> on LinkedIn.</p>
+
+
+
+<p>Photos</p>
+
+
+
+<figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex">
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="867" height="652" data-id="2884" src="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-room-data-scotland-2024.png" alt="A full house for the Individual Contributor career talk" class="wp-image-2884" srcset="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-room-data-scotland-2024.png 867w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-room-data-scotland-2024-300x226.png 300w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-room-data-scotland-2024-768x578.png 768w" sizes="(max-width: 867px) 100vw, 867px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="683" data-id="2886" src="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-again-1024x683.jpg" alt="John McCormack answering questions" class="wp-image-2886" srcset="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-again-1024x683.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-again-300x200.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-again-768x512.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-again-1536x1024.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-again.jpg 1600w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="683" data-id="2878" src="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-1024x683.jpg" alt="John McCormack answering questions" class="wp-image-2878" srcset="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-1024x683.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-300x200.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-768x512.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions-1536x1024.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-answering-questions.jpg 1600w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="683" data-id="2885" src="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-1024x683.jpg" alt="" class="wp-image-2885" srcset="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-1024x683.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-300x200.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-768x512.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-1536x1024.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues.jpg 1600w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="683" data-id="2879" src="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-again-1024x683.jpg" alt="John and Louise at the registration desk" class="wp-image-2879" srcset="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-again-1024x683.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-again-300x200.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-again-768x512.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-again-1536x1024.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-meeting-colleagues-again.jpg 1600w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="768" data-id="2877" src="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-mikey-bronowski-1024x768.jpg" alt="John and Mikey enjoying a beer" class="wp-image-2877" srcset="https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-mikey-bronowski-1024x768.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-mikey-bronowski-300x225.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-mikey-bronowski-768x576.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-mikey-bronowski-1536x1152.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2024/09/john-mccormack-mikey-bronowski.jpg 1600w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</figure>
+
+
+
+<p></p>
+
+
+
+<p>Photo credits: Mikey Bronowski</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2024/09/how-good-was-datascotland-conference-in-2024/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">2876</post-id>	</item>
+		<item>
+		<title>How to easily upload, download and migrate SSIS Packages with DTUTIL</title>
+		<link>https://johnmccormack.co.uk/2023/06/how-to-easily-upload-download-and-migrate-ssis-packages-with-dtutil/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=how-to-easily-upload-download-and-migrate-ssis-packages-with-dtutil</link>
+					<comments>https://johnmccormack.co.uk/2023/06/how-to-easily-upload-download-and-migrate-ssis-packages-with-dtutil/#comments</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Fri, 09 Jun 2023 16:19:38 +0000</pubDate>
+				<category><![CDATA[front-page]]></category>
+		<category><![CDATA[SSIS]]></category>
+		<guid isPermaLink="false">https://johnmccormack.it/?p=2843</guid>
+
+					<description><![CDATA[SSIS and DTUTIL background SQL Server Integration Services (SSIS) is a powerful tool, but migrating packages across SQL Servers can be a slow and thankless task if you don&#8217;t use automation. The single best way to do this is by using DTUTIL, a command-line utility provided directly by Microsoft. When it comes to moving 1000s [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<h2 class="wp-block-heading">SSIS and DTUTIL background</h2>
+
+
+
+<div class="wp-block-image"><figure class="alignright size-large"><img loading="lazy" decoding="async" width="340" height="230" src="https://johnmccormack.co.uk/wp-content/uploads/2023/06/woman-writing-code.png" alt="Woman writing code with reflection in glasses" class="wp-image-2860" srcset="https://johnmccormack.co.uk/wp-content/uploads/2023/06/woman-writing-code.png 340w, https://johnmccormack.co.uk/wp-content/uploads/2023/06/woman-writing-code-300x203.png 300w" sizes="auto, (max-width: 340px) 100vw, 340px" /></figure></div>
+
+
+
+<p>SQL Server Integration Services (SSIS) is a powerful tool, but migrating packages across SQL Servers can be a slow and thankless task if you don&#8217;t use automation. The single best way to do this is by using DTUTIL, a command-line utility provided directly by Microsoft. When it comes to moving 1000s of packages, I would only use DTUTIL because it can achieve in minutes what it would takes days to achieve using point and click.</p>
+
+
+
+<p>&#8211;</p>
+
+
+
+<h4 class="wp-block-heading">Migrating a single package</h4>
+
+
+
+<p>Migrating individual packages from one SQL Server to another directly is also possible with DTUTIL. This is an example command below:</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">dtutil /SQL "SourceFolder/SourcePackage" /SOURCESERVER "SourceServer" /COPY SQL;"DestinationFolder/DestinationPackage" /DESTSERVER "DestinationServer"</pre>
+
+
+
+<ul class="wp-block-list"><li>Specifies the source package location and server with /SQL &#8220;SourceFolder/SourcePackage&#8221; and /SOURCESERVER &#8220;SourceServer&#8221;.</li><li>Copies the package to the destination SQL Server with /COPY SQL;&#8221;DestinationFolder/DestinationPackage&#8221;.</li><li>Identifies the target SQL Server with /DESTSERVER &#8220;DestinationServer&#8221;.</li></ul>
+
+
+
+<p>&#8211;</p>
+
+
+
+<h4 class="wp-block-heading">Migrating multiple packages</h4>
+
+
+
+<p>This process can be scripted similarly for multiple package migrations. The easiest way is to generate the commands using T-SQL, print them to screen then copy and paste in to a command window.</p>
+
+
+
+<p>If you run the command below on the source server, it will list out a command to migrate every package.</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="sql" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">DECLARE 
+	@sourceserver sysname = N'DBSERVER1'
+	,@destserver sysname = N'DBSERVER2'
+	,@foldername sysname = N'DATAWAREHOUSE'
+	
+SELECT 
+'DTUTIL /SQL "'+sspf.foldername+'\'+ssp.[name]+'" /SOURCESERVER "'+@sourceserver+'" /COPY SQL;"'+sspf.foldername+'\'+ssp.[name]+'" /DESTSERVER "'+@destserver+'"' as cmd
+FROM msdb.dbo.sysssispackages ssp
+JOIN msdb.dbo.sysssispackagefolders sspf
+ON ssp.folderid = sspf.folderid
+-- WHERE sspf.foldername = @foldername -- Uncomment line to only use specific folder</pre>
+
+
+
+<p>&#8211;</p>
+
+
+
+<h4 class="wp-block-heading">Upload SSIS packages from disk</h4>
+
+
+
+<p>Uploading an SSIS package from your disk to SQL Server using DTUTIL is quite straightforward. The command line syntax you will use looks like this:</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">dtutil /FILE c:\mypackage.dtsx /DestServer DBSERVER2 /COPY SQL;"foldername/mypackage"</pre>
+
+
+
+<p>&#8211;</p>
+
+
+
+<h4 class="wp-block-heading">Download SSIS packages to disk (Great for backup)</h4>
+
+
+
+<p>Downloading an SSIS package to your disk from SQL Server using DTUTIL is also straightforward. The command line syntax you will use looks like this:</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">dtutil /SQL mypackage /COPY FILE; c:\destPackage.dtsx</pre>
+
+
+
+<p>Again, to download multiple packages, a script that lists out and provides a command would be the most efficient way to proceed. Try adapting the &#8216;migrate&#8217; script above.</p>
+
+
+
+<p>&#8211;</p>
+
+
+
+<h4 class="wp-block-heading">Summary</h4>
+
+
+
+<p>In conclusion, DTUTIL is a highly useful tool for managing SSIS package migration. While it might take a bit of practice to get comfortable with the syntax, its flexibility and efficiency make it worth the effort. Remember to always check your commands before executing them to prevent any unwanted actions. A full list of command is available from <a href="https://learn.microsoft.com/en-us/sql/integration-services/dtutil-utility?view=sql-server-ver16" target="_blank" rel="noreferrer noopener">Microsoft Learn</a>.</p>
+
+
+
+<p>And that&#8217;s it, folks! I don&#8217;t have much other SSIS content, only <a href="https://johnmccormack.co.uk/2016/11/search-replace-inside-ssis-package/" target="_blank" rel="noreferrer noopener">this one</a> which is more of a hack. With these simple and effective DTUTIL commands, you can now manage your SSIS packages with ease. Feel free to share this blog post with anyone who might find it helpful, and don&#8217;t hesitate to leave a comment below if you have any questions or want to share your own experiences with DTUTIL. </p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2023/06/how-to-easily-upload-download-and-migrate-ssis-packages-with-dtutil/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">2843</post-id>	</item>
+		<item>
+		<title>T-SQL STUFF &#8211; Taking it to the limit</title>
+		<link>https://johnmccormack.co.uk/2023/04/t-sql-stuff-taking-it-to-the-limit/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=t-sql-stuff-taking-it-to-the-limit</link>
+					<comments>https://johnmccormack.co.uk/2023/04/t-sql-stuff-taking-it-to-the-limit/#comments</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Tue, 11 Apr 2023 16:48:32 +0000</pubDate>
+				<category><![CDATA[front-page]]></category>
+		<category><![CDATA[T-SQL Tuesday]]></category>
+		<category><![CDATA[stuff]]></category>
+		<category><![CDATA[t-sql]]></category>
+		<category><![CDATA[t-sql tuesday]]></category>
+		<guid isPermaLink="false">https://johnmccormack.it/?p=2832</guid>
+
+					<description><![CDATA[I don&#8217;t often go down code based rabbit holes, its just not what I do day to day but a while back, someone asked on twitter&#8217;s #sqlhelp hashtag if there was a character length limit to the STUFF function. The documentation didn&#8217;t have an answer. For that reason only, I decided to take a look. [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<div class="wp-block-image"><figure class="alignright size-large"><img loading="lazy" decoding="async" width="150" height="150" src="https://johnmccormack.co.uk/wp-content/uploads/2018/01/tsqltuesday.jpg" alt="t-sql tuesday logo" class="wp-image-768"/></figure></div>
+
+
+
+<p>I don&#8217;t often go down code based rabbit holes, its just not what I do day to day but a while back, someone asked on twitter&#8217;s #sqlhelp hashtag if there was a character length limit to the STUFF function. The documentation didn&#8217;t have an answer. For that reason only, I decided to take a look. By some coincidence this month on behalf of T-SQL Tuesday, Reitse Eskens (<a href="https://sqlreitse.com/2023/04/04/t-sql-tuesday-161-invitation-having-fun-with-t-sql/" target="_blank" rel="noreferrer noopener">b</a>|<a href="https://twitter.com/2meterDBA" target="_blank" rel="noreferrer noopener">t</a>) asks: </p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>&#8220;What are your most fun script, procedures or statements that you’ve written&#8221;</p></blockquote>
+
+
+
+<figure class="wp-block-embed is-type-link is-provider-reitse-039-s-blog wp-block-embed-reitse-039-s-blog"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="TdYkuYyx7R"><a href="https://sqlreitse.com/2023/04/04/t-sql-tuesday-161-invitation-having-fun-with-t-sql/">T-SQL Tuesday #161 Invitation. Having fun with&nbsp;T-SQL</a></blockquote><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted"  title="&#8220;T-SQL Tuesday #161 Invitation. Having fun with&nbsp;T-SQL&#8221; &#8212; Reitse&#039;s blog" src="https://sqlreitse.com/2023/04/04/t-sql-tuesday-161-invitation-having-fun-with-t-sql/embed/#?secret=E8YqliPuNa#?secret=TdYkuYyx7R" data-secret="TdYkuYyx7R" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>So, I thought I&#8217;d share my code. Spoiler alert I ran it up to 50 million characters on my laptop and it kept working but it started to take a long time (4H, 28 minutes). Going up to these limits is not your day to day typical use of the function, it&#8217;s quite unusual and not really a production scenario. I&#8217;m not sure this code serves any useful purpose but by sharing, it saves it sitting smugly in my &#8220;SillyStuff&#8221; folder doing nothing.</p>
+
+
+
+<h4 class="wp-block-heading">What is the point of the STUFF function</h4>
+
+
+
+<p>There&#8217;s no point in me paraphrasing, here is <a href="https://learn.microsoft.com/en-us/sql/t-sql/functions/stuff-transact-sql?view=sql-server-ver16" target="_blank" rel="noreferrer noopener">Microsoft&#8217;s own explanation</a>: <em>The STUFF function inserts a string into another string. It deletes a specified length of characters in the first string at the start position and then inserts the second string into the first string at the start position.</em></p>
+
+
+
+<p>So in my example where I am trying to stuff text into 50 million character long strings, it&#8217;s a mostly pointless exercise in terms of reality. A good use case might include obfuscating something sensitive like PII data, formatting dates and times with non standard characters or simply inserting a string at a specific place within another string.</p>
+
+
+
+<h4 class="wp-block-heading">The Code</h4>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/*
+	This came about after @PamelaMooney tweeted: #SQLHelp Is anyone aware of a character length on the STUFF function?
+	I still don't have a definitive answer but I can get it working up to 50 million characters. If you are stuffing beyond that, good luck to you.
+*/
+
+DECLARE @var NVARCHAR(MAX) = N''
+DECLARE @counter int = 0
+WHILE @counter &lt; 200001
+BEGIN
+SET @var += '500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv500 characters pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv'
+
+SET @counter +=1
+END
+SELECT STUFF(@var, 5, 1, ' Still works! ')
+SELECT LEN(@var)</pre>
+
+
+
+<p>I&#8217;m going to leave it there for now, its a waste of CPU cycles if I keep trying to break it. If anyone wants to push this to the limit, please feel free to let me know the results in the comments. I hope it was a fun read, back <a href="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">when I hosted T-SQL Tuesday,</a> I asked about snippets of useful code. Although this is not so useful, it&#8217;s the type of topic I like to see offered.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2023/04/t-sql-stuff-taking-it-to-the-limit/feed/</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">2832</post-id>	</item>
+		<item>
+		<title>Thoughts on sitting DP-300 Azure Database Administrator exam</title>
+		<link>https://johnmccormack.co.uk/2023/04/thoughts-on-sitting-dp-300-azure-database-administrator-exam/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=thoughts-on-sitting-dp-300-azure-database-administrator-exam</link>
+					<comments>https://johnmccormack.co.uk/2023/04/thoughts-on-sitting-dp-300-azure-database-administrator-exam/#respond</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Mon, 03 Apr 2023 16:25:30 +0000</pubDate>
+				<category><![CDATA[Azure SQL DB]]></category>
+		<category><![CDATA[DP-300]]></category>
+		<category><![CDATA[front-page]]></category>
+		<category><![CDATA[azure]]></category>
+		<category><![CDATA[certifications]]></category>
+		<category><![CDATA[dp-300]]></category>
+		<guid isPermaLink="false">https://johnmccormack.it/?p=2826</guid>
+
+					<description><![CDATA[On Sunday morning, I sat and passed exam DP-300 which gives the certification of Microsoft Certified: Azure Administrator Associate. I&#8217;ve been sitting Microsoft exams for a number of years now but this was my first for a while. I wanted to jot down what thoughts still remained in my head following the exam. Preparation I [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<div class="wp-block-image"><figure class="alignright size-large is-resized"><img loading="lazy" decoding="async" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="" width="150" height="150"/></figure></div>
+
+
+
+<p>On Sunday morning, I sat and passed exam DP-300 which gives the certification of Microsoft Certified: Azure Administrator Associate. I&#8217;ve been sitting Microsoft exams for a number of years now but this was my first for a while. I wanted to jot down what thoughts still remained in my head following the exam.</p>
+
+
+
+<h4 class="wp-block-heading">Preparation</h4>
+
+
+
+<p>I prepared for the exam by following the course from <a href="https://acloudguru.com/training-library/azure-cloud-training" target="_blank" rel="noreferrer noopener">ACloudGuru</a>. I&#8217;m a big fan of this site as it has helped me learn so much about AWS; so I thought I would trust it for Azure learning as well. I have to admit I had been going through the course at a snail&#8217;s pace and by the time of completion, I had forgotten some of things I had learned initially. I sat their exam simulator and got 77% which was not a pass.</p>
+
+
+
+<p>I realised from doing the exam simulator that there were some areas where my knowledge was weaker, specifically on some newer features I hadn&#8217;t worked with day to day and also migration options for the likes of Postgres and MariaDB.</p>
+
+
+
+<p>I wrote down each wrong answer, learned why it was wrong and what was correct. I resat the test and got 87%. I repeated the process and got 89%. A lot of the questions were repeating by now and I felt ready to sit the exam.</p>
+
+
+
+<h4 class="wp-block-heading">Sitting the DP-300 exam</h4>
+
+
+
+<p>The exam itself was MUCH harder than the exam simulator, however in fairness, the exam simulator was pushing you to achieve 80% which allowed a bit of a buffer come exam day. (Microsoft only look for 700/1000).  There are some areas I think the simulator could have covered more extensively and a bigger bank of questions would have been helpful. </p>
+
+
+
+<p>However when it came to the exam, I managed to rely on my experience to pull some old knowledge out of the darkest recesses of my brain, and made a few educated guesses. Thank fully I passed with 800+. Not the best score but the exam itself is pass or fail.</p>
+
+
+
+<h4 class="wp-block-heading">Focus areas for sitting DP-300</h4>
+
+
+
+<p>I can&#8217;t be too specific here due to NDA but I would suggest if you are an experienced SQL DBA but have limited or no recent Azure working experience, some areas to focus on are:</p>
+
+
+
+<ol class="wp-block-list"><li>PAAS vs IAAS <ol><li>Remember PAAS needs less administrative effort than IAAS or on premises. Look for clues in the question.</li><li>Business Critical and Premium vs General Purpose and Standard</li><li><a href="https://johnmccormack.co.uk/2020/12/iaas-azure-sql-server-iaas-agent-extension/" target="_blank" rel="noreferrer noopener">Azure SQL Server IaaS Agent Extension </a></li><li><a href="https://johnmccormack.co.uk/2020/10/how-do-i-set-up-database-mail-for-azure-sql-db-managed-instance/" target="_blank" rel="noreferrer noopener">Database mail for managed instance</a></li></ol></li><li>Migration options (Online and offline) &#8211; And not just for SQL Server</li><li>Encryption vs Dynamic data masking</li><li>Query store</li><li>Key Vault</li><li>Some Azure networking like Virtual network and VPN</li><li>Know your performance DMVs and how to diagnose blocking and slow executing queries</li><li>Backup of system DBs</li></ol>
+
+
+
+<h4 class="wp-block-heading">What&#8217;s next</h4>
+
+
+
+<p>I&#8217;m still deciding but it&#8217;s given me the bug after a couple of years of not doing much active learning. So I think AZ-104 to help me re-establish some Azure infrastructure knowledge or DP-203 to introduce me to some parts of Data engineering that I&#8217;m looking to learn.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2023/04/thoughts-on-sitting-dp-300-azure-database-administrator-exam/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">2826</post-id>	</item>
+		<item>
+		<title>Using ChatGPT for the first time</title>
+		<link>https://johnmccormack.co.uk/2022/12/using-chatgpt-for-the-first-time/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=using-chatgpt-for-the-first-time</link>
+					<comments>https://johnmccormack.co.uk/2022/12/using-chatgpt-for-the-first-time/#respond</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Wed, 07 Dec 2022 20:23:33 +0000</pubDate>
+				<category><![CDATA[front-page]]></category>
+		<category><![CDATA[Guides]]></category>
+		<category><![CDATA[AI]]></category>
+		<category><![CDATA[AWS CLI]]></category>
+		<category><![CDATA[chatgpt]]></category>
+		<category><![CDATA[t-sql]]></category>
+		<guid isPermaLink="false">https://johnmccormack.it/?p=2810</guid>
+
+					<description><![CDATA[I played with ChatGPT for the first time today. For those who don&#8217;t know what ChatGPT is, I asked it and this was the response. ChatGPT is an open-source chatbot framework that enables developers to quickly create natural language understanding chatbots using the GPT-3 language model. https://beta.openai.com/playground If that still doesn&#8217;t make sense, I asked [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>I played with <a href="https://beta.openai.com/playground" target="_blank" rel="noreferrer noopener">ChatGPT </a>for the first time today. For those who don&#8217;t know what ChatGPT is, I asked it and this was the response.</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>ChatGPT is an open-source chatbot framework that enables developers to quickly create natural language understanding chatbots using the GPT-3 language model.</p><cite>https://beta.openai.com/playground</cite></blockquote>
+
+
+
+<p>If that still doesn&#8217;t make sense, I asked it to explain in a less technical style.</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>ChatGPT is a tool that makes it easy for developers to create chatbots that can understand and respond to natural language conversations.</p><cite>https://beta.openai.com/playground</cite></blockquote>
+
+
+
+<span id="more-2810"></span>
+
+
+
+<p>I asked a few technical questions and got some pretty plausible answers. When I went to test out the code, It did reveal some errors which showed me that this model is not accurate enough yet, however it gave me a huge headstart versus coding from scratch. I would say ChatGPT is helpful if you know roughly what you need and can troubleshoot syntax issues. If you have no clue about what you are asking for, I wouldn&#8217;t trust the output just yet.</p>
+
+
+
+<p>I&#8217;ll create separate blog posts in the coming days for how each response fared. This is the list of questions I asked:</p>
+
+
+
+<ul class="wp-block-list"><li><strong>Write the T-SQL to create SQL Server tables for Customers and SalesOrderHeader and SalesOrderDetail. Customers table should have an identity column, first name, last name, date of birth. I expect to have up to 1 million customers. SalesOrderHeader table can have many rows from SalesOrderDetail, SalesOrderDetails can only relate to one SalesOrderHeader. I expect to have 3 billion orders.</strong><ul><li>First impressions were it picked C: drive as location but I can forgive that since it doesn&#8217;t know my defaults.</li><li>It chose an INT for the sales tables; ID columns and I was really expecting a BIGINT. </li><li>The Sales tables were a bit light on detail but it set up foreign keys.</li></ul></li><li><strong>Write the T-SQL for a SQL Agent job to run Ola Hallengren&#8217;s backup procedures against all databases. System databases should be backed up in full daily. The user databases are called Sales, Finance and DBA. User Databases should be backed up in full on a Sunday, with daily differential backups, and t-log backups every 10 minutes except DBA which is in simple recovery so only needs full daily backups.</strong><ul><li>First run didn&#8217;t work due to <em><span class="has-inline-color has-vivid-red-color">The specified &#8216;@freq_subday_interval&#8217; is invalid.</span></em></li><li>When I fixed that, the schedules were still way off</li><li>It did recognise I needed different schedules for system and user databases but the script wasn&#8217;t right.  </li><li>This was the schedule to the transaction log backups: Occurs every 10 day(s) every 1 minute(s) between 00:00:00 and 23:59:59. Schedule will be used starting on 16/01/2020.</li></ul></li><li><strong>Write a script that will send an email alert via SNS if an AWS Athena table or view does not exist.</strong><ul><li>The command to check Athena didn&#8217;t work</li><li>The command to send the SNS message did</li><li>So this saved me a good bit of time, I only had to work out the AWS Athena CLI command.</li></ul></li><li><strong>Write an email pitch from a small SQL Server Consultancy to small business owners and CTOs</strong><ul><li>Not too bad and while I don&#8217;t send cold emails, it didn&#8217;t seem unreasonable. It could possibly convert to web copy.</li></ul></li></ul>
+
+
+
+<p>As I said, I&#8217;ll follow up with individual posts on each of the technical questions I asked but in the meantime, here is the response to me asking ChatGPT to:</p>
+
+
+
+<h4 class="wp-block-heading">&#8220;Write an email pitch from a small SQL Server Consultancy to small business owners and CTOs&#8221;</h4>
+
+
+
+<p>Subject: SQL Server Solutions to Enhance Your Business</p>
+
+
+
+<p>Dear [Name],</p>
+
+
+
+<p>As a small business owner or CTO, you know how important data is to the success of your organization. That’s why you need reliable, efficient, and secure solutions to store and manage your data.</p>
+
+
+
+<p>At [Your Company Name], we specialize in providing small businesses and organizations with the right SQL Server solutions to meet their needs. We understand the complexities of data management and can provide solutions that maximize performance and security.</p>
+
+
+
+<p>We can help you:</p>
+
+
+
+<p>• Design and implement a secure database infrastructure<br>• Optimize and develop database solutions<br>• Monitor and maintain database performance<br>• Troubleshoot database problems<br>• Implement data backup and recovery solutions<br>• Ensure data integrity</p>
+
+
+
+<p>Our team of experienced SQL Server consultants will work with you to determine the best solutions for your organization. We have the expertise and knowledge to ensure that your data is secure and your organization is operating at its peak efficiency.</p>
+
+
+
+<p>If you would like to learn more about how our SQL Server solutions can benefit your business, please contact us at [Your Company Contact].</p>
+
+
+
+<p>Sincerely,<br>[Your Name]<br>[Your Company Name]</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2022/12/using-chatgpt-for-the-first-time/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">2810</post-id>	</item>
+		<item>
+		<title>DataGrillen 2022 &#8211; Photos and notes</title>
+		<link>https://johnmccormack.co.uk/2022/06/datagrillen-2022-photos-and-notes/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=datagrillen-2022-photos-and-notes</link>
+					<comments>https://johnmccormack.co.uk/2022/06/datagrillen-2022-photos-and-notes/#respond</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Wed, 08 Jun 2022 16:31:27 +0000</pubDate>
+				<category><![CDATA[front-page]]></category>
+		<category><![CDATA[SQL Server]]></category>
+		<category><![CDATA[Training]]></category>
+		<category><![CDATA[data grillen]]></category>
+		<category><![CDATA[datagrillen]]></category>
+		<category><![CDATA[kivelingsfest]]></category>
+		<guid isPermaLink="false">https://johnmccormack.it/?p=2757</guid>
+
+					<description><![CDATA[I&#8217;m just back from DataGrillen 2022. As ever, I wanted to put together a short post and use the opportunity to share some things I learned, and share some photos of the event. First of all, thanks for such a hospitable welcome from William Durkin and Ben Weissman and congratulations for hosting a very successful [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>I&#8217;m just back from DataGrillen 2022. As ever, I wanted to put together a short post and use the opportunity to share some things I learned, and share some photos of the event. First of all, thanks for such a hospitable welcome from William Durkin and Ben Weissman and congratulations for hosting a very successful event. </p>
+
+
+
+<p>On top of everything else that goes into planning a complex event like this, they also had an added responsibility this time to keep people free of covid as far as was reasonably possible. This meant mandatory testing, vaccine passports and masking wearing (inside only). It was a small price to pay after two years of online conferences only.</p>
+
+
+
+<p>The barbecue event was on the middle night after the sessions. There was a great choice of food and everything was cooked really well, and of course there were complimentary beers to wash it down.</p>
+
+
+
+<p>Following on from the main event which comprised of two days of technical sessions, the host town of Lingen was celebrating the historic <a href="https://www.kivelinge.de/aktuelles/civis_civis_civibus.html" target="_blank" rel="noreferrer noopener">Kivelingsfest</a>, a medieval festival dating back hundreds of years. As a result, many of the conference attendees stayed on an extra day to attend the festival which was great fun.</p>
+
+
+
+<p>It was home on Sunday but not before we got the chance to celebrate André Kamman&#8217;s by taking a boat trip along Amsterdam&#8217;s canals.</p>
+
+
+
+<h2 class="wp-block-heading">Datagrillen 2022 photos</h2>
+
+
+
+<figure class="wp-block-gallery columns-3 is-cropped wp-block-gallery-2 is-layout-flex wp-block-gallery-is-layout-flex"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="768" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG-2419-1024x768.jpg" alt="DataGrillen 2022 Keynote slide" data-id="2761" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG-2419-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2761" class="wp-image-2761" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG-2419-1024x768.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG-2419-300x225.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG-2419-768x576.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG-2419-1536x1152.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG-2419-2048x1536.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="768" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2424-1024x768.jpg" alt="Andrew Pruski DeepDive into Docker presentation" data-id="2765" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2424-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2765" class="wp-image-2765" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2424-1024x768.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2424-300x225.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2424-768x576.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2424-1536x1152.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2424-2048x1536.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="768" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2444-1-1024x768.jpg" alt="Jess and Sander presenting" data-id="2774" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2444-1-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2774" class="wp-image-2774" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2444-1-1024x768.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2444-1-300x225.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2444-1-768x576.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2444-1-1536x1152.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2444-1-2048x1536.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="768" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2435-1024x768.jpg" alt="Argenis talks about ransonware" data-id="2769" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2435-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2769" class="wp-image-2769" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2435-1024x768.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2435-300x225.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2435-768x576.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2435-1536x1152.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2435-2048x1536.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="768" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2432-1024x768.jpg" alt="Monica Rathbaun talks Azure SQL DB performance" data-id="2767" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2432-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2767" class="wp-image-2767" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2432-1024x768.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2432-300x225.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2432-768x576.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2432-1536x1152.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2432-2048x1536.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="768" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2423-1024x768.jpg" alt="John Martin speaks to the room" data-id="2764" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2423-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2764" class="wp-image-2764" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2423-1024x768.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2423-300x225.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2423-768x576.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2423-1536x1152.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2423-2048x1536.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="473" height="1024" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2449-473x1024.jpg" alt="The Data Dance Teacher Robert French" data-id="2770" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2449.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2770" class="wp-image-2770" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2449-473x1024.jpg 473w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2449-139x300.jpg 139w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2449-768x1663.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2449-709x1536.jpg 709w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2449-946x2048.jpg 946w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2449.jpg 1125w" sizes="auto, (max-width: 473px) 100vw, 473px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="768" height="1024" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2434-768x1024.jpg" alt="Beer in the final session of the day" data-id="2768" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2434-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2768" class="wp-image-2768" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2434-768x1024.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2434-225x300.jpg 225w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2434-1152x1536.jpg 1152w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2434-1536x2048.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2434-scaled.jpg 1920w" sizes="auto, (max-width: 768px) 100vw, 768px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="695" height="616" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/DataGrillen-Dinner.png" alt="Barbecue food" data-id="2775" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/DataGrillen-Dinner.png" data-link="https://johnmccormack.co.uk/?attachment_id=2775" class="wp-image-2775" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/DataGrillen-Dinner.png 695w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/DataGrillen-Dinner-300x266.png 300w" sizes="auto, (max-width: 695px) 100vw, 695px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="768" height="1024" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2416-768x1024.jpg" alt="Glass of beer" data-id="2763" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2416-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2763" class="wp-image-2763" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2416-768x1024.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2416-225x300.jpg 225w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2416-1152x1536.jpg 1152w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2416-1536x2048.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2416-scaled.jpg 1920w" sizes="auto, (max-width: 768px) 100vw, 768px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="768" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2509-1024x768.jpg" alt="kivelingsfest fun" data-id="2772" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2509-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2772" class="wp-image-2772" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2509-1024x768.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2509-300x225.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2509-768x576.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2509-1536x1152.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2509-2048x1536.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="767" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-1024x767.png" alt="Amsterdam canal boat" data-id="2776" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat.png" data-link="https://johnmccormack.co.uk/?attachment_id=2776" class="wp-image-2776" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-1024x767.png 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-300x225.png 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-768x576.png 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat.png 1237w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="729" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-2-1024x729.png" alt="Amsterdam canal boat with large greenhouse in background" data-id="2777" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-2.png" data-link="https://johnmccormack.co.uk/?attachment_id=2777" class="wp-image-2777" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-2-1024x729.png 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-2-300x214.png 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-2-768x547.png 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/Andres-party-boat-2.png 1234w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" decoding="async" width="1024" height="768" src="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2516-1024x768.jpg" alt="Fire at Kivelingfest Lingen" data-id="2759" data-full-url="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2516-scaled.jpg" data-link="https://johnmccormack.co.uk/?attachment_id=2759" class="wp-image-2759" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2516-1024x768.jpg 1024w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2516-300x225.jpg 300w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2516-768x576.jpg 768w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2516-1536x1152.jpg 1536w, https://johnmccormack.co.uk/wp-content/uploads/2022/06/IMG_2516-2048x1536.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure></li></ul></figure>
+
+
+
+<h2 class="wp-block-heading">DataGrillen 2022 Sessions</h2>
+
+
+
+<p>These are the sessions I attended. I tried to fit in as much as possible from the two day event.</p>
+
+
+
+<p><strong>John Martin &#8211; Performing successful cloud migrations &#8211; Chalk &amp; talk</strong></p>
+
+
+
+<p>It was a very informal delivery by John who guided us through a timeline and the phases of a successful cloud migration. It was a cloud agnostic session so the key information could be used with any major cloud provider.</p>
+
+
+
+<p><strong>Andrew Pruski &#8211; A deep dive into Docker</strong></p>
+
+
+
+<p>I wanted to attend this as I haven&#8217;t used Docker a great deal and I wanted to learn more. Andrew provided a great overview and worked through some very well prepared demos. I am keen to try to follow these up by visiting his github repo for the content.</p>
+
+
+
+<p><strong>Gianluca Sartori &#8211; Time Series for relational people</strong></p>
+
+
+
+<p>Gianluca gave a great overview of the differences between relational and time series databases and went on to review a few. He settled on influxdb and demonstrated in detail how it could be used along with Grafana and Telegraf agent (TIG stack) to provide really useful metrics. I do use the TIG stack in my work but I learned about some great settings for dealing with or discarding older data that I plan to take forward.</p>
+
+
+
+<p><strong>Monica Rathbun &#8211; Performance tuning Azure SQL Database</strong></p>
+
+
+
+<p>This session was packed to the rafters and extremely hot, yet Monica&#8217;s enthusiastic and engaging style made it so easy to stay focused on the message. The message was delivered well and easy to understand. I took away some key information here regarding query store and readable secondary databases. Overall, it was my favourite session of DataGrillen 2022.</p>
+
+
+
+<p><strong>Argenis Fernandez &#8211; Ransomware sucks. Beef up your databases against it.</strong></p>
+
+
+
+<p>This had to be close contender for my top session. Argenis knew what he was talking about and it showed. He gave very good advice and I have returned home with a checklist that I will need to turn into an action plan.</p>
+
+
+
+<p><strong>André Kamman &#8211; Looking under the hood of the parquet format</strong></p>
+
+
+
+<p>I&#8217;m familiar with parquet as I use AWS Athena a lot however I&#8217;ve never really looked under the hood. I honestly expected this session to be a bit above me but André&#8217;s communication style&nbsp;made it very accessible for attendees of all knowledge levels and easy to follow along.</p>
+
+
+
+<p><strong>Jess Pomfret and Sander Stad &#8211; Deploying Azure Resources with PowerShell Azure Functions</strong></p>
+
+
+
+<p>Jess and I were fellow newcomers at Data Grillen in 2019. I always enjoy her sessions so this was not to be missed. It was my first time seeing Sander and the two presenters worked well to deliver this session. I left convinced that I need to change at least one part of my automation routine to include Azure functions, so I will hopefully be checking them out this week. (If time allows, the trouble with conferences is you return home with SO many ideas)</p>
+
+
+
+<p><strong>Heini Ilmarinen &#8211; Less Clicking, More Coding! Azure Data Platform Development Using Infrastructure as Code</strong></p>
+
+
+
+<p>I&#8217;ve dipped my toe into Terraform but I&#8217;ve used BICEP and Cloud formation a bit more. After Heini&#8217;s session, I get the benefits of Terraform and I&#8217;ve added it to my ever increasing list of things to review. A great session in which Heini did well to keep us engaged all the way through.</p>
+
+
+
+<p><strong>Robert French &#8211; Goldilocks and the three business bears; story telling for business</strong></p>
+
+
+
+<p>This was the last session of a very busy two days. They broke the mould when they made Robert&nbsp;and as expected, his session also broke the mould. Robert delivered the session with unmatchable energy, kind of at a blistering pace but the pace was just right at the same time. He got through a huge amount of visual aids. He gave great advice on where you eyes are drawn to in report, how to make key data <strong>pop out</strong> and how to usual <span class="has-inline-color has-luminous-vivid-orange-color">colours</span> and fonts carefully.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2022/06/datagrillen-2022-photos-and-notes/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">2757</post-id>	</item>
+		<item>
+		<title>Free space in SQL server filegroups query</title>
+		<link>https://johnmccormack.co.uk/2022/03/free-space-in-sql-server-filegroups-query/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=free-space-in-sql-server-filegroups-query</link>
+					<comments>https://johnmccormack.co.uk/2022/03/free-space-in-sql-server-filegroups-query/#comments</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Fri, 25 Mar 2022 11:41:27 +0000</pubDate>
+				<category><![CDATA[front-page]]></category>
+		<category><![CDATA[T-SQL]]></category>
+		<category><![CDATA[data file]]></category>
+		<category><![CDATA[filegroup]]></category>
+		<category><![CDATA[SQL server]]></category>
+		<guid isPermaLink="false">https://johnmccormack.it/?p=2741</guid>
+
+					<description><![CDATA[I just realised that in all my scripts that I use on a regular basis, I didn&#8217;t have one for working out free space in SQL Server filegroups. It&#8217;s not something that comes up too often but it&#8217;s handy to know. For methods of working out space in individual files, you could refer to this [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>I just realised that in all my scripts that I use on a regular basis, I didn&#8217;t have one for working out free space in SQL Server filegroups. It&#8217;s not something that comes up too often but it&#8217;s handy to know. For methods of working out space in individual files, you could refer to this <a href="https://www.mssqltips.com/sqlservertip/1805/different-ways-to-determine-free-space-for-sql-server-databases-and-database-files/" target="_blank" rel="noreferrer noopener">post</a> on mssqltips.</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="sql" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">-- Free space by filegroup
+SELECT
+FILEGROUP_NAME(data_space_id) as FilegroupName,
+SUM(size/128.0) AS CurrentSizeMB, 
+SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS INT)/128.0) AS FreeSpaceMB,
+(
+	SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS INT)/128.0) / -- FreeSpaceMB
+	(SUM(size/128.0))  -- CurrentSizeMB
+	* 100 -- Convert to percentage
+) AS FilegroupPercentFree,
+COUNT(*) as NumberOfFilesInFilegroup
+FROM sys.database_files
+WHERE data_space_id &lt;> 0
+GROUP BY FILEGROUP_NAME(data_space_id);</pre>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="340" height="230" src="https://johnmccormack.co.uk/wp-content/uploads/2022/03/filegroups.png" alt="colourful box files" class="wp-image-2747" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/03/filegroups.png 340w, https://johnmccormack.co.uk/wp-content/uploads/2022/03/filegroups-300x203.png 300w" sizes="auto, (max-width: 340px) 100vw, 340px" /></figure>
+
+
+
+<h2 class="wp-block-heading">POST #100</h2>
+
+
+
+<p>I just realised as well that this is post #100 on my blog. I started it just to save some of my queries and ideas. <a href="https://johnmccormack.co.uk/2014/07/check-percentage-complete-of-transaction/" target="_blank" rel="noreferrer noopener">Post #1</a> was a really simple query but it got me going.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2022/03/free-space-in-sql-server-filegroups-query/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">2741</post-id>	</item>
+		<item>
+		<title>Falling back in love with Data Community events</title>
+		<link>https://johnmccormack.co.uk/2022/03/falling-back-in-love-with-data-community-events/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=falling-back-in-love-with-data-community-events</link>
+					<comments>https://johnmccormack.co.uk/2022/03/falling-back-in-love-with-data-community-events/#respond</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Mon, 14 Mar 2022 18:20:30 +0000</pubDate>
+				<category><![CDATA[front-page]]></category>
+		<category><![CDATA[SQL Server]]></category>
+		<category><![CDATA[community]]></category>
+		<category><![CDATA[data community]]></category>
+		<category><![CDATA[sqlbits]]></category>
+		<guid isPermaLink="false">https://johnmccormack.it/?p=2716</guid>
+
+					<description><![CDATA[Data Community Events Last week, I had hoped to go to SQLBits conference in London but a variety of factors meant I could really only attend the Saturday morning sessions (and virtually at that). I&#8217;ve really missed Data Community Events like SQLBits and others. I wanted to go because I&#8217;ve been slightly disengaged from the [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<h4 class="wp-block-heading">Data Community Events</h4>
+
+
+
+<div class="wp-block-image"><figure class="alignright size-large"><img loading="lazy" decoding="async" width="340" height="230" src="https://johnmccormack.co.uk/wp-content/uploads/2022/03/data-community-events.png" alt="people enjoying data community events" class="wp-image-2724" srcset="https://johnmccormack.co.uk/wp-content/uploads/2022/03/data-community-events.png 340w, https://johnmccormack.co.uk/wp-content/uploads/2022/03/data-community-events-300x203.png 300w" sizes="auto, (max-width: 340px) 100vw, 340px" /></figure></div>
+
+
+
+<p>Last week, I had hoped to go to <a href="https://sqlbits.com/" target="_blank" rel="noreferrer noopener">SQLBits</a> conference in London but a variety of factors meant I could really only attend the Saturday morning sessions (and virtually at that). I&#8217;ve really missed Data Community Events like SQLBits and others.</p>
+
+
+
+<p>I wanted to go because I&#8217;ve been slightly disengaged from the data community for a year or so, probably due a combination of factors such as lockdowns, zoom fatigue and a few speaking knock backs in the last year which dented my confidence a bit. However I wanted to at least attend SQLBits in part, in the hope it would inspire me and kick start some new blogging and possibly presenting opportunities. I&#8217;ve had some great times attending and presenting at data community events in the past such as at <strong><a href="https://johnmccormack.co.uk/2019/06/you-can-run-sql-server-on-aws/#jp-carousel-1107" target="_blank" rel="noreferrer noopener">DataGrillen</a>, <a href="https://johnmccormack.co.uk/2019/09/data-scotland-2019-presentation/" target="_blank" rel="noreferrer noopener">DataScotland</a></strong>, and <a href="https://www.youtube.com/watch?v=wYw2n4HvE5A" target="_blank" rel="noreferrer noopener"><strong>SQLBits</strong> </a>and I knew it would be worth the effort to get back into the swing of things.</p>
+
+
+
+<h4 class="wp-block-heading">Just attend some sessions and take it from there</h4>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p><strong>Attending sessions where you know little or nothing of the subject matter can be extremely rewarding.</strong></p></blockquote>
+
+
+
+<p>I&#8217;m glad I did. The sessions I attended were all extremely enlightening and I enjoyed following along. One thing that immediately came back to me is that attending sessions where you know little or nothing of the subject matter can be extremely rewarding. These sessions serve to keep you informed of the overall technology trends and who is doing what. For example, I won&#8217;t have much opportunity to use Azure Arc in the near future but it&#8217;s been around long enough that I can&#8217;t ignore it completely. Attending Ben Weissman&#8217;s 20 minute taster session was just enough and it gave me some ideas about how it could be used in co-ordination with our on premises environment. I also really enjoyed learning about the developments to SQL Managed Instance since I last used them over a year ago. Some of the improvements released during the previous 12 months could actually make it a far more viable product for my company.</p>
+
+
+
+<h4 class="wp-block-heading">Keep it going</h4>
+
+
+
+<p>Thursday night  (17th March 2022) sees the the latest meeting of the <a href="https://www.meetup.com/glasgow-data-user-group/events/283444123" target="_blank" rel="noreferrer noopener">Glasgow Data User Group</a>. I will make a point of attending, even although the speaker is discussing ETL in the cloud which is not a big area of professional interest for me, I know I will learn something and I hope it will entertaining as well as informative. Plus it will be good to see some old faces, albeit we are still remote.</p>
+
+
+
+<h4 class="wp-block-heading">12 blog posts</h4>
+
+
+
+<p>I committed to 12 blog posts this year, this one can serve as #1 and it gets me started. Hopefully by attending many other events, I can find the inspiration needed to get back to creating my own content and keeping up with developments in the data community. As well as keeping up with old friends.</p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2022/03/falling-back-in-love-with-data-community-events/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">2716</post-id>	</item>
+		<item>
+		<title>T-SQL Tuesday #143 Wrap Up</title>
+		<link>https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-wrap-up/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=t-sql-tuesday-143-wrap-up</link>
+					<comments>https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-wrap-up/#comments</comments>
+		
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Tue, 19 Oct 2021 17:04:13 +0000</pubDate>
+				<category><![CDATA[front-page]]></category>
+		<category><![CDATA[T-SQL Tuesday]]></category>
+		<category><![CDATA[powershell]]></category>
+		<category><![CDATA[python]]></category>
+		<category><![CDATA[t-sql]]></category>
+		<category><![CDATA[t-sql tuesday]]></category>
+		<guid isPermaLink="false">https://johnmccormack.it/?p=2681</guid>
+
+					<description><![CDATA[What an honour it was to host T-SQL Tuesday this month and I received some really great submissions. This wrap up post aims to give a quick insight into each of them in the hope that more members of the SQL Family can find some time to click on them and learn more. I counted 22 [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<div class="wp-block-image"><figure class="alignright size-large"><img loading="lazy" decoding="async" width="150" height="150" src="https://johnmccormack.co.uk/wp-content/uploads/2018/01/tsqltuesday.jpg" alt="t-sql tuesday logo" class="wp-image-768"/></figure></div>
+
+
+
+<p>What an honour it was to host T-SQL Tuesday this month and I received some really great submissions. This wrap up post aims to give a quick insight into each of them in the hope that more members of the SQL Family can find some time to click on them and learn more. I counted 22 posts including my own which was a great response. If you missed the original invite, you can find the link below.</p>
+
+
+
+<figure class="wp-block-embed is-type-wp-embed is-provider-john-mccormack-dba wp-block-embed-john-mccormack-dba"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="nQp72mR9RE"><a href="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/">T-SQL Tuesday #143 &#8211; Short code examples</a></blockquote><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted"  title="&#8220;T-SQL Tuesday #143 &#8211; Short code examples&#8221; &#8212; John McCormack DBA" src="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/embed/#?secret=HN91dnVZTJ#?secret=nQp72mR9RE" data-secret="nQp72mR9RE" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<p>I learned so much by hosting this and made sure I gave due care to reading every post. It was also a lot of fun and allowed me to interact with people in the community that I haven&#8217;t met before. If you haven&#8217;t hosted T-SQL Tuesday before, please contact <a href="https://twitter.com/way0utwest" target="_blank" rel="noreferrer noopener">Steve Jones</a> as we are always looking for new hosts.</p>
+
+
+
+<h4 class="wp-block-heading">Wrap Up</h4>
+
+
+
+<p><strong>Rob Farley</strong> &#8211; Short and to the point like I asked for, Rob details a quick way to find objects. And he was happy to clear up for the reader that I didn&#8217;t mean GOTO as in the old BASIC syntax you could run on your commodore 64. (For me it was an Amstrad CPC464)<br><a href="http://blogs.lobsterpot.com.au/2021/10/12/go-to-scripts/" target="_blank" rel="noreferrer noopener">http://blogs.lobsterpot.com.au/2021/10/12/go-to-scripts/</a></p>
+
+
+
+<p><strong>Koen Verbeek</strong> &#8211; Koen shows us numbers tables, tally tables and a dates table. These are really useful constructs for allowing your queries to go &#8220;set based&#8221;. Essential reading for anyone who cares about performance. <a href="https://sqlkover.com/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://sqlkover.com/t-sql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p><strong>Aaron Bertrand</strong> &#8211; Aaron shows us how he <em>&#8220;bulletproofs&#8221;</em> his answers for dba.stackexchange and Stack Overflow. db&lt;>fiddle was new to me. I love some of Aaron&#8217;s demo database names like [master (Restoring&#8230;)]. I ran the create command on my test instance and had to drop the DB right away as it was giving me the chills.<br><a href="https://sqlblog.org/2021/10/12/t-sql-tuesday-143-worst-metadata" target="_blank" rel="noreferrer noopener">https://sqlblog.org/2021/10/12/t-sql-tuesday-143-worst-metadata</a></p>
+
+
+
+<p><strong>Deborah Melkin &#8211; </strong>Deborah shows us a really useful debugging trick when creating stored procedures that use dynamic sql. Many of us have been lost in dynamic sql at some point, and this snippet is great at helping you see where you are.<br><a href="https://debthedba.wordpress.com/2021/10/12/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://debthedba.wordpress.com/2021/10/12/t-sql-tuesday-143-short-code-examples/ </a></p>
+
+
+
+<p><strong>Kenneth Fisher &#8211;</strong> Kenneth shares a compendium of previous posts which all require some serious reading. My favourite was &#8220;all jobs that ran during a given time frame&#8221;<br><a href="https://sqlstudies.com/2021/10/12/code-examples-t-sql-tuesday-143/" target="_blank" rel="noreferrer noopener">https://sqlstudies.com/2021/10/12/code-examples-t-sql-tuesday-143/</a></p>
+
+
+
+<p><strong>Jeff Hill &#8211;</strong> Jeff shared 4 great PowerShell snippets. True to this month&#8217;s request, they are short and incredibly useful. Want to know what version of Windows you are running on your Server or when it was last rebooted, look no further.<br><a href="https://sqladm.in/posts/tsql-tuesday-143/" target="_blank" rel="noreferrer noopener">https://sqladm.in/posts/tsql-tuesday-143/</a></p>
+
+
+
+<p><strong>Chad Baldwin &#8211;</strong> Chad is a newcomer to T-SQL Tuesday and chipped in with a stellar first post. I must admit, I&#8217;ve never given much thought to how to format a result set as I&#8217;ll usually do it in the client, but when you need to; it is possible as Chad shows. But that&#8217;s only the start. There&#8217;s too much to discuss in this digest as he also covers tally tables, random numbers and overcoming the divide by 0 problem. Did I mention he also covers docker, monitoring/filtering log files and setting aliases. Cap doffed.<br><a href="https://chadbaldwin.net/2021/10/12/tsql-tuesday-short-code.html" target="_blank" rel="noreferrer noopener">https://chadbaldwin.net/2021/10/12/tsql-tuesday-short-code.html</a></p>
+
+
+
+<p><strong>Andy Yun &#8211;</strong> Random numbers, random delays (I wonder if Scotrail use this script) and random strings. Thanks Andy for a great post. There are great scripts on their own and for building into more complex ones.<br><a href="https://sqlbek.wordpress.com/2021/10/12/t-sql-tuesday-143-random-fun/" target="_blank" rel="noreferrer noopener">https://sqlbek.wordpress.com/2021/10/12/t-sql-tuesday-143-random-fun/</a></p>
+
+
+
+<p><strong>Kevin Chant &#8211;</strong> Kevin discusses just how to get the most out Glenn Berry&#8217;s diagnostic scripts, specifically in relation to missing indexes. He also shows a create table syntax and highlights how effective it has been for him in his training sessions around Dev Ops.<br><a href="https://www.kevinrchant.com/2021/10/12/t-sql-tuesday-143-two-of-my-personal-go-to-scripts/" target="_blank" rel="noreferrer noopener">https://www.kevinrchant.com/2021/10/12/t-sql-tuesday-143-two-of-my-personal-go-to-scripts/</a></p>
+
+
+
+<p><strong>Andy Mallon &#8211;</strong> Andy stores all of his useful scripts in a DBA database. It&#8217;s a popular approach and I was hoping someone would mention this. Andy goes beyond this though and has converted a lot of scripts into Stored Procedures. Whilst having a local scripts folder is great; if you can put your code into a stored procedure in a database which you deploy to all the servers you manage, there is no need to panic and find the scripts when the pressure is on. I must admit I love this approach and I&#8217;ll be downloading Andy&#8217;s database to look further into it.<br><a href="https://am2.co/2021/10/t-sql-tuesday-143-my-favorite-short-scripts/" target="_blank" rel="noreferrer noopener">https://am2.co/2021/10/t-sql-tuesday-143-my-favorite-short-scripts/</a></p>
+
+
+
+<p><strong>Jason Brimhall &#8211;</strong> Jason talks about all things endpoints here and I found the code examples so handy. I&#8217;ve already used them. Not only can you use them to validate your endpoints, but you can also use them to fix some issues as well. On a personal note, just what I needed.<br><a href="https://bit.ly/3lAOMmF">http</a><a href="https://bit.ly/3lAOMmF" target="_blank" rel="noreferrer noopener">s</a><a href="https://bit.ly/3lAOMmF">://bit.ly/3lAOMmF</a></p>
+
+
+
+<p><strong>Tom Zika &#8211;</strong> Tom shares loads of useful snippets including regex and t-sql. Wow &#8211; one regex snippet shows us how to find table variable declarations and turn them into temp tables. <em>You could make a killing selling this one trick to consultants.</em> Tom also shares a mega handy way to check permissions using impersonation as well as a great method to find referencing objects.<br><a href="https://straightforwardsql.com/posts/short-code-examples/" target="_blank" rel="noreferrer noopener">https://straightforwardsql.com/posts/short-code-examples/</a></p>
+
+
+
+<p><strong>Mikey Bronowski &#8211;</strong> Mikey shows us a handy way to execute multiple queries including dynamic ones and also tells us about agent_datetime() function. I have to admit I&#8217;ve never used that function but it looks so useful for when you are interrogating those msdb agent job tables. I will definitely be adding it my list. Finally, he shares a useful query for pulling back table data with his added enhancement (however a nice little plug for DBATools hints he now has a better way of approaching this).<br><a href="https://bronowski.it/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://bronowski.it/t-sql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p><strong>Todd Kleinhans &#8211;</strong> Todd focuses on Python and he is the only person to do so. I won&#8217;t give away his one liner but it&#8217;s just the sort of thing I was looking for. Are you feeling Zen?<br><a href="https://toddkleinhans.wordpress.com/2021/10/12/t-sql-tuesday-143-import-this/" target="_blank" rel="noreferrer noopener">https://toddkleinhans.wordpress.com/2021/10/12/t-sql-tuesday-143-import-this/</a></p>
+
+
+
+<p><strong>Mala Mahadevan &#8211;</strong> Mala shares some top class queries for interrogating query store. Query store has so much useful data that knowing how to get started querying it will be a big win for some.<br><a href="https://curiousaboutdata.com/2021/10/12/tsql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://curiousaboutdata.com/2021/10/12/tsql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p><strong>Chad Callihan &#8211;</strong> Chad mentioned 3 handy t-sql snippets and then shared a gem for keeping Brent Ozar&#8217;s First Responder Kit up to date. (Hint he uses DBATools). DBATools and FRK are amongst the most essential free tools for any DBA and beyond. If you run anything like sp_blitz or sp_blitzcache, it&#8217;s worth keeping it up to date and this method shows how to do it in only a few lines of code.<br><a href="https://callihandata.com/2021/10/12/t-sql-tuesday-143-handy-short-scripts/" target="_blank" rel="noreferrer noopener">https://callihandata.com/2021/10/12/t-sql-tuesday-143-handy-short-scripts/</a></p>
+
+
+
+<p><strong>Deepthi Goguri &#8211;</strong> Deepthi shares some of the best of the rest by highlighting some of her favourite community scripts. From help with migrations to troubleshooting replication, it just goes to show that there&#8217;s no need to reinvent the wheel when there&#8217;s a perfectly good script out there that meets your needs.<br><a href="https://dbanuggets.com/2021/10/12/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://dbanuggets.com/2021/10/12/t-sql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p><strong>Steve Jones &#8211;</strong> Did you know that you could get a tally table with just 4 key strokes? Steve shows you how, leveraging on the power of SQL Prompt by Redgate. This is taking snippets to a new level.<br><a href="https://voiceofthedba.com/2021/10/13/t-sql-tuesday-143-short-code/" target="_blank" rel="noreferrer noopener">https://voiceofthedba.com/2021/10/13/t-sql-tuesday-143-short-code/</a></p>
+
+
+
+<p><strong>Jess Pomfret &#8211;</strong> Aloha to Jess who squeezes her entry in on time due to the Hawaiian time loophole. Want to find out if certain accounts are local admins on remote servers? Jess shares a quick and efficient method for finding this out. Being Jess, of course she is using PowerShell to make her life easier. I for one will be stealing this.<br><a href="https://jesspomfret.com/t-sql-tuesday-143/" target="_blank" rel="noreferrer noopener">https://jesspomfret.com/t-sql-tuesday-143/</a></p>
+
+
+
+<p><strong>Eitan Blumin &#8211;</strong> Eitan takes the opportunity to link to some of his past blog posts which are full of useful code however he doesn&#8217;t stop there. With a new entry for T-SQL Tuesday, Eitan shows us how to move database files to a new location in Always On Availability Groups without breaking HADR. Ok at 374 lines, it&#8217;s a bit more than a snippet but it&#8217;s really great code so we&#8217;ll let that one slide.<br><a href="https://eitanblumin.com/2021/10/13/t-sql-tuesday-143-powershell-move-db-files-alwayson-availability-groups/" target="_blank" rel="noreferrer noopener">https://eitanblumin.com/2021/10/13/t-sql-tuesday-143-powershell-move-db-files-alwayson-availability-groups/</a></p>
+
+
+
+<p><strong>Shane O&#8217;Neill &#8211;</strong> Shane also mentions agent_datetime(). It&#8217;s a cool function for converting the very user unfriendly ms format that we see in msdb tables. Shane points out it might not be the most efficient function however when you don&#8217;t have much data to bring back, it&#8217;s much quicker than rewriting the thing. Shane being Shane (Big Powershell fan) also points out a few great PowerShell commands for formatting and sorting and shows how they can be used in conjunction with other commands that yield really useful results.<br><a href="https://nocolumnname.blog/2021/10/12/t-sql-tuesday-143-short-code-examples/" target="_blank" rel="noreferrer noopener">https://nocolumnname.blog/2021/10/12/t-sql-tuesday-143-short-code-examples/</a></p>
+
+
+
+<p>P.S. I&#8217;ve taken every bit of care to check my comments and on twitter but if I have missed your post, please let me know and I&#8217;ll include it immediately.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-wrap-up/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">2681</post-id>	</item>
+	</channel>
+</rss>

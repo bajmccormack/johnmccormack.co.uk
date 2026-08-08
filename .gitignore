@@ -1,0 +1,13 @@
+# Build artefacts produced by tools/ — the finished site lives at the repo root,
+# so these are only ever intermediates from a re-capture.
+raw/
+site/
+crawl-state.json
+assets-state.json
+
+# Local preview / scratch
+shots/
+cmp/
+__pycache__/
+*.pyc
+.DS_Store

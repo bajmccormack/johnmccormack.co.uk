@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head >
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v22.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Index maintenance using Ola Hallengren&#039;s scripts - John McCormack DBA</title>
+	<link rel="canonical" href="https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Index maintenance using Ola Hallengren&#039;s scripts - John McCormack DBA" />
+	<meta property="og:description" content="Having recently set up Index maintenance using Ola Hallengren&#8217;s scripts on a range of my company&#8217;s production servers, I wanted to write about the steps involved including some custom steps to ensure the overall health of the SQL Server database. The aim of this blog post is to be not too technical, I don&#8217;t cover what [&hellip;]" />
+	<meta property="og:url" content="https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/" />
+	<meta property="og:site_name" content="John McCormack DBA" />
+	<meta property="article:published_time" content="2015-07-17T14:35:51+00:00" />
+	<meta name="author" content="John McCormack" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="John McCormack" />
+	<meta name="twitter:label2" content="Estimated reading time" />
+	<meta name="twitter:data2" content="14 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/","url":"https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/","name":"Index maintenance using Ola Hallengren's scripts - John McCormack DBA","isPartOf":{"@id":"https://johnmccormack.co.uk/#website"},"primaryImageOfPage":{"@id":"https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/#primaryimage"},"image":{"@id":"https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/#primaryimage"},"thumbnailUrl":"","datePublished":"2015-07-17T14:35:51+00:00","dateModified":"2015-07-17T14:35:51+00:00","author":{"@id":"https://johnmccormack.co.uk/#/schema/person/5f055d581bbcff71088021e649bbee00"},"inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/"]}]},{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/#primaryimage","url":"","contentUrl":""},{"@type":"WebSite","@id":"https://johnmccormack.co.uk/#website","url":"https://johnmccormack.co.uk/","name":"John McCormack DBA","description":"SQL Server Databases and Cloud","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://johnmccormack.co.uk/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"},{"@type":"Person","@id":"https://johnmccormack.co.uk/#/schema/person/5f055d581bbcff71088021e649bbee00","name":"John McCormack","image":{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://johnmccormack.co.uk/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571?s=96&d=mm&r=g","caption":"John McCormack"},"description":"John McCormack is an experienced SQL DBA with extensive knowledge of the two largest public clouds: AWS and Azure.","sameAs":["https://johnmccormack.it","https://www.linkedin.com/in/johnmccormackdba/"],"url":"https://johnmccormack.co.uk/author/jmccorma/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='/assets/fonts/google-fonts.css' />
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; Feed" href="/feed/index.xml" />
+
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; Index maintenance using Ola Hallengren&#8217;s scripts Comments Feed" href="/feed/index.xml" />
+
+
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v10.1.3 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+		<!-- Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel. -->
+					<!-- No tracking code set -->
+				<!-- / Google Analytics by MonsterInsights -->
+		<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='modern-portfolio-pro-theme-css' href='/wp-content/themes/modern-portfolio-pro/style.css' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='wp-block-library-inline-css' type='text/css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='animate-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-quiz-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/wp-quiz.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='/wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css' href='/assets/fonts/google-fonts.css' type='text/css' media='all' />
+<link rel='stylesheet' id='enlighterjs-css' href='/wp-content/plugins/enlighter/cache/enlighterjs.min.css' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="/wp-content/themes/modern-portfolio-pro/js/responsive-menu.js" id="mpp-responsive-menu-js"></script>
+
+<meta name="generator" content="WordPress 6.9.6" />
+
+
+<style type="text/css">.site-title a { background: url(/wp-content/uploads/2016/09/cropped-JohnMcCormack-295x90.png) no-repeat !important; }</style>
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-32x32.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/2016/09/cropped-JM-180x180.png" />
+<meta name="msapplication-TileImage" content="https://johnmccormack.co.uk/wp-content/uploads/2016/09/cropped-JM-270x270.png" />
+</head>
+<body class="wp-singular post-template-default single single-post postid-52 single-format-standard wp-theme-genesis wp-child-theme-modern-portfolio-pro custom-header header-image full-width-content genesis-breadcrumbs-hidden genesis-footer-widgets-hidden"><div class="site-container"><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="/">John McCormack DBA</a></p><p class="site-description">SQL Server Databases and Cloud</p></div><div class="widget-area header-widget-area"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><nav class="nav-header"><ul id="menu-menu" class="menu genesis-nav-menu"><li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-285"><a href="/category/personal/"><span >Personal</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-496"><a href="/2026/05/who-is-john-mccormack/"><span >About</span></a></li>
+</ul>
+</li>
+<li id="menu-item-1653" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1653"><a href="/2020/07/sql-server-on-amazon-rds/"><span >Free Training</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1652" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1652"><a href="/2020/07/sql-server-on-amazon-rds/"><span >SQL Server on Amazon RDS (Free Course)</span></a></li>
+	<li id="menu-item-2486" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2486"><a href="/2021/01/free-practice-questions-to-help-you-pass-dp-900/"><span >Free practice questions to help you pass DP-900</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2339" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2339"><a href="/2021/01/7-ways-for-data-teams-to-save-money-in-azure/"><span >Save money in Azure</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2343" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2343"><a href="/2021/01/azure-iaas-sql-backups-stop-burning-money/"><span >Azure IaaS SQL Backups – Stop burning money</span></a></li>
+	<li id="menu-item-2342" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2342"><a href="/2021/01/your-azure-sql-database-and-managed-instance-is-too-big/"><span >Your Azure SQL Database and Managed Instance is too big</span></a></li>
+	<li id="menu-item-2341" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2341"><a href="/2021/01/turn-the-cloud-off-at-bedtime-to-save-70/"><span >Turn the cloud off at bedtime to save 70%</span></a></li>
+	<li id="menu-item-2340" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2340"><a href="/2021/01/your-azure-sql-virtual-machine-might-be-too-big-cost-optimisation/"><span >Your Azure SQL Virtual Machine might be too big</span></a></li>
+	<li id="menu-item-2365" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2365"><a href="/2021/01/save-money-with-azure-sql-db-serverless/"><span >Save money with Azure SQL DB serverless</span></a></li>
+	<li id="menu-item-2390" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2390"><a href="/2021/01/save-73-with-reserved-instances-for-stable-workloads/"><span >Save up to 73% with reserved instances</span></a></li>
+	<li id="menu-item-2404" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2404"><a href="/2021/01/delete-unused-instances-to-save-money-in-azure/"><span >Delete unused instances to save money in Azure</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2192" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2192"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Hire me</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2448" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2448"><a href="/2021/01/sessionize-speaker-profile/"><span >Take a look at my Sessionize speaker’s profile</span></a></li>
+	<li id="menu-item-2449" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2449"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Let me solve your SQL Server problems &#8211; No longer available</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2900" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-2900"><a href="/"><span >All posts</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2901" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2901"><a href="/category/guides/"><span >Guides</span></a></li>
+	<li id="menu-item-2902" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2902"><a href="/category/guides/cost-optimization/"><span >cost-optimization</span></a></li>
+	<li id="menu-item-2903" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2903"><a href="/category/sql-server/"><span >SQL Server</span></a></li>
+	<li id="menu-item-2904" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2904"><a href="/category/training/"><span >Training</span></a></li>
+	<li id="menu-item-2905" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2905"><a href="/category/personal/"><span >Personal</span></a></li>
+	<li id="menu-item-2906" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2906"><a href="/category/azure/"><span >Azure</span></a></li>
+	<li id="menu-item-2907" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2907"><a href="/category/scripts/t-sql/"><span >T-SQL</span></a></li>
+	<li id="menu-item-2908" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2908"><a href="/category/aws/aws-rds/"><span >AWS RDS</span></a></li>
+	<li id="menu-item-2909" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2909"><a href="/category/aws/aws-sql-server/"><span >AWS SQL Server</span></a></li>
+</ul>
+</li>
+</ul></nav></div></section>
+</div></div></header><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><article class="post-52 post type-post status-publish format-standard has-post-thumbnail category-front-page category-guides tag-dba tag-dba-scripts tag-index-maintenance tag-index-rebuild tag-index-reorganize tag-ola-hallangren tag-t-sql-scripts entry" aria-label="Index maintenance using Ola Hallengren&#8217;s scripts"><header class="entry-header"><h1 class="entry-title">Index maintenance using Ola Hallengren&#8217;s scripts</h1>
+<p class="entry-meta"><time class="entry-time">17th July 2015</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2015/07/index-maintenance-using-ola-hallengrens-scripts/#respond">Leave a Comment</a></span> </p></header><div class="entry-content"><p>Having recently set up Index maintenance using Ola Hallengren&#8217;s scripts on a range of my company&#8217;s production servers, I wanted to write about the steps involved including some custom steps to ensure the overall health of the SQL Server database.</p>
+<p>The aim of this blog post is to be not too technical, I don&#8217;t cover what Ola has documented on his site however I do include scripts for my custom steps. I will only cover index maintenance, although these scripts give the options for statistics maintenance also. This is because we already had a custom solution for statistics maintenance that was working great, whereas we needed to make improvements to our index maintenance solution.</p>
+<p><span id="more-52"></span></p>
+<p><strong>Overview</strong></p>
+<p>First of all, I have to say that Ola Hallengren has done a fantastic job with the index maintenance scripts as well as the backup scripts (which I don&#8217;t discuss here). They are kept up to date and work on all SQL Server versions from 2005 onwards.</p>
+<p>The first thing to do is to visit&#8217;s <a href="https://ola.hallengren.com/" target="_blank">Ola&#8217;s site</a> and read about how to set up the Index maintenance.</p>
+<p><strong>Before you start</strong></p>
+<p>By default, Ola&#8217;s scripts install the required objects to perform the maintenance directly into your master database. I recommend using another database if you have one specifically for DBA work, on each instance. You could create one and call it DBADB if you don&#8217;t already do this. If you choose this option, you only need to make one small change to the downloads (which is to change the <strong>USE Master</strong> statement into a <strong>USE DBADB</strong> statement).</p>
+<p>To ensure I can stop the process automatically if it is generating too much transaction log, I create a metadata table for measuring logspace before I start on the process. My scripts already include the <strong>USE DBADB</strong> statement. Again, just change this to the name of the database you wish to use.</p>
+<ol>
+<li><strong>IndexMaintenance_Logspace.sql:</strong> Important for checking transaction log size whilst the process is ongoing. <strong><strong>(important)<br />
+</strong></strong></li>
+</ol>
+<p style="padding-left: 30px;">[sql]<br />
+USE [DBADB]<br />
+GO<br />
+IF NOT EXISTS (<br />
+SELECT 1 from sysobjects where name = &#8216;IndexMaintenance_Logspace&#8217;)<br />
+BEGIN<br />
+CREATE TABLE [dbo].[IndexMaintenance_Logspace](<br />
+[DataBaseName] [varchar](100) NULL,<br />
+[LogSize] [numeric](18, 4) NULL,<br />
+[LogPercentage] [numeric](18, 4) NULL,<br />
+[Status] [int] NULL,<br />
+InsertDate DATETIME NOT NULL DEFAULT GETDATE()<br />
+) ON [PRIMARY]<br />
+END<br />
+[/sql]</p>
+<p><strong>Setting up Index Maintenance</strong></p>
+<p>Download the required scripts you need from Ola&#8217;s <a href="https://ola.hallengren.com/downloads.html" target="_blank">download page</a>.</p>
+<p>You can download the full solution which includes all of:</p>
+<ul>
+<li>DatabaseBackup.sql: Stored procedure to back up databases</li>
+<li>DatabaseIntegrityCheck.sql: Stored procedure to check the integrity of databases</li>
+<li>IndexOptimize.sql: Stored procedure to rebuild and reorganize indexes and update statistics</li>
+<li>CommandExecute.sql: Stored procedure to execute and log commands</li>
+<li>CommandLog.sql: Table to log commands</li>
+</ul>
+<p>(It also sets up SQL Agent jobs to do the maintenance)</p>
+<p>Or you can download the individual scripts which is what I have chosen to do in this case. This allows you to customise your solution a little further. The individual scripts needed if you are only doing index maintenance are:</p>
+<ul>
+<li>IndexOptimize.sql</li>
+<li>CommandExecute.sql</li>
+<li>CommandLog.sql</li>
+</ul>
+<p>Execute the scripts in the following order (if using individual scripts)</p>
+<ol>
+<li>CommandLog.sql</li>
+<li>CommandExecute.sql</li>
+<li>IndexOptimize.sql</li>
+</ol>
+<p><strong>Automation</strong></p>
+<p>Your index maintenance should be automated, that way it always gets done. It should also report on any errors so you know if you have a problem that needs some attention.</p>
+<p>I have achieved this via SQL Agent jobs. The script below can be amended depending on the number of jobs you want. On each instance, I went for one job to maintain all small databases and system databases. I then made individual jobs for each of our larger databases. This could also be achieved by using different job steps for each database or set of databases however I felt that separate jobs for the big databases was easier for other DBAs to understand.</p>
+<ol>
+<li><strong>Create Job and schedule daily</strong></li>
+</ol>
+<p style="padding-left: 30px;">[sql]<br />
+USE [msdb]<br />
+GO<br />
+BEGIN TRANSACTION<br />
+DECLARE @ReturnCode INT<br />
+SELECT @ReturnCode = 0</p>
+<p>IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N&#8217;Database Maintenance&#8217; AND category_class=1)<br />
+BEGIN<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N&#8217;JOB&#8217;, @type=N&#8217;LOCAL&#8217;, @name=N&#8217;Database Maintenance&#8217;<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback</p>
+<p>END</p>
+<p>DECLARE @jobId BINARY(16)<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_job @job_name=N&#8217;Index_Maintenance_All_Other_DBs&#8217;,<br />
+@enabled=1,<br />
+@notify_level_eventlog=0,<br />
+@notify_level_email=2,<br />
+@notify_level_netsend=0,<br />
+@notify_level_page=0,<br />
+@delete_level=0,<br />
+@description=N&#8217;Index and statistics maintenance.Documentation at: https://ola.hallengren.com/sql-server-index-and-statistics-maintenance.html&#8217;,<br />
+@category_name=N&#8217;Database Maintenance&#8217;,<br />
+@owner_login_name=N&#8217;sa&#8217;,<br />
+@notify_email_operator_name=N&#8217;DBA_ONLY&#8217;, @job_id = @jobId OUTPUT<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback</p>
+<p>EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N&#8217;Enable T-Log checking job&#8217;,<br />
+@step_id=1,<br />
+@cmdexec_success_code=0,<br />
+@on_success_action=3,<br />
+@on_success_step_id=0,<br />
+@on_fail_action=2,<br />
+@on_fail_step_id=0,<br />
+@retry_attempts=0,<br />
+@retry_interval=0,<br />
+@os_run_priority=0, @subsystem=N&#8217;TSQL&#8217;,<br />
+@command=N&#8217;IF EXISTS (SELECT * FROM msdb.dbo.sysjobs WHERE name = N&#8221;Index_Maintenance_KILL_IF_TLOG_GROWS&#8221;)<br />
+BEGIN<br />
+EXEC msdb.dbo.sp_update_job<br />
+@job_name = N&#8221;Index_Maintenance_KILL_IF_TLOG_GROWS&#8221;,<br />
+@enabled = 1;<br />
+END<br />
+ELSE<br />
+BEGIN<br />
+RAISERROR (&#8221;T-Log checking job does not exist. Do not run Index_Maintenance&#8221;,16,1)<br />
+END&#8217;,<br />
+@database_name=N&#8217;master&#8217;,<br />
+@flags=0<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback</p>
+<p>EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N&#8217;Run IndexOptimize SYSTEM_DATABASES&#8217;,<br />
+@step_id=2,<br />
+@cmdexec_success_code=0,<br />
+@on_success_action=3,<br />
+@on_success_step_id=0,<br />
+@on_fail_action=2,<br />
+@on_fail_step_id=0,<br />
+@retry_attempts=0,<br />
+@retry_interval=0,<br />
+@os_run_priority=0, @subsystem=N&#8217;CmdExec&#8217;,<br />
+@command=N&#8217;sqlcmd -E -S JOHNSERVER1 -d DBADB -Q &#8220;EXECUTE dbo.usp_IndexOptimize @Databases = &#8221;SYSTEM_DATABASES,DBADB&#8221;, @FragmentationHigh = &#8221;INDEX_REORGANIZE&#8221;, @LogToTable = &#8221;Y&#8221;, @TimeLimit = 1800, @UpdateStatistics = &#8221;ALL&#8221;, @OnlyModifiedStatistics = &#8221;Y&#8221; &#8221; -b&#8217;,<br />
+@output_file_name=N&#8217;D:\DBA\Index_Maintenance\indexoptimize_output.txt&#8217;,<br />
+@flags=0<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N&#8217;Disable T-Log checking job&#8217;,<br />
+@step_id=3,<br />
+@cmdexec_success_code=0,<br />
+@on_success_action=1,<br />
+@on_success_step_id=0,<br />
+@on_fail_action=2,<br />
+@on_fail_step_id=0,<br />
+@retry_attempts=0,<br />
+@retry_interval=0,<br />
+@os_run_priority=0, @subsystem=N&#8217;TSQL&#8217;,<br />
+@command=N&#8217;IF EXISTS (SELECT * FROM msdb.dbo.sysjobs WHERE name = N&#8221;Index_Maintenance_KILL_IF_TLOG_GROWS&#8221;)<br />
+BEGIN<br />
+EXEC msdb.dbo.sp_update_job<br />
+@job_name = N&#8221;Index_Maintenance_KILL_IF_TLOG_GROWS&#8221;,<br />
+@enabled = 0;<br />
+END<br />
+ELSE<br />
+BEGIN<br />
+RAISERROR (&#8221;T-Log checking job does not exist. Do not run Index_Maintenance&#8221;,16,1)<br />
+END&#8217;,<br />
+@database_name=N&#8217;master&#8217;,<br />
+@flags=0<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_update_job @job_id = @jobId, @start_step_id = 1<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_jobschedule @job_id=@jobId, @name=N&#8217;Daily at X O&#8221;Clock&#8217;,<br />
+@enabled=1,<br />
+@freq_type=4,<br />
+@freq_interval=1,<br />
+@freq_subday_type=1,<br />
+@freq_subday_interval=0,<br />
+@freq_relative_interval=0,<br />
+@freq_recurrence_factor=0,<br />
+@active_start_date=20150813,<br />
+@active_end_date=99991231,<br />
+@active_start_time=230000,<br />
+@active_end_time=235959<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_jobserver @job_id = @jobId, @server_name = N'(local)&#8217;<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+COMMIT TRANSACTION<br />
+GOTO EndSave<br />
+QuitWithRollback:<br />
+IF (@@TRANCOUNT &gt; 0) ROLLBACK TRANSACTION<br />
+EndSave:</p>
+<p>GO<br />
+[/sql]</p>
+<p><strong>Customisation</strong></p>
+<p>One thing that should be carefully measured is <strong>transaction log activity</strong>. Maintenance on large indexes can cause a huge amount of growth to T-Logs. Even with regular t-log backups, they can still increase to a size that can take your database offline. I manage this risk in 2 ways, increase the backup schedule for transaction logs and automate a kill command if any transaction logs exceed 70% full. You can set this at any value you fell comfortable with. <span style="color: #ff0000;"><strong>A note of caution</strong>, automating any kill commands against a database is very risky and you could lose data if not done right. I&#8217;m happy my approach works for me but you should verify this yourself being running on any SQL Server instance. Make sure you understand 100% of how the script works and that it does what you want it to.</span></p>
+<p>The job above enables and disables another job Index_Maintenance_KILL_IF_TLOG_GROWS which is scheduled to run every minute when enabled. <em>(Discussed further down this page)</em> If this job finds a transaction log more than 70% full (or whatever you choose), it will kill the Index_Maintenance_All_Other_DBs job. You must consider how regularly you are running Index Maintenance jobs and what methods of defragmentation you allow. On enterprise edition, I allow REBUILD with (ONLINE=ON) and REORGANIZE. On anything lower such as standard edition, I only allow REORGANIZE. Since a regularly scheduled job will usually catch most indexes when in the range of REORGANIZE rather than REBUILD, we don&#8217;t need to worry about rolling back as REORGANIZE INDEX doesn&#8217;t roll back when killed. It maintains its progress. Even if a REBUILD is ongoing and we don&#8217;t want to risk growing our T-Log, we have to live with the rollback. In practice, you shouldn&#8217;t find you encounter a situation often where a large index is rebuilding and needs rolled back.</p>
+<ol>
+<li><strong>Kill if T-Log grows</strong></li>
+</ol>
+<p>The job below is referenced by Index_Maintenance_All_Other_DBs job. Its purpose is to monitor the used percentage of the transaction log for each database. If any of them exceed the set threshold (for me 70%), a kill command is issued which kills the index rebuild or reorgnize. It usually sits in a disabled state and is only enabled when the index maintenance process is running. <span style="color: #ff0000;">(Remember to change any references to DBADB to whatever your own DBA database name is)</span></p>
+<p>[sql]<br />
+USE [msdb]</p>
+<p>GO<br />
+BEGIN TRANSACTION<br />
+DECLARE @ReturnCode INT<br />
+SELECT @ReturnCode = 0<br />
+IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N'[Uncategorized (Local)]&#8217; AND category_class=1)<br />
+BEGIN<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N&#8217;JOB&#8217;, @type=N&#8217;LOCAL&#8217;, @name=N'[Uncategorized (Local)]&#8217;<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+END<br />
+DECLARE @jobId BINARY(16)<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_job @job_name=N&#8217;Index_Maintenance_KILL_IF_TLOG_GROWS&#8217;,<br />
+@enabled=0,<br />
+@notify_level_eventlog=0,<br />
+@notify_level_email=2,<br />
+@notify_level_netsend=0,<br />
+@notify_level_page=0,<br />
+@delete_level=0,<br />
+@description=N&#8217;This job checks the t-log growth on all DBs undergoing Index maintenance. If TLOG grows to 70% full, the operation is killed and DBA team are alerted.&#8217;,<br />
+@category_name=N'[Uncategorized (Local)]&#8217;,<br />
+@owner_login_name=N&#8217;sa&#8217;,<br />
+@notify_email_operator_name=N&#8217;DBA_ONLY&#8217;, @job_id = @jobId OUTPUT<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback</p>
+<p>EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N&#8217;Check for problem operations and kill&#8217;,<br />
+@step_id=1,<br />
+@cmdexec_success_code=0,<br />
+@on_success_action=3,<br />
+@on_success_step_id=0,<br />
+@on_fail_action=2,<br />
+@on_fail_step_id=0,<br />
+@retry_attempts=0,<br />
+@retry_interval=0,<br />
+@os_run_priority=0, @subsystem=N&#8217;TSQL&#8217;,<br />
+@command=N&#8217;<br />
+CREATE TABLE #ls ([DatabaseName] [varchar](100) NULL,<br />
+[LogSize] [numeric](18, 4) NULL,<br />
+[LogPercentage] [numeric](18, 4) NULL,<br />
+[Status] [int] NULL)INSERT INTO #ls<br />
+(<br />
+[DatabaseName],<br />
+[LogSize],<br />
+[LogPercentage],<br />
+[Status]<br />
+)<br />
+EXEC (&#8221;DBCC SQLPERF (logspace)&#8221;)IF EXISTS (<br />
+SELECT TOP 1 1 from #ls<br />
+WHERE LogPercentage &gt; 70<br />
+)<br />
+BEGIN<br />
+DECLARE @Killcmds TABLE (<br />
+cmd NVARCHAR (16)<br />
+)INSERT INTO @Killcmds (cmd)<br />
+SELECT &#8221;kill &#8221; + CONVERT(nvarchar,r.session_id)+&#8221;;&#8221;<br />
+from sys.dm_exec_requests r<br />
+JOIN sys.dm_exec_sessions s<br />
+ON s.session_id = r.session_id<br />
+CROSS APPLY sys.dm_exec_sql_text(r.sql_handle)<br />
+WHERE s.nt_user_name = &#8221;JOHNSERVER1.SQL&#8221;<br />
+AND text LIKE &#8221;ALTER INDEX%&#8221;<br />
+AND s.session_id&lt;&gt;@@spid<br />
+AND program_name = &#8221;SQLCMD&#8221;<br />
+AND command = &#8221;DBCC&#8221;DECLARE @SPID int<br />
+DECLARE @cmd nvarchar(200)DECLARE kill_cursor CURSOR FOR<br />
+SELECT cmd from @KillcmdsOPEN kill_cursor<br />
+FETCH NEXT FROM kill_cursor INTO @cmd<br />
+WHILE @@FETCH_STATUS = 0<br />
+BEGIN<br />
+EXEC sp_executesql @cmd<br />
+PRINT @cmd<br />
+EXEC (&#8221;DBCC SQLPERF (logspace)&#8221;)<br />
+FETCH NEXT FROM kill_cursor INTO @cmd<br />
+END<br />
+CLOSE kill_cursor<br />
+DEALLOCATE kill_cursorEND<br />
+DROP TABLE #ls&#8217;,<br />
+@database_name=N&#8217;master&#8217;,<br />
+@flags=0<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N&#8217;Insert logspace into table&#8217;,<br />
+@step_id=2,<br />
+@cmdexec_success_code=0,<br />
+@on_success_action=1,<br />
+@on_success_step_id=0,<br />
+@on_fail_action=2,<br />
+@on_fail_step_id=0,<br />
+@retry_attempts=0,<br />
+@retry_interval=0,<br />
+@os_run_priority=0, @subsystem=N&#8217;TSQL&#8217;,<br />
+@command=N&#8217;&#8211; Record logspace<br />
+INSERT INTO [DBADB].[dbo].[IndexMaintenance_Logspace]<br />
+(<br />
+[DatabaseName],<br />
+[LogSize],<br />
+[LogPercentage],<br />
+[Status]<br />
+)<br />
+EXEC (&#8221;DBCC SQLPERF (logspace)&#8221;)&#8217;,<br />
+@database_name=N&#8217;master&#8217;,<br />
+@flags=0<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_update_job @job_id = @jobId, @start_step_id = 1<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_jobschedule @job_id=@jobId, @name=N&#8217;Every minute (when enabled)&#8217;,<br />
+@enabled=0,<br />
+@freq_type=4,<br />
+@freq_interval=1,<br />
+@freq_subday_type=4,<br />
+@freq_subday_interval=1,<br />
+@freq_relative_interval=0,<br />
+@freq_recurrence_factor=0,<br />
+@active_start_date=20150325,<br />
+@active_end_date=99991231,<br />
+@active_start_time=0,<br />
+@active_end_time=235959<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_jobserver @job_id = @jobId, @server_name = N'(local)&#8217;<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+COMMIT TRANSACTION<br />
+GOTO EndSave<br />
+QuitWithRollback:<br />
+IF (@@TRANCOUNT &gt; 0) ROLLBACK TRANSACTION<br />
+EndSave:<br />
+GO[/sql]<br />
+A parameter called <strong>TimeLimit</strong> can be provided which allows the DBA to set a time, in seconds, <em>after which no commands are executed</em>. This means that if a command is executing and the the TimeLimit had been exceeded, it would continue until the rebuild or reorganize command had completed. This is usually the way you would want it as rebuilds need to be rolled back if they are terminated. I however wanted to set an upper time limit; so I created a job that would kill any other Index Maintenance still going 30 minutes after the TimeLimit period.</p>
+<ol>
+<li><strong>Create Index_Maintenance Stop job</strong></li>
+</ol>
+<p>[sql]<br />
+USE [msdb]<br />
+GO<br />
+BEGIN TRANSACTION<br />
+DECLARE @ReturnCode INT<br />
+SELECT @ReturnCode = 0IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N'[Uncategorized (Local)]&#8217; AND category_class=1)<br />
+BEGIN<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N&#8217;JOB&#8217;, @type=N&#8217;LOCAL&#8217;, @name=N'[Uncategorized (Local)]&#8217;<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback</p>
+<p>END</p>
+<p>DECLARE @jobId BINARY(16)<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_job @job_name=N&#8217;Index_Maintenance_STOP&#8217;,<br />
+@enabled=1,<br />
+@notify_level_eventlog=0,<br />
+@notify_level_email=2,<br />
+@notify_level_netsend=0,<br />
+@notify_level_page=0,<br />
+@delete_level=0,<br />
+@description=N&#8217;This job simply stops the job Index_Maintenance_All_Other_DBs if it is still running. Previous outputs form the job runs can be found on D:\DBA\Index_Maintenance\Stop_Job_Index_Maintenance_All_Other_DBs.log&#8217;,<br />
+@category_name=N'[Uncategorized (Local)]&#8217;,<br />
+@owner_login_name=N&#8217;sa&#8217;,<br />
+@notify_email_operator_name=N&#8217;DBA_ONLY&#8217;, @job_id = @jobId OUTPUT<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback</p>
+<p>EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N&#8217;Stop Job if still running&#8217;,<br />
+@step_id=1,<br />
+@cmdexec_success_code=0,<br />
+@on_success_action=3,<br />
+@on_success_step_id=0,<br />
+@on_fail_action=2,<br />
+@on_fail_step_id=0,<br />
+@retry_attempts=0,<br />
+@retry_interval=0,<br />
+@os_run_priority=0, @subsystem=N&#8217;TSQL&#8217;,<br />
+@command=N&#8217;DECLARE @JOB_NAME SYSNAME = N&#8221;Index_Maintenance_All_Other_DBs&#8221;</p>
+<p>IF EXISTS(<br />
+SELECT 1<br />
+FROM msdb.dbo.sysjobs_view sjv<br />
+INNER JOIN msdb.dbo.sysjobactivity sja<br />
+ON sjv.job_id = sja.job_id<br />
+WHERE sja.run_requested_date is not null<br />
+AND sja.stop_execution_date is null<br />
+AND sjv.name = @JOB_NAME<br />
+)<br />
+BEGIN<br />
+PRINT &#8221;Stop Job&#8221;<br />
+EXEC msdb..sp_stop_job &#8221;Index_Maintenance_All_Other_DBs&#8221;<br />
+END<br />
+ELSE<br />
+BEGIN<br />
+PRINT &#8221;Not running&#8221;<br />
+END&#8217;,<br />
+@database_name=N&#8217;master&#8217;,<br />
+@output_file_name=N&#8217;D:\DBA\Index_Maintenance\Stop_Job_Index_Maintenance_All_Other_DBs.log&#8217;,<br />
+@flags=2<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback</p>
+<p>EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N&#8217;Disable T-Log checking job&#8217;,<br />
+@step_id=2,<br />
+@cmdexec_success_code=0,<br />
+@on_success_action=1,<br />
+@on_success_step_id=0,<br />
+@on_fail_action=2,<br />
+@on_fail_step_id=0,<br />
+@retry_attempts=0,<br />
+@retry_interval=0,<br />
+@os_run_priority=0, @subsystem=N&#8217;TSQL&#8217;,<br />
+@command=N&#8217;IF EXISTS (SELECT * FROM msdb.dbo.sysjobs WHERE name = N&#8221;Index_Maintenance_KILL_IF_TLOG_GROWS&#8221;)<br />
+BEGIN<br />
+EXEC msdb.dbo.sp_update_job<br />
+@job_name = N&#8221;Index_Maintenance_KILL_IF_TLOG_GROWS&#8221;,<br />
+@enabled = 0;<br />
+END<br />
+ELSE<br />
+BEGIN<br />
+RAISERROR (&#8221;T-Log checking job does not exist. Do not run Index_Maintenance&#8221;,16,1)<br />
+END&#8217;,<br />
+@database_name=N&#8217;master&#8217;,<br />
+@flags=0<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_update_job @job_id = @jobId, @start_step_id = 1<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_jobschedule @job_id=@jobId, @name=N&#8217;Daily at X O&#8221;Clock&#8217;,<br />
+@enabled=0,<br />
+@freq_type=4,<br />
+@freq_interval=1,<br />
+@freq_subday_type=1,<br />
+@freq_subday_interval=0,<br />
+@freq_relative_interval=0,<br />
+@freq_recurrence_factor=0,<br />
+@active_start_date=20150224,<br />
+@active_end_date=99991231,<br />
+@active_start_time=0,<br />
+@active_end_time=235959<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+EXEC @ReturnCode = msdb.dbo.sp_add_jobserver @job_id = @jobId, @server_name = N'(local)&#8217;<br />
+IF (@@ERROR &lt;&gt; 0 OR @ReturnCode &lt;&gt; 0) GOTO QuitWithRollback<br />
+COMMIT TRANSACTION<br />
+GOTO EndSave<br />
+QuitWithRollback:<br />
+IF (@@TRANCOUNT &gt; 0) ROLLBACK TRANSACTION<br />
+EndSave:<br />
+GO<br />
+[/sql]</p>
+<p><strong>Useful tips</strong></p>
+<p>I always set my parameters in the stored procedure call, rather than changing the body of the procs. The main reason for this is visibility &#8211; in that it makes it easy for a new DBA to see which non-standard parameters are being passed in. Another benefit is that if I download an updated version of the scripts, I won&#8217;t lose my customisation.</p>
+<!--<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/"
+    dc:identifier="https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/"
+    dc:title="Index maintenance using Ola Hallengren&#8217;s scripts"
+    trackback:ping="https://johnmccormack.co.uk/2015/07/index-maintenance-using-ola-hallengrens-scripts/trackback/" />
+</rdf:RDF>-->
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/guides/" rel="category tag">Guides</a></span> <span class="entry-tags">Tagged With: <a href="/tag/dba/" rel="tag">dba</a>, <a href="/tag/dba-scripts/" rel="tag">dba scripts</a>, <a href="/tag/index-maintenance/" rel="tag">index maintenance</a>, <a href="/tag/index-rebuild/" rel="tag">index rebuild</a>, <a href="/tag/index-reorganize/" rel="tag">index reorganize</a>, <a href="/tag/ola-hallangren/" rel="tag">ola hallangren</a>, <a href="/tag/t-sql-scripts/" rel="tag">t-sql scripts</a></span></p></footer></article><section class="author-box"><img alt='' src='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-80.jpg' srcset='/assets/avatars/594c73f02514ac660f108545a910b64355e86d944201d79f189ed6f1902ab571-160.jpg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/><h4 class="author-box-title">About <span itemprop="name">John McCormack</span></h4><div class="author-box-content" itemprop="description"><p>John McCormack is an experienced SQL DBA with extensive knowledge of the two largest public clouds: AWS and Azure.</p>
+</div></section>	<!-- #respond -->
+	<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed.</a></p></main></div></div><footer class="site-footer"><div class="wrap"><p>John McCormack · Copyright &#x000A9;&nbsp;2026 </p></div></footer></div><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/modern-portfolio-pro/*","/wp-content/themes/genesis/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+<script type="text/javascript" src="/wp-content/plugins/enlighter/cache/enlighterjs.min.js" id="enlighterjs-js"></script>
+<script type="text/javascript" id="enlighterjs-js-after">
+/* <![CDATA[ */
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":true,"textOverflow":"break","linenumbers":true,"theme":"enlighter","language":"enlighter","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+//# sourceURL=enlighterjs-js-after
+/* ]]> */
+</script>
+<script defer type="text/javascript" src="/wp-content/plugins/akismet/_inc/akismet-frontend.js" id="akismet-frontend-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://johnmccormack.co.uk/wp-includes/js/wp-emoji-release.min.js?ver=6.9.6"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://johnmccormack.co.uk/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+</body></html>

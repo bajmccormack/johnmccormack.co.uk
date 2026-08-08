@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head >
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v22.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Performance Tuning Archives - John McCormack DBA</title>
+	<link rel="canonical" href="https://johnmccormack.co.uk/category/sql-server/performance-tuning/" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Performance Tuning Archives - John McCormack DBA" />
+	<meta property="og:url" content="https://johnmccormack.co.uk/category/sql-server/performance-tuning/" />
+	<meta property="og:site_name" content="John McCormack DBA" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://johnmccormack.co.uk/category/sql-server/performance-tuning/","url":"https://johnmccormack.co.uk/category/sql-server/performance-tuning/","name":"Performance Tuning Archives - John McCormack DBA","isPartOf":{"@id":"https://johnmccormack.co.uk/#website"},"breadcrumb":{"@id":"https://johnmccormack.co.uk/category/sql-server/performance-tuning/#breadcrumb"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","@id":"https://johnmccormack.co.uk/category/sql-server/performance-tuning/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"SQL Server","item":"https://johnmccormack.co.uk/category/sql-server/"},{"@type":"ListItem","position":2,"name":"Performance Tuning"}]},{"@type":"WebSite","@id":"https://johnmccormack.co.uk/#website","url":"https://johnmccormack.co.uk/","name":"John McCormack DBA","description":"SQL Server Databases and Cloud","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://johnmccormack.co.uk/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='/assets/fonts/google-fonts.css' />
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; Feed" href="/feed/index.xml" />
+
+<link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; Performance Tuning Category Feed" href="/feed/index.xml" />
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v10.1.3 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+		<!-- Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel. -->
+					<!-- No tracking code set -->
+				<!-- / Google Analytics by MonsterInsights -->
+		<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='modern-portfolio-pro-theme-css' href='/wp-content/themes/modern-portfolio-pro/style.css' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='wp-block-library-inline-css' type='text/css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id='wp-block-heading-inline-css' type='text/css'>
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id='wp-block-image-inline-css' type='text/css'>
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .close-button{align-items:center;cursor:pointer;display:flex;justify-content:center;min-height:40px;min-width:40px;padding:0;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .close-button:focus,.wp-lightbox-overlay .close-button:hover,.wp-lightbox-overlay .close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:9999999999}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/image/style.min.css */
+</style>
+<style id='wp-block-list-inline-css' type='text/css'>
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/list/style.min.css */
+</style>
+<style id='wp-block-embed-inline-css' type='text/css'>
+.wp-block-embed.alignleft,.wp-block-embed.alignright,.wp-block[data-align=left]>[data-type="core/embed"],.wp-block[data-align=right]>[data-type="core/embed"]{max-width:360px;width:100%}.wp-block-embed.alignleft .wp-block-embed__wrapper,.wp-block-embed.alignright .wp-block-embed__wrapper,.wp-block[data-align=left]>[data-type="core/embed"] .wp-block-embed__wrapper,.wp-block[data-align=right]>[data-type="core/embed"] .wp-block-embed__wrapper{min-width:280px}.wp-block-cover .wp-block-embed{min-height:240px;min-width:320px}.wp-block-embed{overflow-wrap:break-word}.wp-block-embed :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-embed iframe{max-width:100%}.wp-block-embed__wrapper{position:relative}.wp-embed-responsive .wp-has-aspect-ratio .wp-block-embed__wrapper:before{content:"";display:block;padding-top:50%}.wp-embed-responsive .wp-has-aspect-ratio iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.wp-embed-responsive .wp-embed-aspect-21-9 .wp-block-embed__wrapper:before{padding-top:42.85%}.wp-embed-responsive .wp-embed-aspect-18-9 .wp-block-embed__wrapper:before{padding-top:50%}.wp-embed-responsive .wp-embed-aspect-16-9 .wp-block-embed__wrapper:before{padding-top:56.25%}.wp-embed-responsive .wp-embed-aspect-4-3 .wp-block-embed__wrapper:before{padding-top:75%}.wp-embed-responsive .wp-embed-aspect-1-1 .wp-block-embed__wrapper:before{padding-top:100%}.wp-embed-responsive .wp-embed-aspect-9-16 .wp-block-embed__wrapper:before{padding-top:177.77%}.wp-embed-responsive .wp-embed-aspect-1-2 .wp-block-embed__wrapper:before{padding-top:200%}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/embed/style.min.css */
+</style>
+<style id='wp-block-paragraph-inline-css' type='text/css'>
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://johnmccormack.co.uk/wp-includes/blocks/paragraph/style.min.css */
+</style>
+
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='animate-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-quiz-css' href='/wp-content/plugins/wp-quiz/assets/frontend/css/wp-quiz.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='/wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css' href='/assets/fonts/google-fonts.css' type='text/css' media='all' />
+<link rel='stylesheet' id='enlighterjs-css' href='/wp-content/plugins/enlighter/cache/enlighterjs.min.css' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="/wp-content/themes/modern-portfolio-pro/js/responsive-menu.js" id="mpp-responsive-menu-js"></script>
+
+<meta name="generator" content="WordPress 6.9.6" />
+
+<style type="text/css">.site-title a { background: url(/wp-content/uploads/2016/09/cropped-JohnMcCormack-295x90.png) no-repeat !important; }</style>
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-32x32.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/2016/09/cropped-JM-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/2016/09/cropped-JM-180x180.png" />
+<meta name="msapplication-TileImage" content="https://johnmccormack.co.uk/wp-content/uploads/2016/09/cropped-JM-270x270.png" />
+</head>
+<body class="archive category category-performance-tuning category-184 wp-theme-genesis wp-child-theme-modern-portfolio-pro custom-header header-image full-width-content genesis-breadcrumbs-hidden genesis-footer-widgets-hidden"><div class="site-container"><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="/">John McCormack DBA</a></p><p class="site-description">SQL Server Databases and Cloud</p></div><div class="widget-area header-widget-area"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><nav class="nav-header"><ul id="menu-menu" class="menu genesis-nav-menu"><li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-285"><a href="/category/personal/"><span >Personal</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-496"><a href="/2026/05/who-is-john-mccormack/"><span >About</span></a></li>
+</ul>
+</li>
+<li id="menu-item-1653" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1653"><a href="/2020/07/sql-server-on-amazon-rds/"><span >Free Training</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1652" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1652"><a href="/2020/07/sql-server-on-amazon-rds/"><span >SQL Server on Amazon RDS (Free Course)</span></a></li>
+	<li id="menu-item-2486" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2486"><a href="/2021/01/free-practice-questions-to-help-you-pass-dp-900/"><span >Free practice questions to help you pass DP-900</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2339" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2339"><a href="/2021/01/7-ways-for-data-teams-to-save-money-in-azure/"><span >Save money in Azure</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2343" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2343"><a href="/2021/01/azure-iaas-sql-backups-stop-burning-money/"><span >Azure IaaS SQL Backups – Stop burning money</span></a></li>
+	<li id="menu-item-2342" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2342"><a href="/2021/01/your-azure-sql-database-and-managed-instance-is-too-big/"><span >Your Azure SQL Database and Managed Instance is too big</span></a></li>
+	<li id="menu-item-2341" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2341"><a href="/2021/01/turn-the-cloud-off-at-bedtime-to-save-70/"><span >Turn the cloud off at bedtime to save 70%</span></a></li>
+	<li id="menu-item-2340" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2340"><a href="/2021/01/your-azure-sql-virtual-machine-might-be-too-big-cost-optimisation/"><span >Your Azure SQL Virtual Machine might be too big</span></a></li>
+	<li id="menu-item-2365" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2365"><a href="/2021/01/save-money-with-azure-sql-db-serverless/"><span >Save money with Azure SQL DB serverless</span></a></li>
+	<li id="menu-item-2390" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2390"><a href="/2021/01/save-73-with-reserved-instances-for-stable-workloads/"><span >Save up to 73% with reserved instances</span></a></li>
+	<li id="menu-item-2404" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2404"><a href="/2021/01/delete-unused-instances-to-save-money-in-azure/"><span >Delete unused instances to save money in Azure</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2192" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2192"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Hire me</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2448" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2448"><a href="/2021/01/sessionize-speaker-profile/"><span >Take a look at my Sessionize speaker’s profile</span></a></li>
+	<li id="menu-item-2449" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2449"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Let me solve your SQL Server problems &#8211; No longer available</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2900" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-2900"><a href="/"><span >All posts</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-2901" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2901"><a href="/category/guides/"><span >Guides</span></a></li>
+	<li id="menu-item-2902" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2902"><a href="/category/guides/cost-optimization/"><span >cost-optimization</span></a></li>
+	<li id="menu-item-2903" class="menu-item menu-item-type-taxonomy menu-item-object-category current-category-ancestor menu-item-2903"><a href="/category/sql-server/"><span >SQL Server</span></a></li>
+	<li id="menu-item-2904" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2904"><a href="/category/training/"><span >Training</span></a></li>
+	<li id="menu-item-2905" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2905"><a href="/category/personal/"><span >Personal</span></a></li>
+	<li id="menu-item-2906" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2906"><a href="/category/azure/"><span >Azure</span></a></li>
+	<li id="menu-item-2907" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2907"><a href="/category/scripts/t-sql/"><span >T-SQL</span></a></li>
+	<li id="menu-item-2908" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2908"><a href="/category/aws/aws-rds/"><span >AWS RDS</span></a></li>
+	<li id="menu-item-2909" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2909"><a href="/category/aws/aws-sql-server/"><span >AWS SQL Server</span></a></li>
+</ul>
+</li>
+</ul></nav></div></section>
+</div></div></header><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><article class="post-2105 post type-post status-publish format-standard category-front-page category-performance-tuning category-sql-server tag-firefighting tag-sql-server-troubleshooting tag-triage entry" aria-label="Firefighting &#8211; When your SQL  Server is in big trouble"><header class="entry-header"><h2 class="entry-title"><a class="entry-title-link" rel="bookmark" href="/2021/01/firefighting-when-your-sql-server-is-in-big-trouble/">Firefighting &#8211; When your SQL  Server is in big trouble</a></h2>
+<p class="entry-meta"><time class="entry-time">6th January 2021</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2021/01/firefighting-when-your-sql-server-is-in-big-trouble/#respond">Leave a Comment</a></span> </p></header><div class="entry-content">
+<h2 class="wp-block-heading">When your SQL Server is in big trouble</h2>
+
+
+
+<p>It&#8217;s so important to stay calm when your SQL Server is in big trouble. I&#8217;m talking about when blocking is through the roof, when CPU is pinned and people are yelling from all different directions. Staying calm isn&#8217;t just about a state of mind, you need to have a process that you work through, that you have practised and you know inside out.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Firefighting SQL Server performance Part 1" width="500" height="281" src="https://www.youtube.com/embed/oWSj_Jy0YMY?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div><figcaption>Part 1</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading">How bad is it?</h3>
+
+
+
+<div class="wp-block-image"><figure class="alignright size-large"><img decoding="async" width="340" height="230" src="/wp-content/uploads/2021/01/firefighting-sql-server-performance.png" alt="Silhouette of a firefighter in front of a blaze" class="wp-image-2119" srcset="/wp-content/uploads/2021/01/firefighting-sql-server-performance.png 340w, /wp-content/uploads/2021/01/firefighting-sql-server-performance-300x203.png 300w" sizes="(max-width: 340px) 100vw, 340px" /></figure></div>
+
+
+
+<p>In this post, I want to describe what I call a <strong>priority 2</strong> problem. It is serious and business impacting but the server is online. It needs immediate attention however or it could escalate to a P1. </p>
+
+
+
+<p>P1 &#8211; Business critical system(s) are unavailable<br>P2 &#8211; Serious impairment of functionality on a critical system<br>P3 &#8211; Performance is slower than usual but requests are completing<br>P4 &#8211; Performance is generally sub optimal and should be improved</p>
+
+
+
+<h2 class="wp-block-heading">Get a colleague on comms</h2>
+
+
+
+<p>One thing that is guaranteed to happen is that people who are not directly involved in fixing the issue, will want updates. They have good reason to want updates and are well meaning, but the constant need to reply to emails or Teams messages will seriously impact the speed at which you are working.</p>
+
+
+
+<p>Back in the good old pre-covid days of office working, this could easily be achieved by someone sitting near you and the two of you communicating verbally. With remote working being more and more common now, I recommend you have some kind of audio channel open that you can speak when you need to and silence is ok too. This could be a phone call on speaker, or a teams call. The technology isn&#8217;t the main thing here, the idea is that you can express updates vocally to someone capable of communicating with the wider organisation.</p>
+
+
+
+<p>Where possible, your colleague should be technically capable of answering related questions. They should open a chat in Teams or Slack or whatever software your organisation prefers and provide regular updates there. They should answer questions, keep to the update schedule and most importantly, divert people away from you.</p>
+
+
+
+<h2 class="wp-block-heading">A pre practiced routine</h2>
+
+
+
+<p>Now the scenarios can be different, in this one I want to talk about how I would handle a SQL Server which appears to be functioning (barely) but is extremely slow. In other words, it is a <strong>priority 2</strong> incident as defined above. Helpdesk supervisors are calling tech support to advise and customers are calling them as the website is unusable. On top of that, the MI team and data scientists are contacting the DBAs directly because their queries won&#8217;t run.</p>
+
+
+
+<h3 class="wp-block-heading">Have a script or checklist</h3>
+
+
+
+<p>In my script, I tend to use well established community stored procedures. The sort of ones that most DBAs know about and many use. If you start trying to write new queries in the middle of a slow down, that is going to cost you time. Stick with what works, what is established and what you have used before and know well.</p>
+
+
+
+<p>I&#8217;ve mentioned these in <a href="/search/?s=sp_whoisactive" target="_blank" rel="noreferrer noopener">previous posts</a> but the main things I am going to run are:</p>
+
+
+
+<ol class="wp-block-list"><li>sp_whoisactive &#8211; <a href="https://github.com/amachanic/sp_whoisactive" target="_blank" rel="noreferrer noopener">https://github.com/amachanic/sp_whoisactive</a> </li><li>sp_blitzfirst &#8211; <a href="https://www.brentozar.com/first-aid/" target="_blank" rel="noreferrer noopener">https://www.brentozar.com/first-aid/</a></li><li>sp_blitzlock &#8211; <a href="https://www.brentozar.com/first-aid/" target="_blank" rel="noreferrer noopener">https://www.brentozar.com/first-aid/</a></li></ol>
+
+
+
+<h4 class="wp-block-heading">sp_whoisactive</h4>
+
+
+
+<p>I always run this first because it it designed specifically for showing you current database activity, and it has saved my bacon so many times in the past. Simply running this parameter free will show you what is running on your SQL Server right now. It is ordered by query duration descending so the long runners are at the top. It can give you blocking information, information on wait types and on open transactions as well. For advanced features, you need to use some parameters.</p>
+
+
+
+<h4 class="wp-block-heading">sp_blitzfirst</h4>
+
+
+
+<p>If you can find what you need with sp_whoisactive, you may not even need to use this stored procedure,  Where this procedure comes into its own is it tells you when certain things have recently changed or when they out of the ordinary.</p>
+
+
+
+<p>e.g. sp_blitzfirst will tell you if:</p>
+
+
+
+<ol class="wp-block-list"><li>The plan cache has been recently erased</li><li>You have high CPU utilization from a program other than SQL Server</li><li>How long each wait type has been waiting during the previous 5 seconds</li></ol>
+
+
+
+<p>If something stands out that you don&#8217;t understand, there will be data in the URL column that you can copy/paste into a web browser. The web page will give you an explanation of the problem.</p>
+
+
+
+<h4 class="wp-block-heading">sp_blitzlock</h4>
+
+
+
+<p>This proc is all about deadlocks. You might not need to run it if the first two have given you enough information to fix the issue in hand. However, if deadlocks are at the root of your problems, this will tell you which queries are involved and when. It&#8217;s also easier to read than deadlock graphs.</p>
+
+
+
+<p>There are more things that I&#8217;ll run in the fullness of time but we&#8217;ll leave them for later. I only want to focus on <strong>these 3 things</strong> for now to zero in on the immediate problem.</p>
+
+
+
+<h4 class="wp-block-heading">The script</h4>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="sql" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">USE dba
+
+/*
+	To run this, you also need to install:
+	- sp_whoisactive
+	- sp_blitzfirst
+	- sp_blitzlock
+*/
+
+-- Raises an error if you run the whole script in error
+RAISERROR ('Dont run it all at once',20,-1) WITH LOG
+
+-- sp_whoisactive with various parameters
+EXEC sp_whoisactive @find_block_leaders = 1 --,@get_locks = 1
+EXEC sp_whoisactive @sort_order = 'sql_text' -- Tells at a glance if you have a lot of the same query running. For the F5 report runner troublemakers
+
+
+-- What has been hurting us in the last 5 seconds. Look for wait stats, and anything out of the ordinary, such as the plan cache has been recently erased.
+EXEC dbo.sp_BlitzFirst @expertmode = 1
+
+
+-- Are we experiencing deadlocks 
+EXEC sp_BlitzLock
+
+-- Deadlocks in last hour
+DECLARE	@StartDateBlitz datetime = (SELECT DATEADD(HH,-1,GETDATE())), @EndDateBlitz DATETIME = (SELECT GETDATE())
+EXEC sp_BlitzLock @EndDate = @EndDateBlitz, @StartDate = @StartDateBlitz
+GO
+
+
+
+/*  Some other things to consider
+
+	Have the usual optimisation jobs run as expected. Stats/indexes etc
+	If one proc has regressed badly, could it help to clear only that plan from the cache or to recompile it.
+	EXEC sp_blitz -- Although not as handy as the others for real time issues. Better used as a health check
+	EXEC sp_blitzcache -- More useful for helping you identify the resource hungry queries, allowing you 
+	EXEC sp_readerrorlog 0,1, 'memory'
+*/</pre>
+
+
+
+<h2 class="wp-block-heading">The calm <em>after</em> the storm</h2>
+
+
+
+<p>I will dedicate a full post to this however for now, it is important to say that slow queries or resource intensive queries should be identified and added to a backlog for fixing. If one particular query is likely to go bad again, it should be treated as a priority to fix, in order that we don&#8217;t see the same issue escalating again.</p>
+
+
+
+<p>You should also do a SQL Server Health Check in order to satisfy that you don&#8217;t have an sub optimal configuration causing you issues.</p>
+
+
+
+<p><a href="https://click.linksynergy.com/fs-bin/click?id=mQCK39zZDBY&amp;offerid=507388.1539&amp;subid=0&amp;type=4"><img decoding="async" border="0" alt="IT Certification Category (English)728x90" src="https://ad.linksynergy.com/fs-bin/show?id=mQCK39zZDBY&amp;bids=507388.1539&amp;subid=0&amp;type=4&amp;gridnum=16"></a></p>
+
+
+
+<h2 class="wp-block-heading">Related to: When your SQL Server is in big trouble</h2>
+
+
+
+<figure class="wp-block-embed is-type-wp-embed is-provider-john-mccormack-dba wp-block-embed-john-mccormack-dba"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="VRDIRQIKDL"><a href="/2020/12/locks-blocks-and-deadlocks-in-sql-server/">Locks, blocks and deadlocks in SQL Server</a></blockquote><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; visibility: hidden;" title="&#8220;Locks, blocks and deadlocks in SQL Server&#8221; &#8212; John McCormack DBA" src="/2020/12/locks-blocks-and-deadlocks-in-sql-server/embed/#?secret=IXvS1TpVnC#?secret=VRDIRQIKDL" data-secret="VRDIRQIKDL" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<figure class="wp-block-embed is-type-wp-embed is-provider-john-mccormack-dba wp-block-embed-john-mccormack-dba"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="zbmzal2FDO"><a href="/2020/10/zero-budget-dba-sqlbits-2020/">Zero Budget DBA &#8211; SQLBITS 2020</a></blockquote><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; visibility: hidden;" title="&#8220;Zero Budget DBA &#8211; SQLBITS 2020&#8221; &#8212; John McCormack DBA" src="/2020/10/zero-budget-dba-sqlbits-2020/embed/#?secret=9wtwjSVOlH#?secret=zbmzal2FDO" data-secret="zbmzal2FDO" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<h2 class="wp-block-heading"></h2>
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/sql-server/performance-tuning/" rel="category tag">Performance Tuning</a>, <a href="/category/sql-server/" rel="category tag">SQL Server</a></span> <span class="entry-tags">Tagged With: <a href="/tag/firefighting/" rel="tag">firefighting</a>, <a href="/tag/sql-server-troubleshooting/" rel="tag">sql server troubleshooting</a>, <a href="/tag/triage/" rel="tag">triage</a></span></p></footer></article><article class="post-1868 post type-post status-publish format-standard has-post-thumbnail category-front-page category-guides category-performance-tuning tag-indexes tag-performance-tuning tag-sql-performance tag-sql-server entry" aria-label="Your SQL Server indexes can&#8217;t always be perfect"><header class="entry-header"><h2 class="entry-title"><a class="entry-title-link" rel="bookmark" href="/2020/11/sql-server-indexes-cant-always-be-perfect/">Your SQL Server indexes can&#8217;t always be perfect</a></h2>
+<p class="entry-meta"><time class="entry-time">27th November 2020</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2020/11/sql-server-indexes-cant-always-be-perfect/#comments">1 Comment</a></span> </p></header><div class="entry-content">
+<h2 class="wp-block-heading">Perfection is not the aim</h2>
+
+
+
+<p>Your SQL Server indexes can&#8217;t always be perfect. What I mean by that is you can&#8217;t index for every query on a busy SQL server. In this post I&#8217;m going to describe just one table from a server I have been tuning recently. It had 26 indexes, and that was not unusual for this database. This most likely happened over time as a result of developers creating an index per query using the table, as well as following some perceived best practices (with the best of intentions).</p>
+
+
+
+<h3 class="wp-block-heading">Did you say 26 indexes?</h3>
+
+
+
+<p>Yes, one of the heavily used tables on this database had 26 indexes. It had one clustered index on an ID column which is fairly standard. There were 25 further non clustered indexes including an index per foreign key. A shared code base runs across several customers. Some customer’s use all the functionality, some only use parts of it, but they all get the same database schema. <em>And all of those indexes.</em></p>
+
+
+
+<h2 class="wp-block-heading">Current usage and how to fix</h2>
+
+
+
+<h3 class="wp-block-heading">Remove unused indexes</h3>
+
+
+
+<p>9 of the non clustered indexes on this table were read from less than once per day but were written to up to 18,000 times per day. The servers had been online for 180 days at the time of checking and some of the index uses were in single or double figures. These needed to be dropped as they were not bringing anything to the party.</p>
+
+
+
+<p><em>I got this info by running <a href="https://www.brentozar.com/blitzindex/" target="_blank" rel="noreferrer noopener">sp_blitzindex </a>and comparing the index usage stats against the server uptime. (I took care to run on all production servers for all customers, including read only secondaries).</em></p>
+
+
+
+<h3 class="wp-block-heading">Combine similar indexes</h3>
+
+
+
+<p>This left 16 remaining non clustered indexes to review. </p>
+
+
+
+<ul class="wp-block-list"><li>9 of which had been used several million times with a maximum of 32 Million seeks.<ul><li>5 out of those 9 appeared to be heavily overlapping other indexes.<ul><li>I needed to see if these can be combined into 1 or 2 indexes.</li></ul></li><li>4 out of those 9 are fairly unique.<ul><li>Those 4 will be retained.</li></ul></li></ul></li><li>7 have been used hundreds of thousands of times and don’t appear to have much overlap.</li></ul>
+
+
+
+<p>This leaves us with 4 non clustered indexes being retained, 9 being dropped and 12 to be reviewed in more detail. This is the most difficult stage of the process as I need to decide which indexes can be merged and which can be dropped. Its always best to be cautious with this part, because removig the wrong index could slow down an important process.</p>
+
+
+
+<p>Of the 12 indexes that needed a more detailed look, I decided to drop 8, and create 3 new ones. A net reduction of 5 indexes for this stage. Multiple groups of indexes had the same keys but different include columns. Some of the include column ranges were very wide and included large data types such as large NVARCHARs. Replacement indexes used the same keys, in the same order, but had a more targeted range of include columns. </p>
+
+
+
+<h3 class="wp-block-heading">Perfection? No. Better? Yes.</h3>
+
+
+
+<p>In total, we have a net reduction of 14 non clustered indexes. It still leaves us with 11 non clustered indexes. Your SQL Server indexes can&#8217;t always be perfect but 11 is better than 25. I’d really have loved to get that count down to 5 but it is a lot better than it was. This process should be repeated after a month of the new index structure being in place with the aim of further consolidation if possible. The new indexes won&#8217;t be perfect, some queries may not be served as well by the new consolidated indexes or by having a rarely used index removed but I was trying to improve the overall health of the SQL Server. Reducing the number of writes that were hammering the storage is a step in the right direction.</p>
+
+
+
+<h2 class="wp-block-heading">How did we get so many indexes?</h2>
+
+
+
+<p>Index creation was all developer led so when new functionality was rolled out, indexes were created for each new process. This resulted in a lot of overlapping indexes. I don’t blame the developers, there should just have been a process for reviewing index requests, and comparing them to what we already had. </p>
+
+
+
+<h2 class="wp-block-heading">How to avoid in future</h2>
+
+
+
+<p>I see two key approaches to helping avoid a repeat of this death by indexing.</p>
+
+
+
+<ol class="wp-block-list" type="1"><li>Don’t hoard the analysis. Sharing the results with the development team will help increase awareness of this death by indexing scenario.</li><li>Implementing an approval process for pull requests where a DBA should be in the approvers list if the change includes a new index.</li></ol>
+
+
+
+<h3 class="wp-block-heading">Verify improvements</h3>
+
+
+
+<p>Index changes can affect multiple queries all using the same table so just testing one query or stored procedure is not enough to release with confidence. Where possible, use a load testing environment which mirrors production, and replay a repeatable workload. By baselining a typical workload, then making the changes and taking a new benchmark, you can measure the improvements overall and for specific database calls.</p>
+
+
+
+<p>With this client, there was a load testing environment with synthetic API calls to the application that attempted to mirror production. Not everyone has this luxury when testing but capturing and replaying a workload, and measuring the differences is vital for this type of performance tuning. It can help you catch any serious regressions as well as giving you the confidence that your performance will improve.</p>
+
+
+
+<p>If you don&#8217;t alreqady have a suitable load testing environment, the tool I recommend to get you going is an open source project called <a href="https://github.com/spaghettidba/WorkloadTools" target="_blank" rel="noreferrer noopener">WorkloadTools </a>by Gianluca Sartori. </p>
+
+
+
+<h2 class="wp-block-heading">More handy links</h2>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-john-mccormack-dba"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="MUFA6u10Ie"><a href="/2020/06/a-successful-performance-tuning-project/">A successful performance tuning project</a></blockquote><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; visibility: hidden;" title="&#8220;A successful performance tuning project&#8221; &#8212; John McCormack DBA" src="/2020/06/a-successful-performance-tuning-project/embed/#?secret=FBwjKuPYFv#?secret=MUFA6u10Ie" data-secret="MUFA6u10Ie" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+
+
+
+<figure class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-john-mccormack-dba"><div class="wp-block-embed__wrapper">
+<blockquote class="wp-embedded-content" data-secret="DAoW5huUXy"><a href="/2020/05/how-dbatools-can-help-with-performance-tuning/">How DBATools can help with performance tuning</a></blockquote><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; visibility: hidden;" title="&#8220;How DBATools can help with performance tuning&#8221; &#8212; John McCormack DBA" src="/2020/05/how-dbatools-can-help-with-performance-tuning/embed/#?secret=zEjlftZZtE#?secret=DAoW5huUXy" data-secret="DAoW5huUXy" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div></figure>
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/guides/" rel="category tag">Guides</a>, <a href="/category/sql-server/performance-tuning/" rel="category tag">Performance Tuning</a></span> <span class="entry-tags">Tagged With: <a href="/tag/indexes/" rel="tag">indexes</a>, <a href="/tag/performance-tuning/" rel="tag">Performance tuning</a>, <a href="/tag/sql-performance/" rel="tag">SQL Performance</a>, <a href="/tag/sql-server/" rel="tag">SQL server</a></span></p></footer></article><article class="post-1493 post type-post status-publish format-standard has-post-thumbnail category-front-page category-performance-tuning tag-dbatools tag-performance tag-performance-tuning tag-sql-server entry" aria-label="How DBATools can help with performance tuning"><header class="entry-header"><h2 class="entry-title"><a class="entry-title-link" rel="bookmark" href="/2020/05/how-dbatools-can-help-with-performance-tuning/">How DBATools can help with performance tuning</a></h2>
+<p class="entry-meta"><time class="entry-time">20th May 2020</time> By <span class="entry-author"><a href="/author/jmccorma/" class="entry-author-link" rel="author"><span class="entry-author-name">John McCormack</span></a></span> <span class="entry-comments-link"><a href="/2020/05/how-dbatools-can-help-with-performance-tuning/#comments">3 Comments</a></span> </p></header><div class="entry-content"><h4>How DBATools can help with performance tuning.</h4>
+<p>DBATools is well known in the SQL Server community for the ease at which it allows you to automate certain tasks but did you know that DBATools can help with performance tuning your SQL Server. As my job recently changed to have more of a performance tilt, I wanted to investigate which commands would be useful in helping me with performance tuning. It turned out there are quite a few.</p>
+<h4>Compression</h4>
+<p>Page and row compression is a hidden gem when it comes to performance tuning SQL Server. Simply compressing some large indexes can sometimes be enough on it&#8217;s own to get you over the line in terms of performance improvement. With compression, it shouldn&#8217;t be a guessing game. SQL Server has built in stored procedures to let you know whether a table or index would benefit from page,row or no compression.</p>
+<p>[sql]</p>
+<p>EXEC sp_estimate_data_compression_savings &#8216;dbo&#8217;, &#8216;DB1&#8217;, NULL, NULL, &#8216;ROW&#8217; ;</p>
+<p>EXEC sp_estimate_data_compression_savings &#8216;dbo&#8217;, &#8216;DB1&#8217;, NULL, NULL, &#8216;PAGE&#8217; ;</p>
+<p>[/sql]</p>
+<p>But if you want to test a whole DB or instance at a time, DBA tools makes this a lot easier.<br />
+[Shell]<br />
+Test-DbaDbCompression -SqlInstance localhost -Database WideWorldImporters | Select-Object TableName, IndexName, IndexId, PercentScan, PercentUpdate, RowEstimatePercentOriginal, PageEstimatePercentOriginal, CompressionTypeRecommendation, SizeCurrent, SizeRequested, PercentCompression | Out-GridView<br />
+[/Shell]</p>
+<p>Piping to Out-Gridview is optional but I love the way the output is tabulated and easy to read. I use this output to create a list of objects to be compressed. I then do some load testing, before and after the changes and compare the results. This gives me the confidence to roll out the changes to production.</p>
+<p>Hint: Having a way of replaying a consistent load and measuring results before and after is essential when performance tuning by making wholesale changes. If you don&#8217;t have a way of doing this, I recommend looking into <a href="https://github.com/spaghettidba/WorkloadTools/wiki" target="_blank" rel="noopener">WorkloadTools</a>.</p>
+<p><figure id="attachment_1510" aria-describedby="caption-attachment-1510" style="width: 900px" class="wp-caption alignnone"><img loading="lazy" decoding="async" class="wp-image-1510" src="/wp-content/uploads/2020/05/Test-DBACompression.png" alt="Test-DBACompression example output" width="900" height="484" /><figcaption id="caption-attachment-1510" class="wp-caption-text">Output of Test-DBADBCompression</figcaption></figure></p>
+<h4>Find unwanted code hints</h4>
+<p>When I took over a new environment, there was A LOT of blocking. Part of this was down to the code which was in need of optimsation, but it was also due to a lot of hints peppered throughout the stored procedures that made blocking inevitable. I found several examples of REPEATABLE READ and SERIALIZABLE throughout the code base. Asking developers about why we needed this level of isolation, no one thought we did and said this was done by developers who had moved on.</p>
+<p>So, what is the easiest way to find every example of REPEATABLE READ in your code base, DBATools of course.</p>
+<p>[shell]<br />
+Find-DbaStoredProcedure -SqlInstance SQL123 -Database WideWorldImporters -Pattern &#8216;REPEATABLE READ&#8217; | Select-Object * | out-gridview<br />
+[/shell]</p>
+<p>Just like before, if you can get a replay running that simulates production, then you can measure whether your blocking and response times go down.</p>
+<p><figure id="attachment_1513" aria-describedby="caption-attachment-1513" style="width: 1897px" class="wp-caption alignleft"><img loading="lazy" decoding="async" class="wp-image-1513 size-full" src="/wp-content/uploads/2020/05/Find-DBAStoredProcedure.png" alt="Find-DBAStoredProcedure example output" width="1897" height="546" /><figcaption id="caption-attachment-1513" class="wp-caption-text">Output of Find-DBAStoredProcedure</figcaption></figure></p>
+<h4>Check disk speeds</h4>
+<p>Knowing that your disks are performing well gives you the confidence to go out and work on your code to seek performance improvements. But if you have slow disks, this can also be a bottleneck. Knowing you have a problem and rectifying it means you can see performance improvements before you have even looked at your indexes or stored procedures.</p>
+<p>A common bottleneck can be tempdb, it&#8217;s always good to know you have tempdb on high performing disks. (If using Azure VMs, you can <a href="/2019/03/put-tempdb-files-on-d-drive-in-azure-iaas/" target="_blank" rel="noopener">utilise the D drive for tempdb</a>)</p>
+<p>[shell]<br />
+Test-DBADiskSpeed -SQlInstance SQL123 -Database tempdb | Out-Gridview<br />
+[/shell]</p>
+<p><figure id="attachment_1505" aria-describedby="caption-attachment-1505" style="width: 1275px" class="wp-caption alignnone"><img loading="lazy" decoding="async" class="wp-image-1505 size-full" src="/wp-content/uploads/2020/05/Test-DBADiskSpeed.png" alt="Test-DBADiskSpeed example output" width="1275" height="413" /><figcaption id="caption-attachment-1505" class="wp-caption-text">Output of Test-DBADiskSpeed</figcaption></figure></p>
+<h4>Community tools</h4>
+<p>Easily install some of the best free community tools around which will help you evaluate and monitor your SQL Server.</p>
+<p>[shell]</p>
+<p># Install the First responder kit from Brent Ozar Unlimited. Includes sp_blitz, sp_blitzcache and sp_blitzIndex which all help with performance tuning. See https://www.brentozar.com/ for more info.<br />
+Install-DbaFirstResponderKit -SqlInstance SQL123 -Database dba</p>
+<p># Installs sp_whoisactive by Adam Machanic which is a priceless tool in terms of evaluating what is running on your instance right now. See http://whoisactive.com/ for more info.<br />
+Install-DbaWhoIsActive -SqlInstance SQL123 -Database dba</p>
+<p># Install the free community monitoring tool SQLWatch. See https://sqlwatch.io/ for more info.<br />
+Install-DbaSqlWatch -SqlInstance SQL123</p>
+<p>[/shell]</p>
+<h4>External Links</h4>
+<p>A full list of commands can be reviewed on <a href="https://dbatools.io/commands/" target="_blank" rel="noopener">https://dbatools.io/commands/</a>.</p>
+<ul>
+<li><a href="https://www.brentozar.com/?s=first+responder+kit" target="_blank" rel="noopener">First Responder Kit</a></li>
+<li><a href="http://whoisactive.com/" target="_blank" rel="noopener">sp_whoisactive</a></li>
+<li><a href="https://sqlwatch.io/">SQLWatch</a></li>
+</ul>
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="/category/front-page/" rel="category tag">front-page</a>, <a href="/category/sql-server/performance-tuning/" rel="category tag">Performance Tuning</a></span> <span class="entry-tags">Tagged With: <a href="/tag/dbatools/" rel="tag">DBATools</a>, <a href="/tag/performance/" rel="tag">Performance</a>, <a href="/tag/performance-tuning/" rel="tag">Performance tuning</a>, <a href="/tag/sql-server/" rel="tag">SQL server</a></span></p></footer></article></main></div></div><footer class="site-footer"><div class="wrap"><p>John McCormack · Copyright &#x000A9;&nbsp;2026 </p></div></footer></div><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/modern-portfolio-pro/*","/wp-content/themes/genesis/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript" src="/wp-content/plugins/enlighter/cache/enlighterjs.min.js" id="enlighterjs-js"></script>
+<script type="text/javascript" id="enlighterjs-js-after">
+/* <![CDATA[ */
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":true,"textOverflow":"break","linenumbers":true,"theme":"enlighter","language":"enlighter","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+//# sourceURL=enlighterjs-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js" id="wp-embed-js" defer="defer" data-wp-strategy="defer"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://johnmccormack.co.uk/wp-includes/js/wp-emoji-release.min.js?ver=6.9.6"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://johnmccormack.co.uk/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+</body></html>
