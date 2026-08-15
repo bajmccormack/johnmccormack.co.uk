@@ -1,0 +1,628 @@
+/*
+	johnmccormack.co.uk - dark mode
+	----------------------------------------------------------------------
+	Loaded after the Genesis / Modern Portfolio Pro stylesheet. It adds two
+	things and nothing else:
+
+	  1. one toggle button in the header menu
+	  2. a dark palette
+
+	Every colour below is routed through a custom property. The light value
+	of each property is the exact colour the vendor stylesheet already
+	hard-codes, so in light mode these rules repaint the page with the
+	colours it already had and the result is identical to production.
+	Only the dark values differ.
+
+	Layout, spacing, type and content are untouched.
+
+	tools/darkmode.py --revert removes the whole layer.
+*/
+
+/* ==========================================================================
+   1. Palette
+   ========================================================================== */
+
+:root {
+	color-scheme: light;
+
+	--jm-bg:            #fff;
+	--jm-text:          #222;
+	--jm-link:          #27b4b2;
+	--jm-link-hover:    #222;
+	--jm-muted:         #999;
+	--jm-meta:          #888;
+
+	--jm-rule:          #222;      /* the 1px rules the theme draws in #222 */
+	--jm-border:        #ddd;      /* field and table borders */
+	--jm-border-focus:  #aaa;
+
+	--jm-panel:         #f5f5f5;   /* author box, comments, allowed tags */
+	--jm-panel-edge:    #fff;      /* 2px frame around li.comment */
+
+	--jm-inverse-bg:    #222;      /* blocks already dark in light mode */
+	--jm-inverse-text:  #fff;
+	--jm-on-accent:     #fff;      /* text sitting on a teal fill */
+
+	--jm-code-bg:       #333;
+	--jm-code-text:     #ddd;
+
+	--jm-field-bg:      #fff;
+	--jm-field-text:    #888;
+	--jm-field-shadow:  #ddd;
+
+	--jm-social-bg:     #888;
+	--jm-select-bg:     #222;
+	--jm-select-text:   #fff;
+
+	/* Enlighter: chrome */
+	--jm-enl-wrap:      #939393;
+	--jm-enl-text:      #000;
+	--jm-enl-num:       #aaa;
+	--jm-enl-num-bg:    #f9f9f9;
+	--jm-enl-border:    #e0e0e0;
+	--jm-enl-special:   #fdf5f0;
+	--jm-enl-hover-bg:  #fffcd3;
+	--jm-enl-hover-tx:  #444;
+	--jm-enl-btn-bg:    #fff;
+	--jm-enl-btn-tx:    #717171;
+	--jm-enl-raw-bg:    #f9f9f9;
+
+	/* Enlighter: syntax */
+	--jm-enl-comment:   #99a;
+	--jm-enl-doc:       #9baa8f;
+	--jm-enl-purple:    #34068a;
+	--jm-enl-green:     #009926;
+	--jm-enl-green2:    #4a9141;
+	--jm-enl-blue:      #286491;
+	--jm-enl-slate:     #458;
+	--jm-enl-lightblue: #4da0d2;
+	--jm-enl-cyan:      #0086b3;
+	--jm-enl-teal:      #099;
+	--jm-enl-orange:    #ff8c00;
+	--jm-enl-magenta:   #990073;
+	--jm-enl-red:       #d14;
+	--jm-enl-grey:      #777;
+	--jm-enl-mute2:     #737383;
+	--jm-enl-strong:    #535353;
+	--jm-enl-mark:      #f0f0f0;
+}
+
+/* The dark palette is written out twice: once for the operating system
+   preference, which applies until the reader chooses otherwise, and once
+   for an explicit choice stored in localStorage. */
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		color-scheme: dark;
+
+		--jm-bg:            #14171a;
+		--jm-text:          #e4e6e8;
+		--jm-link:          #3fd0ce;
+		--jm-link-hover:    #ffffff;
+		--jm-muted:         #9aa1a8;
+		--jm-meta:          #9aa1a8;
+
+		--jm-rule:          #394047;
+		--jm-border:        #2c3237;
+		--jm-border-focus:  #4a5158;
+
+		--jm-panel:         #1b1f23;
+		--jm-panel-edge:    #14171a;
+
+		--jm-inverse-bg:    #1b1f23;
+		--jm-inverse-text:  #e4e6e8;
+		--jm-on-accent:     #06201f;
+
+		--jm-code-bg:       #0f1215;
+		--jm-code-text:     #e0e0e0;
+
+		--jm-field-bg:      #1b1f23;
+		--jm-field-text:    #c9ced3;
+		--jm-field-shadow:  transparent;
+
+		--jm-social-bg:     #3a4148;
+		--jm-select-bg:     #3fd0ce;
+		--jm-select-text:   #06201f;
+
+		--jm-enl-wrap:      #9aa1a8;
+		--jm-enl-text:      #dfe3e6;
+		--jm-enl-num:       #6b7078;
+		--jm-enl-num-bg:    #181c20;
+		--jm-enl-border:    #2c3237;
+		--jm-enl-special:   #2a2119;
+		--jm-enl-hover-bg:  #232a31;
+		--jm-enl-hover-tx:  #e4e6e8;
+		--jm-enl-btn-bg:    #1b1f23;
+		--jm-enl-btn-tx:    #9aa1a8;
+		--jm-enl-raw-bg:    #0f1215;
+
+		--jm-enl-comment:   #8f97a8;
+		--jm-enl-doc:       #9baa8f;
+		--jm-enl-purple:    #b98cff;
+		--jm-enl-green:     #5ddb7a;
+		--jm-enl-green2:    #67c65a;
+		--jm-enl-blue:      #6cb6ff;
+		--jm-enl-slate:     #7aa6d6;
+		--jm-enl-lightblue: #6cc0f0;
+		--jm-enl-cyan:      #4fc3e8;
+		--jm-enl-teal:      #3fd0ce;
+		--jm-enl-orange:    #ffa657;
+		--jm-enl-magenta:   #e879c8;
+		--jm-enl-red:       #ff7b72;
+		--jm-enl-grey:      #9aa1a8;
+		--jm-enl-mute2:     #a3a3b3;
+		--jm-enl-strong:    #c9d1d9;
+		--jm-enl-mark:      #232a31;
+	}
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+
+	--jm-bg:            #14171a;
+	--jm-text:          #e4e6e8;
+	--jm-link:          #3fd0ce;
+	--jm-link-hover:    #ffffff;
+	--jm-muted:         #9aa1a8;
+	--jm-meta:          #9aa1a8;
+
+	--jm-rule:          #394047;
+	--jm-border:        #2c3237;
+	--jm-border-focus:  #4a5158;
+
+	--jm-panel:         #1b1f23;
+	--jm-panel-edge:    #14171a;
+
+	--jm-inverse-bg:    #1b1f23;
+	--jm-inverse-text:  #e4e6e8;
+	--jm-on-accent:     #06201f;
+
+	--jm-code-bg:       #0f1215;
+	--jm-code-text:     #e0e0e0;
+
+	--jm-field-bg:      #1b1f23;
+	--jm-field-text:    #c9ced3;
+	--jm-field-shadow:  transparent;
+
+	--jm-social-bg:     #3a4148;
+	--jm-select-bg:     #3fd0ce;
+	--jm-select-text:   #06201f;
+
+	--jm-enl-wrap:      #9aa1a8;
+	--jm-enl-text:      #dfe3e6;
+	--jm-enl-num:       #6b7078;
+	--jm-enl-num-bg:    #181c20;
+	--jm-enl-border:    #2c3237;
+	--jm-enl-special:   #2a2119;
+	--jm-enl-hover-bg:  #232a31;
+	--jm-enl-hover-tx:  #e4e6e8;
+	--jm-enl-btn-bg:    #1b1f23;
+	--jm-enl-btn-tx:    #9aa1a8;
+	--jm-enl-raw-bg:    #0f1215;
+
+	--jm-enl-comment:   #8f97a8;
+	--jm-enl-doc:       #9baa8f;
+	--jm-enl-purple:    #b98cff;
+	--jm-enl-green:     #5ddb7a;
+	--jm-enl-green2:    #67c65a;
+	--jm-enl-blue:      #6cb6ff;
+	--jm-enl-slate:     #7aa6d6;
+	--jm-enl-lightblue: #6cc0f0;
+	--jm-enl-cyan:      #4fc3e8;
+	--jm-enl-teal:      #3fd0ce;
+	--jm-enl-orange:    #ffa657;
+	--jm-enl-magenta:   #e879c8;
+	--jm-enl-red:       #ff7b72;
+	--jm-enl-grey:      #9aa1a8;
+	--jm-enl-mute2:     #a3a3b3;
+	--jm-enl-strong:    #c9d1d9;
+	--jm-enl-mark:      #232a31;
+}
+
+/* ==========================================================================
+   2. The toggle
+   Sits in the header menu as one more list item, so the menu itself needs
+   no changes. Padding matches .genesis-nav-menu a exactly (24px 20px on an
+   18px line box) so the header keeps its height.
+   ========================================================================== */
+
+/* The theme floats .title-area at 35% and .widget-area at 60%, leaving 5%
+   of dead space between them. The menu is right-aligned and already fills
+   its 60%, so without this the extra item has nowhere to go and wraps onto
+   a second row. Taking the unused 5% gives it room; the menu stays right
+   aligned against the same edge and the logo keeps its own 35%, so nothing
+   that was already on screen moves.
+
+   Guarded above 1000px: below that the theme gives .widget-area the full
+   width and centres it, and this rule would otherwise beat that on cascade
+   order and break the stacked header. */
+@media only screen and (min-width: 1001px) {
+	.site-header .widget-area {
+		width: 65%;
+	}
+}
+
+/* vertical-align: top keeps this item out of the row's baseline alignment.
+   A button whose only child is a block-level <svg> has no text baseline, so
+   left on the default `baseline` it would sit below the links and stretch
+   the line box, making the header taller. */
+.jm-theme-item {
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+}
+
+.jm-theme-toggle {
+	background: none;
+	border: 0;
+	box-shadow: none;
+	color: inherit;
+	cursor: pointer;
+	display: block;
+	line-height: 1;
+	margin: 0;
+	padding: 24px 20px;
+	text-align: center;
+	width: auto;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.jm-theme-toggle:hover,
+.jm-theme-toggle:focus {
+	background: none;
+	color: var(--jm-link);
+}
+
+.jm-theme-toggle svg {
+	display: block;
+	height: 18px;
+	width: 18px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+/* One icon: the moon offers dark, the sun offers a way back. */
+.jm-theme-toggle .jm-icon-sun { display: none; }
+:root[data-theme="dark"] .jm-theme-toggle .jm-icon-sun { display: block; }
+:root[data-theme="dark"] .jm-theme-toggle .jm-icon-moon { display: none; }
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) .jm-theme-toggle .jm-icon-sun { display: block; }
+	:root:not([data-theme="light"]) .jm-theme-toggle .jm-icon-moon { display: none; }
+}
+
+/* In the collapsed mobile menu the items stack, so the toggle stacks too. */
+@media only screen and (max-width: 600px) {
+	.genesis-nav-menu.responsive-menu .jm-theme-item { display: block; }
+	.jm-theme-toggle { padding: 16px 20px; }
+}
+
+/* ==========================================================================
+   3. Palette applied
+   Selectors are copied from the vendor stylesheet so specificity matches and
+   these win only on cascade order. Longhand properties throughout, so widths
+   and styles set by the theme survive untouched.
+   ========================================================================== */
+
+body {
+	background-color: var(--jm-bg);
+	color: var(--jm-text);
+}
+
+::-moz-selection { background-color: var(--jm-select-bg); color: var(--jm-select-text); }
+::selection      { background-color: var(--jm-select-bg); color: var(--jm-select-text); }
+
+a       { color: var(--jm-link); }
+a:hover { color: var(--jm-link-hover); }
+
+blockquote,
+blockquote::before { color: var(--jm-muted); }
+
+.entry-content code {
+	background-color: var(--jm-code-bg);
+	color: var(--jm-code-text);
+}
+
+/* --- Forms --------------------------------------------------------------- */
+
+input,
+select,
+textarea {
+	background-color: var(--jm-field-bg);
+	border-color: var(--jm-border);
+	box-shadow: 0 0 5px var(--jm-field-shadow) inset;
+	color: var(--jm-field-text);
+}
+
+input:focus,
+textarea:focus { border-color: var(--jm-border-focus); }
+
+::-moz-placeholder          { color: var(--jm-muted); }
+::-webkit-input-placeholder { color: var(--jm-muted); }
+
+.button,
+.widget .button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background-color: var(--jm-link);
+	color: var(--jm-on-accent);
+}
+
+.button:hover,
+.widget .button:hover,
+button:hover,
+input:hover[type="button"],
+input:hover[type="reset"],
+input:hover[type="submit"] {
+	background-color: var(--jm-inverse-bg);
+	color: var(--jm-inverse-text);
+}
+
+.entry-content .button:hover { color: var(--jm-inverse-text); }
+
+/* --- Tables -------------------------------------------------------------- */
+
+tbody { border-bottom-color: var(--jm-border); }
+td    { border-top-color: var(--jm-border); }
+
+/* --- Header -------------------------------------------------------------- */
+
+.site-header .wrap { border-bottom-color: var(--jm-rule); }
+
+.site-title a,
+.site-title a:hover { color: var(--jm-text); }
+
+.site-description { color: var(--jm-muted); }
+
+.genesis-nav-menu   { color: var(--jm-text); }
+.genesis-nav-menu a { color: var(--jm-text); }
+
+.genesis-nav-menu a:hover,
+.genesis-nav-menu .sub-menu .current-menu-item > a:hover { color: var(--jm-link); }
+
+.genesis-nav-menu .sub-menu { border-top-color: var(--jm-rule); }
+
+.genesis-nav-menu .sub-menu a {
+	background-color: var(--jm-bg);
+	border-color: var(--jm-rule);
+}
+
+.genesis-nav-menu .sub-menu a:hover {
+	background-color: var(--jm-inverse-bg);
+	color: var(--jm-inverse-text);
+}
+
+.genesis-nav-menu li.highlight-menu-item a {
+	background-color: var(--jm-inverse-bg);
+	color: var(--jm-inverse-text);
+}
+
+.nav-primary .wrap { border-bottom-color: var(--jm-rule); }
+
+@media only screen and (max-width: 600px) {
+	.genesis-nav-menu.responsive-menu li a,
+	.genesis-nav-menu.responsive-menu li a:hover { color: var(--jm-text); }
+}
+
+/* The wordmark is a dark blue bitmap on transparency, so it all but
+   disappears on a dark ground. Lift it rather than recolour it. */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) .header-image .site-title a {
+		filter: brightness(0) invert(1);
+		opacity: 0.9;
+	}
+}
+
+:root[data-theme="dark"] .header-image .site-title a {
+	filter: brightness(0) invert(1);
+	opacity: 0.9;
+}
+
+/* --- Entries ------------------------------------------------------------- */
+
+.breadcrumb { border-bottom-color: var(--jm-rule); }
+
+/* The theme sets this in the same group as .sidebar .widget-title a, so it
+   is easy to miss; left alone the post titles stay #222 on a dark page. */
+.entry-title a       { color: var(--jm-text); }
+.entry-title a:hover { color: var(--jm-link); }
+
+.archive-description { background-color: var(--jm-panel); }
+
+.entry-meta         { color: var(--jm-meta); }
+.entry-meta a       { color: var(--jm-text); }
+.entry-meta a:hover { color: var(--jm-link); }
+
+.entry-footer .entry-meta::before { border-top-color: var(--jm-rule); }
+
+.author-box { background-color: var(--jm-panel); }
+
+.after-entry {
+	background-color: var(--jm-inverse-bg);
+	color: var(--jm-inverse-text);
+}
+
+.after-entry .widgettitle { color: var(--jm-inverse-text); }
+.after-entry li a         { color: var(--jm-muted); }
+.after-entry .entry-title a              { color: var(--jm-inverse-text); }
+.after-entry .widget .entry-meta a:hover { color: var(--jm-inverse-text); }
+.after-entry .entry-title a:hover        { color: var(--jm-link); }
+
+/* The front page intro band. It is already a dark panel in light mode, so
+   only its ground moves; the #ccc text on it reads correctly either way. */
+#about {
+	background-color: var(--jm-inverse-bg);
+	color: var(--jm-inverse-text);
+}
+
+#about .entry-title a       { color: var(--jm-inverse-text); }
+#about a:hover,
+#about .entry-meta a:hover  { color: var(--jm-inverse-text); }
+
+/* --- Pagination, comments ------------------------------------------------ */
+
+.archive-pagination li a {
+	background-color: var(--jm-inverse-bg);
+	color: var(--jm-inverse-text);
+}
+
+.archive-pagination li a:hover,
+.archive-pagination li.active a {
+	background-color: var(--jm-link);
+	color: var(--jm-on-accent);
+}
+
+li.comment {
+	background-color: var(--jm-panel);
+	border-color: var(--jm-panel-edge);
+}
+
+.form-allowed-tags { background-color: var(--jm-panel); }
+
+/* --- Sidebar, footer ----------------------------------------------------- */
+
+.sidebar .widget         { background-color: var(--jm-bg); }
+.sidebar .widget::after  { border-bottom-color: var(--jm-rule); }
+.sidebar .enews          { background-color: var(--jm-inverse-bg); }
+.sidebar .widget-title a { color: var(--jm-text); }
+
+.footer-widgets {
+	background-color: var(--jm-inverse-bg);
+	color: var(--jm-inverse-text);
+}
+
+.footer-widgets .widget-title { color: var(--jm-inverse-text); }
+.footer-widgets a:hover       { color: var(--jm-inverse-text); }
+
+a.social-buttons {
+	background-color: var(--jm-social-bg);
+	color: var(--jm-inverse-text);
+}
+
+.site-footer         { border-top-color: var(--jm-rule); }
+.site-footer a       { color: var(--jm-text); }
+.site-footer a:hover { color: var(--jm-link); }
+
+/* ==========================================================================
+   4. Enlighter
+   The highlighter builds its DOM at runtime and ships one hard-coded light
+   theme: .enlighter-text is #000 and the block itself has no background, so
+   on a dark page the code would be black on near-black. Route its palette
+   through the same properties.
+   ========================================================================== */
+
+.enlighter-t-enlighter {
+	color: var(--jm-enl-wrap);
+	border-color: var(--jm-enl-border);
+}
+
+.enlighter-t-enlighter div.enlighter > div { color: var(--jm-enl-num); }
+.enlighter-t-enlighter .enlighter-text     { color: var(--jm-enl-text); }
+
+.enlighter-t-enlighter.enlighter-linenumbers div.enlighter > div::before {
+	background-color: var(--jm-enl-num-bg);
+	border-right-color: var(--jm-enl-border);
+}
+
+.enlighter-t-enlighter div.enlighter > div.enlighter-special {
+	background-color: var(--jm-enl-special);
+}
+
+.enlighter-default .enlighter-special:hover {
+	background-color: var(--jm-enl-special);
+}
+
+.enlighter-t-enlighter.enlighter-hover div.enlighter > div:hover,
+.enlighter-t-enlighter.enlighter-hover.enlighter-linenumbers div.enlighter > div:hover {
+	background-color: var(--jm-enl-hover-bg);
+	color: var(--jm-enl-hover-tx);
+}
+
+.enlighter-t-enlighter .enlighter-raw {
+	background-color: var(--jm-enl-raw-bg);
+	color: var(--jm-enl-text);
+}
+
+.enlighter-t-enlighter .enlighter-btn {
+	background-color: var(--jm-enl-btn-bg);
+	border-color: var(--jm-enl-border);
+	color: var(--jm-enl-btn-tx);
+}
+
+.enlighter-t-enlighter .enlighter-c0,
+.enlighter-t-enlighter .enlighter-c1,
+.enlighter-t-enlighter .enlighter-c2,
+.enlighter-t-enlighter .enlighter-k11 { color: var(--jm-enl-comment); }
+
+.enlighter-t-enlighter .enlighter-c9 { color: var(--jm-enl-doc); }
+
+.enlighter-t-enlighter .enlighter-e0,
+.enlighter-t-enlighter .enlighter-e1 { color: var(--jm-enl-purple); }
+
+.enlighter-t-enlighter .enlighter-e2,
+.enlighter-t-enlighter .enlighter-t4,
+.enlighter-t-enlighter .enlighter-t5 { color: var(--jm-enl-green); }
+
+.enlighter-t-enlighter .enlighter-k4,
+.enlighter-t-enlighter .enlighter-k10 { color: var(--jm-enl-green2); }
+
+.enlighter-t-enlighter .enlighter-e3,
+.enlighter-t-enlighter .enlighter-k0,
+.enlighter-t-enlighter .enlighter-k1,
+.enlighter-t-enlighter .enlighter-k5,
+.enlighter-t-enlighter .enlighter-k6,
+.enlighter-t-enlighter .enlighter-k7 { color: var(--jm-enl-blue); }
+
+.enlighter-t-enlighter .enlighter-k2 { color: var(--jm-enl-slate); }
+
+.enlighter-t-enlighter .enlighter-k3 {
+	color: var(--jm-enl-lightblue);
+	background-color: var(--jm-enl-mark);
+}
+
+.enlighter-t-enlighter .enlighter-k8 { color: var(--jm-enl-lightblue); }
+
+.enlighter-t-enlighter .enlighter-e4,
+.enlighter-t-enlighter .enlighter-s4 { color: var(--jm-enl-orange); }
+
+.enlighter-t-enlighter .enlighter-k9,
+.enlighter-t-enlighter .enlighter-t2 { color: var(--jm-enl-magenta); }
+
+.enlighter-t-enlighter .enlighter-m0,
+.enlighter-t-enlighter .enlighter-m1,
+.enlighter-t-enlighter .enlighter-m2,
+.enlighter-t-enlighter .enlighter-m3,
+.enlighter-t-enlighter .enlighter-t3 { color: var(--jm-enl-cyan); }
+
+.enlighter-t-enlighter .enlighter-n0,
+.enlighter-t-enlighter .enlighter-n1,
+.enlighter-t-enlighter .enlighter-n2,
+.enlighter-t-enlighter .enlighter-n3,
+.enlighter-t-enlighter .enlighter-n4,
+.enlighter-t-enlighter .enlighter-n5 { color: var(--jm-enl-teal); }
+
+.enlighter-t-enlighter .enlighter-s0,
+.enlighter-t-enlighter .enlighter-s1,
+.enlighter-t-enlighter .enlighter-s2,
+.enlighter-t-enlighter .enlighter-s5,
+.enlighter-t-enlighter .enlighter-t1,
+.enlighter-t-enlighter .enlighter-t6 { color: var(--jm-enl-red); }
+
+.enlighter-t-enlighter .enlighter-s3 { color: var(--jm-enl-mute2); }
+
+.enlighter-t-enlighter .enlighter-g0,
+.enlighter-t-enlighter .enlighter-g1,
+.enlighter-t-enlighter .enlighter-t0 { color: var(--jm-enl-grey); }
+
+.enlighter-t-enlighter .enlighter-t8 {
+	color: var(--jm-enl-grey);
+	background-color: var(--jm-enl-mark);
+}
+
+.enlighter-t-enlighter .enlighter-t7 { color: var(--jm-enl-strong); }
