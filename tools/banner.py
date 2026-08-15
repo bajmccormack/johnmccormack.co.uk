@@ -78,10 +78,17 @@ def add(text):
     original = text
     had_banner = BANNER_RE.search(text) is not None
 
-    # Head block: replaced wholesale so an edited notice updates its id.
-    text = HEAD_RE.sub("", text)
-    if "</head>" in text:
-        text = text.replace("</head>", HEAD_BLOCK + "</head>", 1)
+    # Head block: rewritten only when it is missing or carries a stale id,
+    # so re-running does not shuffle these tags past other layers' tags.
+    head_current = (
+        f"'jm-banner-dismissed')==='{BANNER_ID}'" in text
+        and "id='jm-banner-css'" in text
+        and "id='jm-banner-js'" in text
+    )
+    if not head_current:
+        text = HEAD_RE.sub("", text)
+        if "</head>" in text:
+            text = text.replace("</head>", HEAD_BLOCK + "</head>", 1)
 
     # Banner markup, first thing in <body>.
     if had_banner:

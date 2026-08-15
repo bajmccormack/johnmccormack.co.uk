@@ -38,7 +38,7 @@ The differences are confined to things that cannot work without PHP and a databa
 | `wp-json`, `xmlrpc.php`, RSD, pingback and shortlink tags dropped | Dead endpoints. |
 | RSS feed frozen at `/feed/index.xml` | A static snapshot; the old `/feed/` path no longer resolves. |
 | Google Fonts + Gravatar avatars downloaded locally | Removes third-party runtime dependencies. |
-| `johnmccormack.it` links repointed to `.co.uk` | That domain is dead; the paths are identical, so 61 previously-broken links now work. Visible link *text* was left untouched. |
+| `johnmccormack.it` replaced by `.co.uk` throughout | That domain is dead and the paths are identical, so 61 previously-broken links now work. Visible link text and the `sameAs` entry in the page schema were updated to match. |
 
 ### Search
 

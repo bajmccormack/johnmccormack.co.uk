@@ -89,7 +89,7 @@
 		<dc:creator><![CDATA[John McCormack]]></dc:creator>
 		<pubDate>Sun, 15 Sep 2024 16:57:46 +0000</pubDate>
 				<category><![CDATA[front-page]]></category>
-		<guid isPermaLink="false">https://johnmccormack.it/?p=2876</guid>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=2876</guid>
 
 					<description><![CDATA[It&#8217;s the Sunday following Data:Scotland conference for 2024 and I&#8217;m still thinking about what a great day it was. From a personal perspective, I was involved as a speaker and volunteer so it was a very full day. Volunteering Volunteering is great, you get to meet loads of people and you do make a big [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -202,7 +202,7 @@
 		<pubDate>Fri, 09 Jun 2023 16:19:38 +0000</pubDate>
 				<category><![CDATA[front-page]]></category>
 		<category><![CDATA[SSIS]]></category>
-		<guid isPermaLink="false">https://johnmccormack.it/?p=2843</guid>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=2843</guid>
 
 					<description><![CDATA[SSIS and DTUTIL background SQL Server Integration Services (SSIS) is a powerful tool, but migrating packages across SQL Servers can be a slow and thankless task if you don&#8217;t use automation. The single best way to do this is by using DTUTIL, a command-line utility provided directly by Microsoft. When it comes to moving 1000s [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -336,7 +336,7 @@ ON ssp.folderid = sspf.folderid
 		<category><![CDATA[stuff]]></category>
 		<category><![CDATA[t-sql]]></category>
 		<category><![CDATA[t-sql tuesday]]></category>
-		<guid isPermaLink="false">https://johnmccormack.it/?p=2832</guid>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=2832</guid>
 
 					<description><![CDATA[I don&#8217;t often go down code based rabbit holes, its just not what I do day to day but a while back, someone asked on twitter&#8217;s #sqlhelp hashtag if there was a character length limit to the STUFF function. The documentation didn&#8217;t have an answer. For that reason only, I decided to take a look. [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -417,7 +417,7 @@ SELECT LEN(@var)</pre>
 		<category><![CDATA[azure]]></category>
 		<category><![CDATA[certifications]]></category>
 		<category><![CDATA[dp-300]]></category>
-		<guid isPermaLink="false">https://johnmccormack.it/?p=2826</guid>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=2826</guid>
 
 					<description><![CDATA[On Sunday morning, I sat and passed exam DP-300 which gives the certification of Microsoft Certified: Azure Administrator Associate. I&#8217;ve been sitting Microsoft exams for a number of years now but this was my first for a while. I wanted to jot down what thoughts still remained in my head following the exam. Preparation I [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -494,7 +494,7 @@ SELECT LEN(@var)</pre>
 		<category><![CDATA[AWS CLI]]></category>
 		<category><![CDATA[chatgpt]]></category>
 		<category><![CDATA[t-sql]]></category>
-		<guid isPermaLink="false">https://johnmccormack.it/?p=2810</guid>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=2810</guid>
 
 					<description><![CDATA[I played with ChatGPT for the first time today. For those who don&#8217;t know what ChatGPT is, I asked it and this was the response. ChatGPT is an open-source chatbot framework that enables developers to quickly create natural language understanding chatbots using the GPT-3 language model. https://beta.openai.com/playground If that still doesn&#8217;t make sense, I asked [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -591,7 +591,7 @@ SELECT LEN(@var)</pre>
 		<category><![CDATA[data grillen]]></category>
 		<category><![CDATA[datagrillen]]></category>
 		<category><![CDATA[kivelingsfest]]></category>
-		<guid isPermaLink="false">https://johnmccormack.it/?p=2757</guid>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=2757</guid>
 
 					<description><![CDATA[I&#8217;m just back from DataGrillen 2022. As ever, I wanted to put together a short post and use the opportunity to share some things I learned, and share some photos of the event. First of all, thanks for such a hospitable welcome from William Durkin and Ben Weissman and congratulations for hosting a very successful [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -719,7 +719,7 @@ SELECT LEN(@var)</pre>
 		<category><![CDATA[data file]]></category>
 		<category><![CDATA[filegroup]]></category>
 		<category><![CDATA[SQL server]]></category>
-		<guid isPermaLink="false">https://johnmccormack.it/?p=2741</guid>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=2741</guid>
 
 					<description><![CDATA[I just realised that in all my scripts that I use on a regular basis, I didn&#8217;t have one for working out free space in SQL Server filegroups. It&#8217;s not something that comes up too often but it&#8217;s handy to know. For methods of working out space in individual files, you could refer to this [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -772,7 +772,7 @@ GROUP BY FILEGROUP_NAME(data_space_id);</pre>
 		<category><![CDATA[community]]></category>
 		<category><![CDATA[data community]]></category>
 		<category><![CDATA[sqlbits]]></category>
-		<guid isPermaLink="false">https://johnmccormack.it/?p=2716</guid>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=2716</guid>
 
 					<description><![CDATA[Data Community Events Last week, I had hoped to go to SQLBits conference in London but a variety of factors meant I could really only attend the Saturday morning sessions (and virtually at that). I&#8217;ve really missed Data Community Events like SQLBits and others. I wanted to go because I&#8217;ve been slightly disengaged from the [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -841,7 +841,7 @@ GROUP BY FILEGROUP_NAME(data_space_id);</pre>
 		<category><![CDATA[python]]></category>
 		<category><![CDATA[t-sql]]></category>
 		<category><![CDATA[t-sql tuesday]]></category>
-		<guid isPermaLink="false">https://johnmccormack.it/?p=2681</guid>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=2681</guid>
 
 					<description><![CDATA[What an honour it was to host T-SQL Tuesday this month and I received some really great submissions. This wrap up post aims to give a quick insight into each of them in the hope that more members of the SQL Family can find some time to click on them and learn more. I counted 22 [&#8230;]]]></description>
 										<content:encoded><![CDATA[
