@@ -26,11 +26,6 @@
 <link rel="alternate" type="application/rss+xml" title="John McCormack DBA &raquo; Feed" href="/feed/index.xml" />
 
 
-
-		<!-- This site uses the Google Analytics by MonsterInsights plugin v10.1.3 - Using Analytics tracking - https://www.monsterinsights.com/ -->
-		<!-- Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel. -->
-					<!-- No tracking code set -->
-				<!-- / Google Analytics by MonsterInsights -->
 		<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -160,21 +155,143 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .entry-content .cv-dates{font-family:'Lato',sans-serif;font-size:15px;font-weight:400;color:var(--cv-muted);margin-left:auto;white-space:nowrap}
 .entry-content h4{font-size:16px;margin:22px 0 6px;color:var(--cv-muted);text-transform:uppercase;letter-spacing:.06em}
 
+/* "Save as PDF" control. A static host has no PDF to serve, so it opens the
+   browser's print dialog, where "Save as PDF" is the destination - the
+   @media print rules below are what shape that output. Hidden until the
+   script runs, since without JS the button would do nothing.
+
+   Narrow viewports have no margin to put it in, so it floats in the bottom
+   right corner instead. */
+.entry-content .cv-pdf{
+  position:fixed;z-index:20;right:18px;bottom:18px;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 16px;
+  border:1px solid var(--cv-rule);border-radius:999px;
+  background:var(--jm-bg,#fff);color:var(--jm-text,#222);
+  font-family:'Lato',sans-serif;font-size:13px;font-weight:700;line-height:1;
+  text-transform:uppercase;letter-spacing:.07em;
+  cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.12);
+  transition:color .15s ease,border-color .15s ease,background-color .15s ease;
+}
+.entry-content .cv-pdf[hidden]{display:none}
+.entry-content .cv-pdf:hover,.entry-content .cv-pdf:focus-visible{
+  color:var(--jm-link,#27b4b2);border-color:currentColor;background-color:var(--cv-tint);
+}
+.entry-content .cv-pdf svg{
+  width:17px;height:17px;flex:0 0 auto;
+  fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* Once there is real margin beside the content column the button moves into
+   it. The rail spans the full height of the resume and the button is sticky
+   inside it, so it starts level with the section nav and then holds at the
+   top of the viewport for the rest of the scroll. Pure CSS, no scroll
+   handler. */
+@media only screen and (min-width:1320px){
+.entry-content{position:relative}
+.entry-content .cv-pdf-rail{
+  position:absolute;top:0;bottom:0;width:56px;
+  /* Centred in the margin: out by half the margin, back by half the rail.
+     100% is the content column, so this holds at any width. 100vw counts
+     the classic scrollbar and the content column does not, so the script
+     measures it out; without JS the button sits a few px off centre. */
+  right:calc(-1 * ((100vw - var(--jm-scrollbar,0px) - 100%)/4 + 28px));
+  pointer-events:none;
+}
+.entry-content .cv-pdf{
+  position:sticky;top:18px;right:auto;bottom:auto;
+  pointer-events:auto;
+  display:flex;flex-direction:column;gap:7px;
+  width:100%;padding:13px 0;
+  border-radius:12px;font-size:11px;letter-spacing:.08em;
+  box-shadow:0 1px 3px rgba(0,0,0,.07);
+}
+.entry-content .cv-pdf svg{width:20px;height:20px}
+}
+
 @media only screen and (max-width:600px){
 .entry-content .cv-dates{margin-left:0;width:100%}
 .entry-content .cv-role{font-size:19px}
 .entry-content .cv-contact a{font-size:14px;padding:7px 13px}
 }
+/* The wordmark is a background image on .site-title a, and browsers drop
+   background images when printing. This is the same file as a real <img>,
+   which is not subject to that, shown only on paper. */
+.jm-print-logo{display:none}
+
+/* ==========================================================================
+   Print / "Save as PDF"
+
+   The theme ships no print styles at all, so everything the PDF needs is
+   here. The aim is the page as it looks on screen, minus the furniture that
+   means nothing on paper: the notice banner, the nav menu, the dark mode
+   toggle and the PDF button itself. The logo stays.
+   ========================================================================== */
 @media print{
-.entry-content h2{margin-top:22px;padding-bottom:6px}
+
+@page{margin:12mm}
+
+/* 1. Always print the light palette. Every colour on the site is routed
+   through these properties, so resetting them is enough - and it is not
+   optional: a reader in dark mode would otherwise get pale grey text on
+   white paper. Same specificity as the dark rules in darkmode.css, and
+   this stylesheet loads after it. */
+:root,
+:root[data-theme="dark"],
+:root:not([data-theme="light"]){
+  color-scheme:light;
+  --jm-bg:#fff;--jm-text:#222;--jm-link:#27b4b2;--jm-link-hover:#222;
+  --jm-muted:#999;--jm-meta:#888;
+  --jm-rule:#222;--jm-border:#ddd;--jm-border-focus:#aaa;
+  --jm-panel:#f5f5f5;--jm-panel-edge:#fff;
+  --jm-inverse-bg:#222;--jm-inverse-text:#fff;--jm-on-accent:#fff;
+}
+:root[data-theme="dark"] .entry-content,
+:root:not([data-theme="light"]) .entry-content{
+  --cv-muted:#5a6166;--cv-tint:rgba(39,180,178,.09);
+}
+html,body{background:#fff}
+
+/* 2. Screen furniture. Hiding the header widget area takes the nav menu and
+   the dark mode toggle together, since darkmode.js appends the toggle to
+   that same menu. */
+.jm-banner{display:none}
+.site-header .widget-area{display:none}
+.entry-content .cv-pdf-rail,.entry-content .cv-pdf{display:none}
+
+/* 3. Masthead: logo only, and no longer a 35% column now the menu has gone.
+   The wordmark is set to 200px so it takes up the same share of the paper
+   that it does of the screen, where it is 295px against a 1140px column. */
+.title-area{float:none;width:100%}
+.site-title{margin:0}
+/* Needs to outrank .header-image .site-title a in the theme, which sets
+   display:block and a 90px min-height. Left at .site-title a it loses on
+   specificity, keeps its box, and in dark mode its invert filter prints as
+   a grey slab above the logo. */
+.header-image .site-title a{display:none}
+.jm-print-logo{display:block;width:200px;height:auto}
+.site-header .wrap{padding:0 0 18px;overflow:visible}
+
+/* 4. Use the full width of the paper. .wrap drops to 90% below 1267px,
+   which would waste a tenth of every page. */
+.wrap,.site-inner{max-width:100%;width:auto}
+.site-inner{padding-top:24px}
+/* One line of clearance. At 0 the footer's top border prints flush against
+   the contact chips. */
+.entry{margin-bottom:24px}
+
+/* 5. Breaks. Keep a heading with what follows it, and never split an
+   employer's logo from its job titles. */
+.entry-content h2,.entry-content h3,.entry-content h4{break-after:avoid;page-break-after:avoid}
+.entry-content .cv-employer{break-inside:avoid;break-after:avoid;page-break-inside:avoid}
+.entry-content li,.entry-content .cv-role{break-inside:avoid;page-break-inside:avoid}
+.entry-content .cv-contact{break-inside:avoid;page-break-inside:avoid}
+.entry-content h2{margin-top:26px;padding-bottom:8px}
 .entry-content .cv-role{margin-top:16px}
-.entry-content .cv-contact a{border:0;padding:0;font-weight:400}
-.entry-content .cv-contact a[target="_blank"]::after{content:""}
-.entry-content li{break-inside:avoid}
 }
 </style>
 </head>
-<body class="wp-singular page-template-default page page-id-3000 wp-theme-genesis wp-child-theme-modern-portfolio-pro custom-header header-image full-width-content genesis-breadcrumbs-hidden genesis-footer-widgets-hidden"><div class="jm-banner" data-banner="bf2be919"><p class="jm-banner-text"><span class="jm-banner-message">I&#8217;m taking a hiatus from tech blogging</span></p></div><div class="site-container"><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="/">John McCormack DBA</a></p><p class="site-description">SQL Server Databases and Cloud</p></div><div class="widget-area header-widget-area"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><nav class="nav-header"><ul id="menu-menu" class="menu genesis-nav-menu"><li id="menu-item-2900" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-2900"><a href="/"><span >Posts</span></a>
+<body class="wp-singular page-template-default page page-id-3000 wp-theme-genesis wp-child-theme-modern-portfolio-pro custom-header header-image full-width-content genesis-breadcrumbs-hidden genesis-footer-widgets-hidden"><div class="jm-banner" data-banner="bf2be919"><p class="jm-banner-text"><span class="jm-banner-message">I&#8217;m taking a hiatus from tech blogging</span></p></div><div class="site-container"><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="/">John McCormack DBA</a><img class="jm-print-logo" src="/wp-content/uploads/2016/09/cropped-JohnMcCormack-295x90.png" alt="John McCormack" width="295" height="90" /></p><p class="site-description">SQL Server Databases and Cloud</p></div><div class="widget-area header-widget-area"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><nav class="nav-header"><ul id="menu-menu" class="menu genesis-nav-menu"><li id="menu-item-2900" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-2900"><a href="/"><span >Posts</span></a>
 <ul class="sub-menu"><li id="menu-item-2192" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-2192"><a href="/2021/01/let-me-solve-your-sql-server-problems/"><span >Hire me</span></a>
 <ul class="sub-menu">
 	<li id="menu-item-2448" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2448"><a href="/2021/01/sessionize-speaker-profile/"><span >Take a look at my Sessionize speaker’s profile</span></a></li>
@@ -217,19 +334,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </li>
 </ul></nav></div></section>
 </div></div></header><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><article class="post-3000 page type-page status-publish entry" aria-label="Resume"><header class="entry-header"><h1 class="entry-title screen-reader-text">Resume</h1>
-</header><div class="entry-content"><nav class="cv-toc" aria-label="Resume sections"><a href="#summary">Summary</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#community">Community</a><a href="#education">Education</a><a href="#certifications">Certifications</a></nav>
+</header><div class="entry-content"><div class="cv-pdf-rail"><button type="button" class="cv-pdf" aria-label="Download this resume as a PDF" title="Download as PDF" hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v11.5m0 0 4.2-4.2M12 14.5l-4.2-4.2"/><path d="M4 16.5v3A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5v-3"/></svg>PDF</button></div>
+<nav class="cv-toc" aria-label="Resume sections"><a href="#summary">Summary</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#community">Community</a><a href="#education">Education</a><a href="#certifications">Certifications</a></nav>
 <h2 id="summary">Summary</h2>
-<p>I&#8217;m an experienced engineering leader and data platform professional. I&#8217;ve worked as a DBA since 2012 and now lead a global team of highly skilled engineers at Docusign. I drive change, and I have a passion for helping people maximise their own careers.</p>
-<p>On the technical side I work with some of the world&#8217;s biggest and busiest OLTP systems, with experience managing on-premises infrastructure as well as deep experience in public cloud across both AWS and Azure. My team manages complex, heavily accessed SQL Servers with Availability Groups, as well as PaaS solutions.</p>
+<p>I&#8217;m an experienced engineering leader and data platform professional. I&#8217;ve worked as a DBA since 2012 and now lead a global team of highly skilled DBA and DBRE at Docusign. I drive change, love automation and I have a passion for helping people maximise their own careers.</p>
+<p>On the technical side I work with some of the world&#8217;s biggest and busiest OLTP systems, with experience managing on-premises infrastructure as well as deep experience in public cloud across AWS, Azure and GCP. My team manages complex, heavily accessed SQL Servers with Availability Groups, as well as PaaS solutions.</p>
 <h2 id="experience">Experience</h2>
 <div class="cv-employer"><span class="cv-logo-col cv-logo-col-tall"><svg class="cv-logo" viewBox="0 0 193.7 193.7" aria-hidden="true" focusable="false"><path fill="#4C00FF" d="M139.5,139.5V189c0,2.6-2.1,4.7-4.7,4.7H4.7c-2.6,0-4.7-2.1-4.7-4.7V59c0-2.6,2.1-4.7,4.7-4.7h49.4v80.5 c0,2.6,2.1,4.7,4.7,4.7H139.5L139.5,139.5z"/><path fill="#FF5252" d="M193.7,69.7c0,41.6-24.3,69.7-54.2,69.8V87.1c0-1.5-0.6-3-1.7-4l-27.2-27.2c-1.1-1.1-2.5-1.7-4-1.7H54.2V4.8 c0-2.6,2.1-4.7,4.7-4.7h73.3C167,0,193.7,28,193.7,69.7z"/><path fill="var(--jm-bg,#fff)" d="M137.8,83c1.1,1.1,1.7,2.5,1.7,4v52.4H58.9c-2.6,0-4.7-2.1-4.7-4.7V54.2h52.4c1.5,0,3,0.6,4,1.7L137.8,83z"/></svg></span><div class="cv-roles"><h3 class="cv-role">Engineering Manager <span class="cv-org">Docusign</span> <span class="cv-dates">July 2025 &#8211; present</span></h3><h3 class="cv-role cv-role-prev">DBA Team Lead <span class="cv-org">Docusign</span> <span class="cv-dates">August 2023 &#8211; July 2025</span></h3></div></div>
-<p>I started as a Team Lead, established myself quickly, and was promoted to Engineering Manager within SRE inside two years, where my focus is more strategic.</p>
+<p>I started as a Senior DBA/Team Lead, established myself quickly, and was promoted to Engineering Manager within SRE inside two years, where my focus is more strategic.</p>
 <ul>
 <li>Lead a high performing global DBA team managing Docusign&#8217;s data platform for the core eSign, CLM and IAM products</li>
 <li>Coach team members on career growth and professional development</li>
-<li>Deliver high impact automation projects, reducing toil and minimising KTLO work</li>
+<li>Deliver high impact automation projects, eliminating toil and minimising unnecessary KTLO work</li>
 <li>Supervise cloud infrastructure build out using Terraform</li>
-<li>Manage cloud migration of multi-TB databases from on premises to Azure</li>
+<li>Managed the cloud migration of multi-TB databases from on premises to Azure</li>
 <li>Drive cost optimisation in public cloud</li>
 <li>Ensure a high level of availability, DR and performance across SQL Server on premises, SQL on Azure VMs, Hyperscale and Managed Instance</li>
 <li>Act as incident commander, owner and responder, including root cause analysis</li>
@@ -238,10 +356,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </ul>
 <div class="cv-employer"><span class="cv-logo-col cv-logo-col-tall"><svg class="cv-logo" viewBox="0 0 24 24" fill="#6D4C9F" aria-hidden="true" focusable="false"><path d="M0 0V24H5.42V12.39L12 18.19L18.58 12.39V24H24V0L12 11.23L0 0Z"/></svg></span><div class="cv-roles"><h3 class="cv-role">Principal DBA <span class="cv-org">Monster Worldwide</span> <span class="cv-dates">March 2021 &#8211; August 2023</span></h3><h3 class="cv-role cv-role-prev">DBA to Senior DBA <span class="cv-org">Monster Worldwide</span> <span class="cv-dates">October 2012 &#8211; January 2019</span></h3></div></div>
 <ul>
-<li>Team lead responsible for site reliability</li>
+<li>Principal database administrator responsible for site reliability</li>
+<li>Team lead responsible for coaching, training and delegation of tasks</li>
 <li>Led daily stand-ups to keep objectives on track, and weekly one-to-ones on career development</li>
-<li>Managed workload and delegated tasks across the team</li>
-<li>Managed the health, availability and performance of our SQL instances, failover clusters and RDS</li>
+<li>Managed the health, availability and performance of our SQL instances, failover clusters and RDS instances</li>
 <li>Incident management, response and root cause analysis</li>
 <li>Automated repetitive tasks using PowerShell, C# and T-SQL</li>
 <li>Migrated a VLDB from Oracle to SQL Server for a US Government client, streamlining the process to reduce transfer time from 20 hours to 1</li>
@@ -285,9 +403,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </ul>
 <h3>Automation and tooling</h3>
 <ul>
-<li>PowerShell and dbatools</li>
+<li>PowerShell and python</li>
 <li>Terraform</li>
-<li>C#</li>
+<li>Claude Code</li>
+<li>Azure DevOps</li>
+<li>Google Apps scripts</li>
 </ul>
 <h3>Leadership</h3>
 <ul>
@@ -317,7 +437,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <li><a href="https://sessionize.com/john-mccormack/" rel="noopener" target="_blank">Sessionize</a></li>
 <li><a href="https://github.com/bajmccormack" rel="noopener" target="_blank">GitHub</a></li>
 <li><a href="https://bsky.app/profile/actualjohn.bsky.social" rel="noopener" target="_blank">Bluesky</a></li>
-<li><a href="https://johnmccormack.co.uk/">Blog</a></li>
+<li><a href="https://johnmccormack.co.uk/" rel="noopener" target="_blank">Blog</a></li>
 </ul></div></article></main></div></div><footer class="site-footer"><div class="wrap"><p>John McCormack · Copyright &#x000A9;&nbsp;2026 </p></div></footer></div><script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/modern-portfolio-pro/*","/wp-content/themes/genesis/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
@@ -337,6 +457,35 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
 //# sourceURL=https://johnmccormack.co.uk/wp-includes/js/wp-emoji-loader.min.js
 /* ]]> */
+</script>
+<script id='jm-resume-pdf'>
+/* The floating PDF button. There is no PDF file to link to, so this hands
+   the page to the browser's print dialog and lets it render one. */
+(function () {
+	'use strict';
+	var btn = document.querySelector('.cv-pdf');
+	if (!btn || typeof window.print !== 'function') { return; }
+	btn.hidden = false;
+
+	/* Feeds the rail's centring calc, which works off 100vw. */
+	var gutter = function () {
+		document.documentElement.style.setProperty('--jm-scrollbar',
+			(window.innerWidth - document.documentElement.clientWidth) + 'px');
+	};
+	gutter();
+	window.addEventListener('resize', gutter);
+
+	btn.addEventListener('click', function () {
+		/* Browsers seed the "Save as PDF" filename from the document title,
+		   so swap in a cleaner one for the duration of the dialog. */
+		var original = document.title;
+		var restore = function () { document.title = original; };
+		document.title = 'John McCormack - Resume';
+		window.addEventListener('afterprint', restore, { once: true });
+		setTimeout(restore, 5000);
+		window.print();
+	});
+})();
 </script>
 <script id='jm-resume-scroll'>
 /* Eased scrolling for the section jump links. CSS scroll-behavior gives no
