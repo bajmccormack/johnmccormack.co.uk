@@ -17,7 +17,8 @@ import sys
 # ---------------------------------------------------------------------------
 # The notice. Plain text; use HTML entities for anything non-ASCII.
 # ---------------------------------------------------------------------------
-BANNER_TEXT = "I&#8217;m taking a hiatus from tech blogging"
+BANNER_TEXT = ("Blogging is currently blocked by a long-running process "
+               "called &#8220;life&#8221;.")
 # ---------------------------------------------------------------------------
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
