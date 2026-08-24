@@ -11,3 +11,14 @@ cmp/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Post-publishing tooling — local only. The repo is site content; these scripts
+# and the Claude Code skill that drives them run from a working copy and are
+# documented in tools/PUBLISHING.md, which is not committed either.
+.claude/
+CLAUDE.local.md
+tools/newpost.py
+tools/gdoc.py
+tools/addimage.py
+tools/templates/
+tools/PUBLISHING.md
