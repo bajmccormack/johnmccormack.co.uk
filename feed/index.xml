@@ -12,7 +12,7 @@
 	<atom:link href="https://johnmccormack.co.uk/feed/index.xml" rel="self" type="application/rss+xml" />
 	<link>https://johnmccormack.co.uk/</link>
 	<description>SQL Server Databases and Cloud</description>
-	<lastBuildDate>Sat, 02 May 2026 11:55:38 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 24 Aug 2026 09:00:00 +0000</lastBuildDate>
 	<language>en-GB</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -27,6 +27,87 @@
 	<width>32</width>
 	<height>32</height>
 </image> 
+	<item>
+		<title>Why SRE teams must eliminate toil</title>
+		<link>https://johnmccormack.co.uk/2026/08/why-sre-teams-must-eliminate-toil/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=why-sre-teams-must-eliminate-toil</link>
+		<comments>https://johnmccormack.co.uk/2026/08/why-sre-teams-must-eliminate-toil/#respond</comments>
+
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Mon, 24 Aug 2026 09:00:00 +0000</pubDate>
+		<category><![CDATA[front-page]]></category>
+		<category><![CDATA[SRE]]></category>
+		<category><![CDATA[automation]]></category>
+		<category><![CDATA[sre]]></category>
+		<category><![CDATA[toil]]></category>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=3001</guid>
+
+		<description><![CDATA[Image by markusspiske from Pixabay Introduction Near the start of my tech career, I remember handling a ticket and thinking, why am I doing this again? It was the sort of request that came in from developers to DBAs, multiple times per week and easily took...]]></description>
+		<content:encoded><![CDATA[
+<div class="wp-block-image">
+<figure class="alignnone size-full"><img decoding="async" width="624" height="300" src="/wp-content/uploads/2026/08/toil-elimination-axe.png" alt="A red-handled axe resting on a wooden chopping block" /><figcaption>Image by <a href="https://pixabay.com/users/markusspiske-670330/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1748305" rel="nofollow">markusspiske</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1748305" rel="nofollow">Pixabay</a></figcaption></figure>
+</div>
+
+<h3 class="wp-block-heading">Introduction</h3>
+
+<p>Near the start of my tech career, I remember handling a ticket and thinking, why am I doing this again? It was the sort of request that came in from developers to DBAs, multiple times per week and easily took 30 to 60 minutes each time. That started a process where I suggested and implemented a self service system for devs, that allowed them to bypass DBAs for specific repeatable tasks where sometimes all that changed were some parameters. It eliminated dev waiting time on DBA availability, prevented us from doing monotonous repeatable tasks, and made the service consistent each time. I didn&#8217;t know it in 2014 but I was working on toil elimination.</p>
+
+<h3 class="wp-block-heading">Definition of toil</h3>
+
+<p><a href="https://sre.google/workbook/eliminating-toil/">Toil</a> as an SRE concept was introduced to the world by Google. It was defined as &#8220;the repetitive, predictable, constant stream of tasks related to maintaining a service&#8221;.</p>
+
+<p>Toil adds no enduring value. I remember thinking, once I&#8217;ve done this a few times already, I&#8217;m not learning anything each time I do it. The agent jobs, metadata tables and SSIS packages had already been developed, I was simply pushing buttons, running scripts and waiting for one part to finish before going on to the next bit.</p>
+
+<p>I&#8217;ll go on to talk about the impacts of toil on employee morale. This was the thing that struck me most. I was late starting in tech. I wanted to play catch up to colleagues of a similar age, and this toil was preventing me from learning the skills to work on interesting projects. So I made the automation of these tasks my project.</p>
+
+<h3 class="wp-block-heading">Why toil elimination matters</h3>
+
+<h5 class="wp-block-heading">Reliability</h5>
+
+<p>At the heart of SRE is <strong>reliability</strong>. Reliable services endeavouring for high nines levels of uptime need to be self diagnosing and self healing as much as possible. Whilst you should have a playbook for when things go wrong, and standard operating procedures for manual processes, if you have to touch it to fix it then it&#8217;s likely toil. Self healing processes also reduce <strong>mean time to recovery</strong> resulting in higher availability, more satisfied customers and happier engineers (who weren&#8217;t called into a 3am Sev 1 incident).</p>
+
+<h5 class="wp-block-heading">Employee morale</h5>
+
+<p>Some people might get some comfort out of working through established SOPs, but everyone has a tipping point. Add to that, no one likes being paged out of hours, or even during office hours so it really is to the benefit of everyone that toil is eliminated wherever possible.</p>
+
+<p>Furthermore, the work gets boring and most people generally like to learn new things and deliver value at work. Some don&#8217;t but they don&#8217;t tend to be high performing engineers, and possibly aren&#8217;t the best fit for a modern SRE organisation.</p>
+
+<h5 class="wp-block-heading">Scalability</h5>
+
+<p>Google talks about sublinear scaling. In essence, if you double your output without doubling support requirements, you have achieved this.</p>
+
+<p>A traditional operations role where all tasks are done manually such as patching has to be automated in order to scale effectively. The first step in this is writing scripts to do the work. The logical evolution is for the scripts to belong to a software solution that handles scheduling, makes the changes and ensures smooth failovers.</p>
+
+<h4>What isn&#8217;t toil</h4>
+
+<p>Not all manual tasks are toil. If there is a derived benefit either to a person&#8217;s skill set or the service they are supporting, manual work can and does add value. It also stops skill atrophy which is a real effect of over-automation.</p>
+
+<p>Toil isn&#8217;t just about saving FTE either. Of course it&#8217;s an added benefit to organisations that as they scale, their costs don&#8217;t need to increase linearly however I hate to see SRE as a means to cutting jobs. It&#8217;s just a better way of doing things and it leads to opportunities to increase personal skill level. That makes the engineers more employable and that&#8217;s never a bad thing.</p>
+
+<h4>How does toil elimination fit into SRE</h4>
+
+<p>I mentioned earlier that reliability is at the heart of SRE. The same is true of <strong>engineering</strong>. SREs should primarily be able to write code. SREs are like software engineers but with competing priorities to their colleagues that ship products and features. By writing effective solutions in code, they are quite literally engineering reliability into the service.</p>
+
+<p>Toil is often a result of technical debt. A consequence of saying I know how to fix this so I&#8217;ll write an SOP, or I&#8217;ll put a debugging script on confluence. That isn&#8217;t SRE, it&#8217;s operations and it doesn&#8217;t scale.</p>
+
+<h4>How does an organisation drive this</h4>
+
+<p>There needs to be buy in from management. I was lucky early in my career that my manager encouraged my self service project and the benefits were clear. However not everyone will have that support. If you don&#8217;t have it, it&#8217;s an opportunity to learn how to influence and here&#8217;s how I would do it.</p>
+
+<h4 class="wp-block-heading">Measuring toil and your elimination efforts</h4>
+
+<p>Measurement is essential, with or without buy in but where you don&#8217;t have it, it adds validity to your efforts.</p>
+
+<p>First of all, work out how much time is spent on specific tasks. Maybe start with one task as a proof of concept. Look for tasks that are needed to keep the lights on (ktlo) but just don&#8217;t contribute to personal or business growth. Even if your team doesn&#8217;t track time spent on tickets, search historic tickets and put an estimate on it. Remember to include time for context switching.</p>
+
+<p>Secondly, measure the impact of your engineered solution once it is operating. How many hours of toil did you eliminate? How did it affect service uptime? Possibly harder to quantify but worth thinking about is, how did it improve team morale?</p>
+
+<p>When you have the numbers, the benefit cannot be denied. Good luck with your toil elimination efforts.</p>
+]]></content:encoded>
+
+		<wfw:commentRss>https://johnmccormack.co.uk/2026/08/why-sre-teams-must-eliminate-toil/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+
+		<post-id xmlns="com-wordpress:feed-additions:1">3001</post-id>	</item>
 	<item>
 		<title>Who is John McCormack</title>
 		<link>https://johnmccormack.co.uk/2026/05/who-is-john-mccormack/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=who-is-john-mccormack</link>
