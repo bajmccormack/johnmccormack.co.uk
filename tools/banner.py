@@ -5,7 +5,11 @@ To change the notice, edit BANNER_TEXT below and run the script again. The
 banner's id is derived from the text, so the new notice is shown again to
 readers who dismissed the previous one.
 
-    python3 tools/banner.py            # add or update
+An empty BANNER_TEXT means there is no notice: the plain run then takes the
+banner off every page rather than putting an empty one up, so the script is
+safe to run whether or not a notice is currently in force.
+
+    python3 tools/banner.py            # add or update (remove, if no notice)
     python3 tools/banner.py --revert   # remove
     python3 tools/banner.py --check    # report only, change nothing
 """
@@ -15,10 +19,10 @@ import re
 import sys
 
 # ---------------------------------------------------------------------------
-# The notice. Plain text; use HTML entities for anything non-ASCII.
+# The notice. Plain text; use HTML entities for anything non-ASCII. Empty
+# means no notice is in force and the banner comes off the site.
 # ---------------------------------------------------------------------------
-BANNER_TEXT = ("Blogging is currently blocked by a long-running process "
-               "called &#8220;life&#8221;.")
+BANNER_TEXT = ""
 # ---------------------------------------------------------------------------
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -114,13 +118,13 @@ def remove(text):
 
 
 def main():
-    mode = "add"
-    if "--revert" in sys.argv:
-        mode = "revert"
-    elif "--check" in sys.argv:
-        mode = "check"
+    # --check is a dry run of whatever would otherwise happen, so it has to
+    # combine with --revert rather than lose to it.
+    check = "--check" in sys.argv
+    revert = "--revert" in sys.argv or not BANNER_TEXT.strip()
+    mode = "check" if check else ("revert" if revert else "add")
 
-    action = remove if mode == "revert" else add
+    action = remove if revert else add
 
     for path in html_files():
         stats["pages"] += 1
