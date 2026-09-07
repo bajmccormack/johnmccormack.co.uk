@@ -8,10 +8,10 @@
 	>
 
 <channel>
-	<title>John McCormack DBA</title>
+	<title>John McCormack Engineering Manager</title>
 	<atom:link href="https://johnmccormack.co.uk/feed/index.xml" rel="self" type="application/rss+xml" />
 	<link>https://johnmccormack.co.uk/</link>
-	<description>SQL Server Databases and Cloud</description>
+	<description>Engineering management, SRE and database administration</description>
 	<lastBuildDate>Sun, 06 Sep 2026 09:00:00 +0000</lastBuildDate>
 	<language>en-GB</language>
 	<sy:updatePeriod>
@@ -22,7 +22,7 @@
 
 <image>
 	<url>https://johnmccormack.co.uk/wp-content/uploads/2016/09/cropped-JM-32x32.png</url>
-	<title>John McCormack DBA</title>
+	<title>John McCormack Engineering Manager</title>
 	<link>https://johnmccormack.co.uk/</link>
 	<width>32</width>
 	<height>32</height>
@@ -1045,7 +1045,7 @@ GROUP BY FILEGROUP_NAME(data_space_id);</pre>
 
 
 <figure class="wp-block-embed is-type-wp-embed is-provider-john-mccormack-dba wp-block-embed-john-mccormack-dba"><div class="wp-block-embed__wrapper">
-<blockquote class="wp-embedded-content" data-secret="nQp72mR9RE"><a href="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/">T-SQL Tuesday #143 &#8211; Short code examples</a></blockquote><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted"  title="&#8220;T-SQL Tuesday #143 &#8211; Short code examples&#8221; &#8212; John McCormack DBA" src="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/embed/#?secret=HN91dnVZTJ#?secret=nQp72mR9RE" data-secret="nQp72mR9RE" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<blockquote class="wp-embedded-content" data-secret="nQp72mR9RE"><a href="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/">T-SQL Tuesday #143 &#8211; Short code examples</a></blockquote><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted"  title="&#8220;T-SQL Tuesday #143 &#8211; Short code examples&#8221; &#8212; John McCormack Engineering Manager" src="https://johnmccormack.co.uk/2021/10/t-sql-tuesday-143-short-code-examples/embed/#?secret=HN91dnVZTJ#?secret=nQp72mR9RE" data-secret="nQp72mR9RE" width="500" height="282" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 </div></figure>
 
 

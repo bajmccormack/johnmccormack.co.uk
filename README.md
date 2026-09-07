@@ -1,6 +1,6 @@
 # johnmccormack.co.uk - static archive
 
-A fully static snapshot of **John McCormack DBA** (previously hosted in WordPress), built
+A fully static snapshot of **John McCormack Engineering Manager** (previously hosted in WordPress), built
 to be served from GitHub Pages so the EC2 + RDS + ELB stack can be shut down.
 
 Captured from the live site on **8 August 2026**.

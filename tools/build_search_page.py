@@ -48,7 +48,7 @@ SCRIPT = r'''<script id="jm-search-js">
   if (input && q) input.value = q;
   if (!q) return;
 
-  document.title = "You searched for " + q + " - John McCormack DBA";
+  document.title = "You searched for " + q + " - John McCormack Engineering Manager";
   if (titleEl) titleEl.textContent = "Search Results for: " + q;
 
   var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
