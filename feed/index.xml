@@ -12,7 +12,7 @@
 	<atom:link href="https://johnmccormack.co.uk/feed/index.xml" rel="self" type="application/rss+xml" />
 	<link>https://johnmccormack.co.uk/</link>
 	<description>SQL Server Databases and Cloud</description>
-	<lastBuildDate>Mon, 24 Aug 2026 09:00:00 +0000</lastBuildDate>
+	<lastBuildDate>Sun, 06 Sep 2026 09:00:00 +0000</lastBuildDate>
 	<language>en-GB</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -27,6 +27,116 @@
 	<width>32</width>
 	<height>32</height>
 </image> 
+	<item>
+		<title>Alert fatigue</title>
+		<link>https://johnmccormack.co.uk/2026/09/alert-fatigue/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=alert-fatigue</link>
+		<comments>https://johnmccormack.co.uk/2026/09/alert-fatigue/#respond</comments>
+
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Sun, 06 Sep 2026 09:00:00 +0000</pubDate>
+		<category><![CDATA[front-page]]></category>
+		<category><![CDATA[SRE]]></category>
+		<category><![CDATA[alerting]]></category>
+		<category><![CDATA[burnout]]></category>
+		<category><![CDATA[firefighting]]></category>
+		<category><![CDATA[on-call]]></category>
+		<category><![CDATA[sre]]></category>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=3002</guid>
+
+		<description><![CDATA[Image by OpenClipart-Vectors from Pixabay I mean this sincerely when I say, you have got to get your alerting under control. Excessive alerting is a sign either of your service being out of control, or your alerts being misconfigured. Alert fatigue reduces...]]></description>
+		<content:encoded><![CDATA[
+<div class="wp-block-image">
+<figure class="alignnone size-full"><img decoding="async" width="624" height="524" src="/wp-content/uploads/2026/09/alert-fatigue-help-button.png" alt="Red button with the word HELP in bold capital letters" /><figcaption>Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153094" rel="nofollow">OpenClipart-Vectors</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153094" rel="nofollow">Pixabay</a></figcaption></figure>
+</div>
+
+
+
+<p>I mean this sincerely when I say, you have got to get your alerting under control. Excessive alerting is a sign either of your service being out of control, or your alerts being misconfigured. Alert fatigue reduces reliability and destroys morale of on-call engineers. Here is why.</p>
+
+
+
+<h4 class="wp-block-heading">Why over alerting is an enemy of SRE</h4>
+
+
+
+<p>It reduces reliability</p>
+
+
+
+<ul class="wp-block-list">
+<li>Alerts that you have seen before, possibly multiple times per week, lack importance. If you get twice daily alerts about a replication lag, it&#8217;s tempting to simply acknowledge it and expect it to self resolve. Especially if the alert comes in out of hours.
+<ul class="wp-block-list">
+<li>If it&#8217;s the case that certain types of events always self heal, they are rarely a good candidate for alerting. These should be downgraded to email notifications or silently logged in order that history can be searched and trended. They should not page on-call engineers.</li>
+</ul></li>
+<li>If an on-call engineer receives more than two alerts per on-call shift, they have a limited amount of time to investigate the root cause and put in proactive fixes. Engineers with a busy pager are always firefighting, and end up reworking the same incidents time after time.</li>
+</ul>
+
+
+
+<h4 class="wp-block-heading">Over alerting destroys morale</h4>
+
+
+
+<ul class="wp-block-list">
+<li>Out of hours alerts interrupt sleep patterns and this makes engineers unwell.</li>
+<li>Over alerting causes the engineer to be in a state of high alert, especially if they are responsible for a mission critical service.</li>
+<li>Regular out of hours alerting can make life difficult for the engineer&#8217;s family. Especially their partner who gets woken up as well due to the blaring page notification.</li>
+<li>All of these lead to a fear of the next out of hours rotation.</li>
+</ul>
+
+
+
+<h4 class="wp-block-heading">Why does alert creep happen</h4>
+
+
+
+<p>In my experience, I put this down to two factors. Good intentions and incident post mortems. Starting with good intentions, I&#8217;ve done it myself. I&#8217;ve thought, you know what will help, a really fine grained alert about X condition. There&#8217;s a serious flaw with this. You are motivated for the information at the point in time you create the alert, but when it starts firing multiple times per day or week, you know it is safe to ignore and it stops receiving the action it needs.</p>
+
+
+
+<p>The second and most prolific factor in my opinion is incident post mortems. In SRE, post mortems should not be about blame. That being said, when you have to present at an incident review meeting, often to people who don&#8217;t work closely with you, it&#8217;s natural to want to be seen as competent and not the cause of maxing out the error budget. You also really don&#8217;t want repeat incidents so the tendency is to identify reporting gaps. This insures you for the future and makes you look competent, the trouble is that the burden on the on-call engineer grows. More benign alerts, especially overnight, are not the friend of on-call engineers.</p>
+
+
+
+<h4 class="wp-block-heading">Simple steps to fix alert fatigue</h4>
+
+
+
+<h5 class="wp-block-heading">Trim and downgrade</h5>
+
+
+
+<p>Do your alerts line up with your Service Level Objectives (SLO)? There is no need to alert on issues that don&#8217;t interrupt your service or uptime. They should be focussed on issues that are eating into your error budget, and thresholds need regular evaluation.</p>
+
+
+
+<p>It&#8217;s important to trim alerts regularly. During a recent &#8220;fixit day&#8221; (where meetings are banned and engineers should deal with nagging problems), I relegated 4 alerts from pages to Slack alerts. There is no expectation to check Slack when on call, meaning only the important issues come through the paging service. Don&#8217;t let alerts die in Slack or email. Even these need regular evaluation and lifecycle management.</p>
+
+
+
+<p>As well as this, some alerts are just no longer useful and should be cut altogether. Don&#8217;t be hasty about this but evaluate, can anything actually be done to resolve the issue or is this just information? If it&#8217;s information, it&#8217;s better for everyone to cut it.</p>
+
+
+
+<h5 class="wp-block-heading">Fair rotation and fair notice</h5>
+
+
+
+<p>This advice is for engineering managers. Most rotations are fair. If you have x people, they are on every x weeks. Possibly you run a secondary or a working hours schedule as well. Whatever you do, rotations for employees should be equally spaced. The nuance is when it comes to longer holidays such as Christmas and New Year. Split the usual weekly cover into smaller chunks to ensure someone isn&#8217;t on high alert the whole time.</p>
+
+
+
+<p>When changing schedules, <strong>give people fair notice</strong>, especially if your jurisdiction doesn&#8217;t legally demand it. It&#8217;s the right way to treat people and they will reward you by being more engaged and happy at work.</p>
+
+
+
+<p><strong>Pay people</strong> - Some companies don&#8217;t pay for on-call time. I disagree with this but if the salary and other benefits mean the job is still worthwhile, that&#8217;s a decision for individual engineers to make. However, a small amount of compensation goes a long way to making the rotation feel less burdensome. You may even get volunteers when someone is sick and you need emergency cover.</p>
+]]></content:encoded>
+
+		<wfw:commentRss>https://johnmccormack.co.uk/2026/09/alert-fatigue/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+
+		<post-id xmlns="com-wordpress:feed-additions:1">3002</post-id>	</item>
 	<item>
 		<title>Why SRE teams must eliminate toil</title>
 		<link>https://johnmccormack.co.uk/2026/08/why-sre-teams-must-eliminate-toil/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=why-sre-teams-must-eliminate-toil</link>
