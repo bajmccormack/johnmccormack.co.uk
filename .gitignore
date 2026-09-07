@@ -20,5 +20,6 @@ CLAUDE.local.md
 tools/newpost.py
 tools/gdoc.py
 tools/addimage.py
+tools/archive.py
 tools/templates/
 tools/PUBLISHING.md
