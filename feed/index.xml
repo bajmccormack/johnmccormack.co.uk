@@ -12,7 +12,7 @@
 	<atom:link href="https://johnmccormack.co.uk/feed/index.xml" rel="self" type="application/rss+xml" />
 	<link>https://johnmccormack.co.uk/</link>
 	<description>Engineering management, SRE and database administration</description>
-	<lastBuildDate>Sun, 06 Sep 2026 09:00:00 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 22 Sep 2026 09:00:00 +0000</lastBuildDate>
 	<language>en-GB</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -27,6 +27,132 @@
 	<width>32</width>
 	<height>32</height>
 </image> 
+	<item>
+		<title>SRE on call work and interrupts</title>
+		<link>https://johnmccormack.co.uk/2026/09/sre-on-call-work-and-interrupts/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=sre-on-call-work-and-interrupts</link>
+		<comments>https://johnmccormack.co.uk/2026/09/sre-on-call-work-and-interrupts/#respond</comments>
+
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Tue, 22 Sep 2026 09:00:00 +0000</pubDate>
+		<category><![CDATA[front-page]]></category>
+		<category><![CDATA[Personal]]></category>
+		<category><![CDATA[SRE]]></category>
+		<category><![CDATA[automation]]></category>
+		<category><![CDATA[on-call]]></category>
+		<category><![CDATA[sre]]></category>
+		<category><![CDATA[toil]]></category>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=3003</guid>
+
+		<description><![CDATA[I’m firmly in the camp that the person in the SRE team with on-call duty on a given week, should be the person handling the interrupt work. It’s a fight I’ve lost in the past when I couldn’t persuade other managers to see my point of view, but it’s the...]]></description>
+		<content:encoded><![CDATA[
+<p>I&#8217;m firmly in the camp that the person in the SRE team with on-call duty on a given week, should be the person handling the interrupt work. It&#8217;s a fight I&#8217;ve lost in the past when I couldn&#8217;t persuade other managers to see my point of view, but it&#8217;s the only thing I&#8217;ve seen that leads to a happy and efficient team. First of all, let me explain some key terms.</p>
+
+
+
+<h4 class="wp-block-heading">SRE</h4>
+
+
+
+<p>Site Reliability Engineers. We keep the lights on and balance the business&#8217;s need to push new products and features, while providing stability and uptime to the existing products that people are depending on.</p>
+
+
+
+<h4 class="wp-block-heading">On call</h4>
+
+
+
+<p>SREs usually operate an on-call rotation. That person is responsible for the week to deal with any alerts and incidents that occur. They can be paged out of hours for serious incidents and are generally expected to log in within a short time frame and work towards a resolution.</p>
+
+
+
+<p>If the workplace operates a &#8220;follow the sun&#8221; model, they are usually only on call during their own working hours and weekends. People in the other geographic areas will pick up alerts while the designated on-call SRE is off shift. It makes for a better work-life balance and stops on-call engineers getting sick or burned out when done correctly.</p>
+
+
+
+<h4 class="wp-block-heading">Interrupts</h4>
+
+
+
+<p>I class interrupts as ad hoc requests that come in during the workday. They can be questions, minor job failures and people chasing up existing requests.</p>
+
+
+
+<h4 class="wp-block-heading">So why should on call handle interrupts</h4>
+
+
+
+<p>An on-call engineer who is still trying to make significant progress with their project work is setting themselves up to do a bad job at both. Unless on-call is quiet, you have very few alerts and none of them are potentially noise, then you have work to do. Your on call shift is going to be a combination of proactive and reactive responses to alerts and incidents. You will get some breathing space but in the meantime, requests and tickets will also likely be coming into your team.</p>
+
+
+
+<p>These requests are often quick and easy to handle and if it&#8217;s your focus as the on-call engineer, you allow your team mates to have uninterrupted blocks of time where they can think, plan and develop solutions. Similarly when you are not on call, you will also reap the benefit of your colleague picking up these small tasks. Furthermore, it saves management effort allocating work if there is a recognised system in place, allowing them to work on being good people managers and good strategists.</p>
+
+
+
+<p>Someone who has got into a flow in project work, will take time to reach that state again if they have been interrupted for minor tasks. It&#8217;s why I recommend that the on-call engineer handles as much of this as possible during their rotation. They are doing shorter tasks anyway and &#8220;shouldn&#8217;t&#8221; be expected to make much progress on project work.</p>
+
+
+
+<h4 class="wp-block-heading">Are interrupts toil?</h4>
+
+
+
+<p>They can be. Every interrupt should be looked at on its own merit. If the task can be easily automated then yes. Of course doing some of these tasks manually can be a good learning experience but once they have been done a few times, you aren&#8217;t learning anything each time you repeat the task. Paying close attention to the type and frequency of interrupts you get, could actually give you ideas on tasks which could be automated.</p>
+
+
+
+<h4 class="wp-block-heading">Interrupts for junior staff?</h4>
+
+
+
+<p>To an extent, yes. In the short term, it can lighten the load on others whilst giving newer team members the chance to learn. This should never be a permanent state of affairs as it leads to boredom and dissatisfaction, as well as stifling opportunities for junior people to learn more advanced skills and knowledge.</p>
+
+
+
+<h4 class="wp-block-heading">How to do the mechanics</h4>
+
+
+
+<p>Set up workflows in Slack and Teams. They should do two things. Auto answer time wasting questions and point people to documentation and process if they can help themselves.</p>
+
+
+
+<ul class="wp-block-list">
+<li>Why has my ticket not been done yet? - You are 4th in the queue and we expect to handle your request today. The ticket was submitted yesterday at 16:00 and is still within our 48 hour SLA.</li>
+<li>How do I do x? - Please read this SOP which has all of the steps outlined in plain English.</li>
+</ul>
+
+
+
+<p>Have your workflow create JIRA tickets. Use a specific label or component to separate them from other requests. Publish the link which shows the ticket queue. This will hopefully stop people chasing, and tell your team what to work on next.</p>
+
+
+
+<h4 class="wp-block-heading">Why is this automation helpful?</h4>
+
+
+
+<ul class="wp-block-list">
+<li>Automation reduces repetitive work needed by the SRE team</li>
+<li>It saves the requestors from having to wait for the answer</li>
+<li>Being up front on timings and where to check the information, helps people stop chasing and reduces future interrupts</li>
+<li>Learning the skills to automate is crucial to becoming an effective SRE</li>
+<li>Automated tasks do it the same way every time</li>
+</ul>
+
+
+
+<h4 class="wp-block-heading">Agree or disagree</h4>
+
+
+
+<p>I&#8217;ve disabled comment on my blog for now as I moved to static HTML to save costs. Let me know on LinkedIn or via email if you wish to continue the discussion. If you have a better way of organising your teams, I&#8217;d like to know.</p>
+]]></content:encoded>
+
+		<wfw:commentRss>https://johnmccormack.co.uk/2026/09/sre-on-call-work-and-interrupts/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+
+		<post-id xmlns="com-wordpress:feed-additions:1">3003</post-id>	</item>
 	<item>
 		<title>Alert fatigue</title>
 		<link>https://johnmccormack.co.uk/2026/09/alert-fatigue/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=alert-fatigue</link>
