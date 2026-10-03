@@ -5,10 +5,11 @@ Static WordPress snapshot; GitHub Pages serves the repo root, so pushing to
 
 ## Generated markup — never hand-edit a single page
 
-`tools/darkmode.py`, `tools/banner.py` and `tools/menu.py` each rewrite every
-root HTML page in place, so the dark-mode `<head>` tags, the notice banner and
-the header menu are generated: change the script and re-run it. The first two
-take `--revert`; `menu.py` has none. Everything else is safe to edit directly.
+`tools/darkmode.py`, `tools/banner.py`, `tools/menu.py` and
+`tools/analytics.py` each rewrite every root HTML page in place, so the
+dark-mode `<head>` tags, the notice banner, the header menu and the Google
+Analytics tag are generated: change the script and re-run it. All but
+`menu.py` take `--revert`. Everything else is safe to edit directly.
 
 Only `--revert` and `--check` are parsed; any other flag applies the change.
 

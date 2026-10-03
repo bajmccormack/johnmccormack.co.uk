@@ -12,7 +12,7 @@
 	<atom:link href="https://johnmccormack.co.uk/feed/index.xml" rel="self" type="application/rss+xml" />
 	<link>https://johnmccormack.co.uk/</link>
 	<description>Engineering management, SRE and database administration</description>
-	<lastBuildDate>Sat, 03 Oct 2026 09:00:00 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 22 Sep 2026 09:00:00 +0000</lastBuildDate>
 	<language>en-GB</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -28,125 +28,131 @@
 	<height>32</height>
 </image> 
 	<item>
-		<title>The senior engineer's dilemma</title>
-		<link>https://johnmccormack.co.uk/2026/10/the-senior-engineers-dilemma/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=the-senior-engineers-dilemma</link>
-		<comments>https://johnmccormack.co.uk/2026/10/the-senior-engineers-dilemma/#respond</comments>
+		<title>SRE on call work and interrupts</title>
+		<link>https://johnmccormack.co.uk/2026/09/sre-on-call-work-and-interrupts/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=sre-on-call-work-and-interrupts</link>
+		<comments>https://johnmccormack.co.uk/2026/09/sre-on-call-work-and-interrupts/#respond</comments>
 
 		<dc:creator><![CDATA[John McCormack]]></dc:creator>
-		<pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
-		<category><![CDATA[Career]]></category>
+		<pubDate>Tue, 22 Sep 2026 09:00:00 +0000</pubDate>
 		<category><![CDATA[front-page]]></category>
-		<category><![CDATA[career]]></category>
-		<category><![CDATA[engineering-leadership]]></category>
-		<category><![CDATA[individual-contributor]]></category>
-		<category><![CDATA[management]]></category>
-		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=3004</guid>
+		<category><![CDATA[Personal]]></category>
+		<category><![CDATA[SRE]]></category>
+		<category><![CDATA[automation]]></category>
+		<category><![CDATA[on-call]]></category>
+		<category><![CDATA[sre]]></category>
+		<category><![CDATA[toil]]></category>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=3003</guid>
 
-		<description><![CDATA[Image by Arek Socha from Pixabay A bit of history At conferences, I’ve spoken about why good engineers don’t need to become managers in order to progress their careers. I’ve also spoken about why management is also a legitimate path for good engineers, and...]]></description>
+		<description><![CDATA[I’m firmly in the camp that the person in the SRE team with on-call duty on a given week, should be the person handling the interrupt work. It’s a fight I’ve lost in the past when I couldn’t persuade other managers to see my point of view, but it’s the...]]></description>
 		<content:encoded><![CDATA[
-<div class="wp-block-image">
-<figure class="alignnone size-full"><img decoding="async" width="624" height="333" src="/wp-content/uploads/2026/10/career-decision-doors.png" alt="Six white doors and one yellow door in a hallway, with the words Career Decision" /><figcaption>Image by <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1767563" rel="nofollow">Arek Socha</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1767563" rel="nofollow">Pixabay</a></figcaption></figure>
-</div>
+<p>I&#8217;m firmly in the camp that the person in the SRE team with on-call duty on a given week, should be the person handling the interrupt work. It&#8217;s a fight I&#8217;ve lost in the past when I couldn&#8217;t persuade other managers to see my point of view, but it&#8217;s the only thing I&#8217;ve seen that leads to a happy and efficient team. First of all, let me explain some key terms.</p>
 
 
 
-<h4 class="wp-block-heading">A bit of history</h4>
+<h4 class="wp-block-heading">SRE</h4>
 
 
 
-<p>At conferences, I&#8217;ve spoken about why good engineers don&#8217;t need to become managers in order to progress their careers. I&#8217;ve also spoken about why management is also a legitimate path for good engineers, and how to get there. I&#8217;ve also uploaded some videos to youtube on the topic.</p>
+<p>Site Reliability Engineers. We keep the lights on and balance the business&#8217;s need to push new products and features, while providing stability and uptime to the existing products that people are depending on.</p>
 
 
 
-<p>My last talk at Data Scotland on the matter was in the main auditorium due to a large number of sign ups. This isn&#8217;t because it was me talking, hardly anyone knew who I was. It was because it&#8217;s a subject that people really want some guidance on. There is no right or wrong path, sometimes you need to go down one path to realise it&#8217;s not the best route for you. It&#8217;s good to hear the wisdom of those who have gone before you. In the end however, you need to try things out for yourself.</p>
+<h4 class="wp-block-heading">On call</h4>
 
 
 
-<h4 class="wp-block-heading">Staying in an Individual Contributor (IC) role.</h4>
+<p>SREs usually operate an on-call rotation. That person is responsible for the week to deal with any alerts and incidents that occur. They can be paged out of hours for serious incidents and are generally expected to log in within a short time frame and work towards a resolution.</p>
 
 
 
-<p>You can stay technical if you find the right company. Larger enterprises will have separate career routes for IC and management. Many ICs will be more senior than managers and even directors, however they don&#8217;t manage people. They shape the direction of the technology choices and provide invaluable guidance to the company&#8217;s leadership.</p>
+<p>If the workplace operates a &#8220;follow the sun&#8221; model, they are usually only on call during their own working hours and weekends. People in the other geographic areas will pick up alerts while the designated on-call SRE is off shift. It makes for a better work-life balance and stops on-call engineers getting sick or burned out when done correctly.</p>
 
 
 
-<p>If you are good enough to work in Principal engineer or Staff engineer roles and you don&#8217;t wish to manage people, it can be done and there is no reason why your comp needs to be limited to below the management tier. Companies realise the value in having these people as part of the leadership. Staff engineers tend to not just be experts in their own area but are abreast of wider developments in technology. In my line of work, these people were early adopters of technologies that have become mainstream such as streaming, IaC/pipelines and public cloud. Not every new tech lives up to the hype but an instinct for trends helps your company make technology choices that are less likely to be thrown away.</p>
+<h4 class="wp-block-heading">Interrupts</h4>
 
 
 
-<p>Companies realise that offering attractive positions for excellent ICs is the best way to retain their top talent. Ours is a competitive marketplace, and offering interesting work, influence and good money is a sure fire way to keep people engaged.</p>
+<p>I class interrupts as ad hoc requests that come in during the workday. They can be questions, minor job failures and people chasing up existing requests.</p>
 
 
 
-<h4 class="wp-block-heading">Moving into management</h4>
+<h4 class="wp-block-heading">So why should on call handle interrupts</h4>
 
 
 
-<p>Forgive the jargon here but this is the best phrase I can think of to explain this concept. Some people choose management to become a <strong>force multiplier</strong>. That is, they are excellent engineers, but they know they can accomplish a lot more if they could direct a team. They believe they can guide their team members on priorities, methods and how to get effective work done. They feel they can help people develop themselves into better engineers and will nurture their team to become better. <em>(Blog post about this in planning too)</em></p>
+<p>An on-call engineer who is still trying to make significant progress with their project work is setting themselves up to do a bad job at both. Unless on-call is quiet, you have very few alerts and none of them are potentially noise, then you have work to do. Your on call shift is going to be a combination of proactive and reactive responses to alerts and incidents. You will get some breathing space but in the meantime, requests and tickets will also likely be coming into your team.</p>
 
 
 
-<p>This is true of good leaders. If they have the background and also the leadership skills, momentum can be achieved. This can lead to further promotions, but be aware that most companies will want people with a track record of managing a team before they let them start managing other managers. Do this well however and the sky can be the limit.</p>
+<p>These requests are often quick and easy to handle and if it&#8217;s your focus as the on-call engineer, you allow your team mates to have uninterrupted blocks of time where they can think, plan and develop solutions. Similarly when you are not on call, you will also reap the benefit of your colleague picking up these small tasks. Furthermore, it saves management effort allocating work if there is a recognised system in place, allowing them to work on being good people managers and good strategists.</p>
 
 
 
-<h4 class="wp-block-heading">What other skills do you need to have as a new manager</h4>
+<p>Someone who has got into a flow in project work, will take time to reach that state again if they have been interrupted for minor tasks. It&#8217;s why I recommend that the on-call engineer handles as much of this as possible during their rotation. They are doing shorter tasks anyway and &#8220;shouldn&#8217;t&#8221; be expected to make much progress on project work.</p>
 
 
 
-<p><strong>Resilience:</strong></p>
+<h4 class="wp-block-heading">Are interrupts toil?</h4>
 
 
 
-<ol class="wp-block-list">
-<li>You may find that your new coworkers in management are not as capable as you thought. Conversely, managers you didn&#8217;t rate when an IC may demonstrate to you why they are so effective. I&#8217;ve seen both situations. Working with people you don&#8217;t think are highly competent can be frustrating for some personality types.</li>
-<li>Be aware that as a new manager, all of your ideas won&#8217;t be taken forward. Sometimes there are good reasons for this, sometimes there aren&#8217;t. It&#8217;s your job to sell your ideas to your peers and your own manager. If you do it well, more or your plans will get taken forward. Ultimately, as a first line manager, you are going to be setting the company strategy. Sometimes you have to accept you haven&#8217;t persuaded effectively enough. Do your own job well enough however, and you will get your chance.</li>
-</ol>
+<p>They can be. Every interrupt should be looked at on its own merit. If the task can be easily automated then yes. Of course doing some of these tasks manually can be a good learning experience but once they have been done a few times, you aren&#8217;t learning anything each time you repeat the task. Paying close attention to the type and frequency of interrupts you get, could actually give you ideas on tasks which could be automated.</p>
 
 
 
-<p><strong>Handling frustration:</strong></p>
+<h4 class="wp-block-heading">Interrupts for junior staff?</h4>
 
 
 
-<p>You may find that you work for or with people that couldn&#8217;t do the job of the people they manage. This is to be expected for a number of reasons. <em>It&#8217;s not always a bad thing but I&#8217;ll cover in a later section why the days of the non-technical managers may be over soon.</em></p>
+<p>To an extent, yes. In the short term, it can lighten the load on others whilst giving newer team members the chance to learn. This should never be a permanent state of affairs as it leads to boredom and dissatisfaction, as well as stifling opportunities for junior people to learn more advanced skills and knowledge.</p>
 
 
 
-<ol class="wp-block-list">
-<li>It was/is conventional wisdom that management is a completely different discipline to technology. It&#8217;s long been advocated in some quarters that anyone who is good at management (say in a bank) could do it anywhere. As a result, these people exist in tech companies.</li>
-<li>Blaggers get promoted. The people who are best at self promotion will always have the confidence to apply for roles above which they would be competent in. An attitude of fake it until you make it is lauded in some circles. In other words, give me the opportunity and I&#8217;ll work out the details when I get there. The <a href="https://en.wikipedia.org/wiki/Peter_principle">Peter Principle</a> says that &#8220;people in a hierarchy tend to rise to a level of respective incompetence&#8221;. Unfortunately, it takes a while to move these people on and you may come across them.</li>
-</ol>
+<h4 class="wp-block-heading">How to do the mechanics</h4>
 
 
 
-<h4 class="wp-block-heading">The non-technical managers&#8217; days may be numbered</h4>
+<p>Set up workflows in Slack and Teams. They should do two things. Auto answer time wasting questions and point people to documentation and process if they can help themselves.</p>
 
 
 
-<p>I used to argue that the best engineers rarely made the best managers. This is partly wrong. I should have said being an engineer doesn&#8217;t necessarily make you a good manager. So many top ICs are not suited to lead people but some are and those are the people that need to be identified.</p>
+<ul class="wp-block-list">
+<li>Why has my ticket not been done yet? - You are 4th in the queue and we expect to handle your request today. The ticket was submitted yesterday at 16:00 and is still within our 48 hour SLA.</li>
+<li>How do I do x? - Please read this SOP which has all of the steps outlined in plain English.</li>
+</ul>
 
 
 
-<p>It&#8217;s more important than ever that managers have a solid technical background, ideally one or two areas of expertise and a broad (if shallow) knowledge of the wider industry. I was wrong to say that since management is a completely different skillset, you don&#8217;t need to be technical to do it well. So much of technical leadership is having an instinct for technology, decisions, what&#8217;s a flash in the pan and what is the next big thing. You also need to understand what your team is working on in order to direct them.</p>
+<p>Have your workflow create JIRA tickets. Use a specific label or component to separate them from other requests. Publish the link which shows the ticket queue. This will hopefully stop people chasing, and tell your team what to work on next.</p>
 
 
 
-<p>A bit of clarity, I&#8217;m not saying you must be better than everyone in your team at what they do day to day, but if you have no idea what they do, or how to direct them, you won&#8217;t know the strategies to keep your team moving forward.</p>
+<h4 class="wp-block-heading">Why is this automation helpful?</h4>
 
 
 
-<p>I&#8217;ve also noticed recently that many of the larger tech employers now want managers to spend a percentage of their time on the tools. I see this as a shift in the industry. Can&#8217;t write python, you can&#8217;t work here pal.</p>
+<ul class="wp-block-list">
+<li>Automation reduces repetitive work needed by the SRE team</li>
+<li>It saves the requestors from having to wait for the answer</li>
+<li>Being up front on timings and where to check the information, helps people stop chasing and reduces future interrupts</li>
+<li>Learning the skills to automate is crucial to becoming an effective SRE</li>
+<li>Automated tasks do it the same way every time</li>
+</ul>
 
 
 
-<p>Whatever you decide, good luck. Being honest and doing your best goes a long way!</p>
+<h4 class="wp-block-heading">Agree or disagree</h4>
+
+
+
+<p>I&#8217;ve disabled comment on my blog for now as I moved to static HTML to save costs. Let me know on LinkedIn or via email if you wish to continue the discussion. If you have a better way of organising your teams, I&#8217;d like to know.</p>
 ]]></content:encoded>
 
-		<wfw:commentRss>https://johnmccormack.co.uk/2026/10/the-senior-engineers-dilemma/feed/</wfw:commentRss>
+		<wfw:commentRss>https://johnmccormack.co.uk/2026/09/sre-on-call-work-and-interrupts/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 
-		<post-id xmlns="com-wordpress:feed-additions:1">3004</post-id>	</item>
+		<post-id xmlns="com-wordpress:feed-additions:1">3003</post-id>	</item>
 	<item>
 		<title>Alert fatigue</title>
 		<link>https://johnmccormack.co.uk/2026/09/alert-fatigue/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=alert-fatigue</link>
