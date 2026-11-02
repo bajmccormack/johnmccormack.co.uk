@@ -12,7 +12,7 @@
 	<atom:link href="https://johnmccormack.co.uk/feed/index.xml" rel="self" type="application/rss+xml" />
 	<link>https://johnmccormack.co.uk/</link>
 	<description>Engineering management, SRE and database administration</description>
-	<lastBuildDate>Sat, 03 Oct 2026 09:00:00 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 02 Nov 2026 09:00:00 +0000</lastBuildDate>
 	<language>en-GB</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -27,6 +27,120 @@
 	<width>32</width>
 	<height>32</height>
 </image> 
+	<item>
+		<title>You’ve got to get your hiring right</title>
+		<link>https://johnmccormack.co.uk/2026/11/youve-got-to-get-your-hiring-right/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=youve-got-to-get-your-hiring-right</link>
+		<comments>https://johnmccormack.co.uk/2026/11/youve-got-to-get-your-hiring-right/#respond</comments>
+
+		<dc:creator><![CDATA[John McCormack]]></dc:creator>
+		<pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+		<category><![CDATA[Career]]></category>
+		<category><![CDATA[front-page]]></category>
+		<category><![CDATA[career]]></category>
+		<category><![CDATA[hiring]]></category>
+		<category><![CDATA[interviews]]></category>
+		<category><![CDATA[management]]></category>
+		<guid isPermaLink="false">https://johnmccormack.co.uk/?p=3005</guid>
+
+		<description><![CDATA[Image by Mohamed Hassan from Pixabay Introduction It seems a strange time to share this with so many global layoffs in tech right now. The recent announcement of 60,000 voluntary offers at Microsoft , along with large-scale layoffs at many other large...]]></description>
+		<content:encoded><![CDATA[
+<div class="wp-block-image">
+<figure class="alignnone size-full"><img decoding="async" width="624" height="447" src="/wp-content/uploads/2026/11/hiring-interview.png" alt="Illustration of two people sitting across a table from each other in an interview, with speech bubbles above them" /><figcaption>Image by <a href="https://pixabay.com/users/mohamed_hassan-5229782/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7323656" rel="nofollow">Mohamed Hassan</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7323656" rel="nofollow">Pixabay</a></figcaption></figure>
+</div>
+
+
+
+<h4 class="wp-block-heading">Introduction</h4>
+
+
+
+<p>It seems a strange time to share this with so many global layoffs in tech right now. The recent announcement of <a href="https://www.bbc.co.uk/news/articles/c6m24klyjr8no">60,000 voluntary offers at Microsoft</a>, along with large-scale layoffs at many other large employers, has led to a lot of uncertainty around employment in this AI age.</p>
+
+
+
+<p>However, those affected people may be looking for new roles and if you do have positions available, I wanted to share my experience on hiring. I hope to explain some things that have worked for me, and some that really haven&#8217;t. Getting your hiring right from the outset can make a huge difference to team building.</p>
+
+
+
+<p>Of course, the way you hire people will never be perfect, and there may be some hires you do regret. Don&#8217;t beat yourself up over this, it&#8217;s unavoidable, but following some basic advice may help you get it right more often than not.</p>
+
+
+
+<h4 class="wp-block-heading">What qualities would my dream hires have?</h4>
+
+
+
+<ol class="wp-block-list">
+<li>Self-driven learners</li>
+<li>Personality</li>
+<li>Technically capable people</li>
+</ol>
+
+
+
+<p>Let&#8217;s talk more about these attributes.</p>
+
+
+
+<h4 class="wp-block-heading">Self-driven learners</h4>
+
+
+
+<p>I learned a valuable lesson in my first &#8220;Associate DBA job&#8221;. We were office based and I sat back to back with my boss. I would swing my chair round and ask questions all the time. I would say this is acceptable for a short while in your first job, but after a while, my boss would start to challenge me and ask, &#8220;Where have you tried to find the answer already?&#8221; This was a big influence in me changing my mindset and approach. I would research first, using Books Online, Google, Stack Overflow or blogs. Only when I felt I couldn&#8217;t find the answer or I was spending too long on it, would I swivel my chair and ask the question.</p>
+
+
+
+<p>Most people need a bit of help sometimes, I have no problem with that. Especially given how fast technology changes, nobody will or even can know everything but it&#8217;s crucial that people try to be independent learners first. People early in their career need to be supported too, but they should be encouraged to learn independently. The &#8220;I wasn&#8217;t trained on this&#8221; people are often a long-term drag on your time. If I get a hint of this during interview cycles, it makes me more cautious about hiring them, and I&#8217;d probably use some follow-up questions to find out more.</p>
+
+
+
+<h4 class="wp-block-heading">Personality</h4>
+
+
+
+<p>In my opinion, and this is linked closely to the point above, hiring personalities you can gel with will get you much further than hiring the people with the best academic or professional record. I would much rather hire a good person who can learn than a learned person who can&#8217;t play nice.</p>
+
+
+
+<p>Being a rockstar does not make you a team player. This one is basic advice but if you think about how long you spend with your colleagues, working with a good bunch of people who are willing to learn (and also capable of learning) is much nicer than working with a superstar who makes people feel worthless.</p>
+
+
+
+<h4 class="wp-block-heading">Technically capable people (competence)</h4>
+
+
+
+<p>In this talent-rich market, there will be a lot of people who are very technically capable looking for new roles. These people should be your first pick provided they also check the two boxes above. Of course I&#8217;m saying don&#8217;t hire technical experts if they have rotten personalities or attitudes, however it&#8217;s not too difficult to find both.</p>
+
+
+
+<h4 class="wp-block-heading">A little bit on bias</h4>
+
+
+
+<p>You probably don&#8217;t mean to be biased but we ALL have it in us. When I say hire people with good personalities, that is exactly what I mean. I don&#8217;t mean hire bros or people exclusively with your religion or skin colour. It means you hire decent people. Working in a global company with a diverse bunch of colleagues, I really enjoy learning about other cultures, their holidays and festivals, and overall culture. If your workplace does offer training to interviewers, I would recommend you take it. It&#8217;s likely to cover things like bias and what you can and cannot ask in the modern workplace.</p>
+
+
+
+<h4 class="wp-block-heading">Hire the right level for the right role</h4>
+
+
+
+<p>I&#8217;ve also worked with people that were hired for levels they were not really capable of performing at. This is the result of a poor selection process and is unfair on the team and the people who were hired. People who would be excellent in some roles end up being underperformers in their elevated positions.</p>
+
+
+
+<h4 class="wp-block-heading">Don&#8217;t take too long</h4>
+
+
+
+<p>Be very careful about this and ensure your selection is thorough without being over the top. Nobody needs a 7-stage process. Just make sure if you do have concerns about the level, you ask the right amount of follow-up questions. Getting it right at the selection stage is so much easier than dealing with a bad hire.</p>
+]]></content:encoded>
+
+		<wfw:commentRss>https://johnmccormack.co.uk/2026/11/youve-got-to-get-your-hiring-right/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+
+		<post-id xmlns="com-wordpress:feed-additions:1">3005</post-id>	</item>
 	<item>
 		<title>The senior engineer's dilemma</title>
 		<link>https://johnmccormack.co.uk/2026/10/the-senior-engineers-dilemma/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=the-senior-engineers-dilemma</link>
